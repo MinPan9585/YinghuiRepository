@@ -6,26 +6,24 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-
 public class BuildManager : MonoBehaviour
 {
     public TurretData laserTurretData;
     public TurretData missileTurretData;
     public TurretData standardTurretData;
     //表示当前选择的炮台（要建造的炮台
-  private TurretData selectedTurretData;
+    private TurretData selectedTurretData;
     public Text moneyText;
 
-    public Animation moneyAnimator;
+    public Animator moneyAnimator;
 
-    private int money = 1000;
+    int money = 1000;
+
     void ChangeMoney(int change=0)
     {
         money += change;
         moneyText.text = "￥" + money;
     }
-
-    public MapCube MapCube { get; private set; }
 
     void Update()
     {
@@ -36,26 +34,24 @@ public class BuildManager : MonoBehaviour
                 //开发炮台的建造
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
-               bool isCollider= Physics.Raycast(ray,out hit, 1000,new LayerMask(), GetMask("MapCube"));
+                bool isCollider = Physics.Raycast(ray, out hit, 1000, LayerMask.GetMask("MapCube"));
                 if (isCollider)
                 {
-                     MapCube = hit.collider.GetComponent<MapCube>();
-                    if( MapCube.turretGo==null)
+                    MapCube mapCube = hit.collider.GetComponent<MapCube>();
+                    if( mapCube.turretGo==null)
                     {
                         //可以创建
                         if(money>selectedTurretData.cost)
                         {
                             // money -= selectedTurretData.cost;
                             ChangeMoney(-selectedTurretData.cost);
-                            MapCube.BuildTurret(selectedTurretData.turretPrefab);
-                            
+                            mapCube.BuildTurret(selectedTurretData.turretPrefab);
                         }
                     }
                     else
                     {
-
                         //T000提示钱不够
-                       // moneyAnimator.SetTrigger("Flicker");?????
+                        moneyAnimator.SetTrigger("Flicker");
                     }
                 }
                 else
@@ -64,11 +60,6 @@ public class BuildManager : MonoBehaviour
                 }
             }
         }
-    }
-
-    private QueryTriggerInteraction GetMask(string v)
-    {
-        throw new NotImplementedException();
     }
 
     public void OnLaserSelected(bool isOn)
