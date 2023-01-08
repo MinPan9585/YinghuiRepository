@@ -55,7 +55,7 @@ public class BuildManager : MonoBehaviour
                     {
 
                         //T000Ã· æ«Æ≤ªπª
-                        moneyAnimator.SetTrigger("Flicker");
+                        //moneyAnimator.SetTrigger("Flicker");
                     }
                 }
                 else
