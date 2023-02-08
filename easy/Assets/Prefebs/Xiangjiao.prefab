@@ -550,7 +550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5505557231633156640}
   m_Layer: 0
-  m_Name: "\u9999\u8549"
+  m_Name: Xiangjiao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
