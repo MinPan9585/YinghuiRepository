@@ -9,12 +9,13 @@ public class Turret : MonoBehaviour
 	public float range = 15f;
 
 	public float fireRate = 1f;
-	private float firCountdown = 0f;
+	//private float firCountdown = 0f;
 	[Header("Unity Setup Fields")]
 	public string enemyTag = "Enemy";
 	public Transform partToRotate;
 	public float turnSpeed = 10f;
 	private float fireCountdown;
+
 	public GameObject bulletPrefab;
 	public Transform firePoint;
 
@@ -27,7 +28,7 @@ public class Turret : MonoBehaviour
 	void UpdateTarget()
 	{
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-		float shortestDistance = Mathf.Infinity;//赋值，不报空
+		float shortestDistance = Mathf.Infinity;
 		GameObject nearestEnemy = null;
 		foreach (GameObject enemy in enemies)
 		{
@@ -39,7 +40,7 @@ public class Turret : MonoBehaviour
 			}
 		}
 
-		if (nearestEnemy != null && shortestDistance <= range)//最近的敌人不为空，距离小于半径，就设置成靶
+		if (nearestEnemy != null && shortestDistance <= range)
 		{
 			target = nearestEnemy.transform;
 		}
@@ -60,9 +61,7 @@ public class Turret : MonoBehaviour
 		Vector3 dir = target.position - transform.position;
 		Quaternion lookRotation = Quaternion.LookRotation(dir);
 		Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-		//lerp是动画，缓缓转过去，他看向他的时候自己的旋转，（参数，类.属性）deltaTime，
 		partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-		//lerp线性差值，	
 		if (fireCountdown <= 0f)
 		{
 			Shoot();
@@ -74,7 +73,7 @@ public class Turret : MonoBehaviour
 	void Shoot()
 	{
 		GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-		Debug.Log(" one bullet ");
+		//Debug.Log(" one bullet ");
 		Bullet bullet = bulletGO.GetComponent<Bullet>();
 		if (bullet != null)
 			bullet.Seek(target);
