@@ -51,13 +51,11 @@ public class Turret : MonoBehaviour
 
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 		if (target == null)
 			return;
 
-		//Target lock on
 		Vector3 dir = target.position - transform.position;
 		Quaternion lookRotation = Quaternion.LookRotation(dir);
 		Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
