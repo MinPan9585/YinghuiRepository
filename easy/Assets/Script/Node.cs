@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
     public Color hoverColor;
+    public Color noMoneyColor;
     public Vector3 positionOffset;
 
     [Header("Optional")]
@@ -21,6 +23,9 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (!BuildManager.instance.CanBuild)
             return;
 
@@ -37,7 +42,15 @@ public class Node : MonoBehaviour
     {
         if(!BuildManager.instance.CanBuild)
             return;
-        rend.material.color = hoverColor;
+
+        if (BuildManager.instance.HasMoney)
+        {
+            rend.material.color = hoverColor;
+        }
+        else
+        {
+            rend.material.color = noMoneyColor;
+        }
     }
 
     void OnMouseExit()
