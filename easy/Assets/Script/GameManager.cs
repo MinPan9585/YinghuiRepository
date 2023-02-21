@@ -15,9 +15,11 @@ public class GameManager : MonoBehaviour
             EndGame();
         }
 
-        void EndGame()
-        {
-            gameEnded = true;
-        }
+
+    }
+
+    void EndGame()
+    {
+        gameEnded = true;
     }
 }
