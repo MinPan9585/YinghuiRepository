@@ -5,13 +5,19 @@ public class Enemy : MonoBehaviour
 
 	public float speed = 10f;
 
-	public float health = 100;
+	public int health = 100;
 
 	public int value = 50;
 
-	
+	private Transform target;
+	private int wavepointIndex = 0;
 
-	public void TakeDamage(float amount)
+	void Start()
+	{
+		target = Waypoints.points[0];
+	}
+
+	public void TakeDamage(int amount)
     {
 		health -= amount;
 
@@ -27,5 +33,33 @@ public class Enemy : MonoBehaviour
 		Destroy(gameObject);
     }
 
-	
+	void Update()
+	{
+		Vector3 dir = target.position - transform.position;
+		transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+
+		if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+		{
+			GetNextWaypoint();
+		}
+	}
+
+	void GetNextWaypoint()
+	{
+		if (wavepointIndex >= Waypoints.points.Length - 1)
+		{
+			EndPath();
+			
+			return;
+		}
+
+		wavepointIndex++;
+		target = Waypoints.points[wavepointIndex];
+	}
+
+	void EndPath()
+    {
+		PlayerStats.Lives--;
+		Destroy(gameObject);
+	}
 }
