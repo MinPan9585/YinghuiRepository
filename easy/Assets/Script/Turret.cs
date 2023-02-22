@@ -5,6 +5,8 @@ public class Turret : MonoBehaviour
 {
 
 	private Transform target;
+	private Enemy targetEnemy;
+
 	[Header("General")]
 	public float range = 15f;
 
@@ -25,7 +27,6 @@ public class Turret : MonoBehaviour
 	public Transform partToRotate;
 	public float turnSpeed = 10f;
 	
-
 	public Transform firePoint;
 
 	void Start()
@@ -51,6 +52,7 @@ public class Turret : MonoBehaviour
 		if (nearestEnemy != null && shortestDistance <= range)
 		{
 			target = nearestEnemy.transform;
+			targetEnemy = nearestEnemy.GetComponent<Enemy>();
 		}
 		else
 		{
@@ -97,6 +99,7 @@ public class Turret : MonoBehaviour
 
 	void Laser()
     {
+		targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
 		if (!lineRenderer.enabled)
 			lineRenderer.enabled = true;
 
