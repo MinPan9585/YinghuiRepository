@@ -19,6 +19,8 @@ public class WaveSpawner : MonoBehaviour
 
 	private int waveIndex = 0;
 
+	public GameManager gameManager;
+
 	void Update()
 	{
         if (EnemiesAlive > 0)
@@ -51,11 +53,16 @@ public class WaveSpawner : MonoBehaviour
 			yield return new WaitForSeconds(1f / wave.rate);
 		}
 		waveIndex++;
+		if(waveIndex == waves.Length)
+        {
+			//level won
+			this.enabled = false;
+        }
 	}
 
 	void SpawnEnemy( GameObject enemy )
 	{
-		Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+		Instantiate(enemy, spawnPoint.position, Quaternion.identity);
 		EnemiesAlive++;
 	}
 

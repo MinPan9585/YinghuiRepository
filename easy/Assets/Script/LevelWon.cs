@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameOver : MonoBehaviour
+public class LevelWon : MonoBehaviour
 {
     public void Retry()
     {
