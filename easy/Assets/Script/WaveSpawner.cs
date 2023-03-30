@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
+using UnityEditor.Experimental.GraphView;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -62,8 +64,11 @@ public class WaveSpawner : MonoBehaviour
 
 	void SpawnEnemy( GameObject enemy )
 	{
-		Instantiate(enemy, spawnPoint.position, Quaternion.identity);
+		GameObject myEnemy = Instantiate(enemy, spawnPoint.position, Quaternion.identity);
 		EnemiesAlive++;
-	}
+
+        myEnemy.transform.parent = (GameObject.Find("Waypoints").transform);
+
+    }
 
 }
