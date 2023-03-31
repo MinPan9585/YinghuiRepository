@@ -66,8 +66,8 @@ public class WaveSpawner : MonoBehaviour
 	{
 		GameObject myEnemy = Instantiate(enemy, spawnPoint.position, Quaternion.identity);
 		EnemiesAlive++;
-
-        myEnemy.transform.parent = (GameObject.Find("Waypoints").transform);
+        //myEnemy.AddComponent<AttachToClosestChild>();
+        myEnemy.transform.parent = GameObject.Find("Waypoints").transform;
 
     }
 
