@@ -29,12 +29,23 @@ public class WaveSpawner : MonoBehaviour
         {
 			return;
         }
-		if (countdown <= 0f)
+
+        if (waveIndex == waves.Length)
+        {
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+			{
+                gameManager.WinLevel();
+                this.enabled = false;
+            } 
+        }
+
+        if (countdown <= 0f && !GameManager.gameEnded)
 		{
 			StartCoroutine(SpawnWave());
 			countdown = timeBetweenWaves;
 			return;
 		}
+
 
 		countdown -= Time.deltaTime;
 
@@ -55,11 +66,9 @@ public class WaveSpawner : MonoBehaviour
 			yield return new WaitForSeconds(1f / wave.rate);
 		}
 		waveIndex++;
-		if(waveIndex == waves.Length)
-        {
-			//level won
-			this.enabled = false;
-        }
+		PlayerStats.Rounds = waveIndex;
+
+		
 	}
 
 	void SpawnEnemy( GameObject enemy )

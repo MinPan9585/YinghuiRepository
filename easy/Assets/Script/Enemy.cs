@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
 	[Header("Unity Stuff")]
 	public Image healthBar;
 
+	private bool isdead = false;
+
 	void Start()
 	{
 		target = Waypoints.points[0];
@@ -29,9 +31,10 @@ public class Enemy : MonoBehaviour
 
 		healthBar.fillAmount = health / startHealth;
 
-		if(health <= 0)
+		if(health <= 0 && !isdead )
         {
-			Die();
+            isdead = true;
+            Die();
         }
     }
 
@@ -39,6 +42,7 @@ public class Enemy : MonoBehaviour
     {
 		PlayerStats.Money += value;
 		WaveSpawner.EnemiesAlive--;
+		Debug.Log(this + " died!");
 		Destroy(gameObject);
     }
 

@@ -6,7 +6,6 @@ public class ChildOnTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter");
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
 
