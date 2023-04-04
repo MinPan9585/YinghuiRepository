@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -16,14 +16,18 @@ public class WaveSpawner : MonoBehaviour
 
 	public float timeBetweenWaves = 3f;
 	private float countdown = 2f;
-
 	public Text waveCountdownText;
 
+	public Text roundsText;
 	private int waveIndex = 0;
 
 	public GameManager gameManager;
 
-	void Update()
+    private void Awake()
+    {
+        EnemiesAlive= 0;
+    }
+    void Update()
 	{
         if (EnemiesAlive > 0)
         {
@@ -53,22 +57,19 @@ public class WaveSpawner : MonoBehaviour
 
 		waveCountdownText.text = string.Format("{0:00.00}", countdown);
 
-	
-	}
+    }
 
 	IEnumerator SpawnWave()
 	{
 		Wave wave = waves[waveIndex];
-
-		for (int i = 0; i < wave.count; i++)
+        waveIndex++;
+        PlayerStats.Rounds = waveIndex;
+        roundsText.text = waveIndex.ToString() + " / " + waves.Length + "Rounds";
+        for (int i = 0; i < wave.count; i++)
 		{
 			SpawnEnemy(wave.enemyPrefab);
 			yield return new WaitForSeconds(1f / wave.rate);
 		}
-		waveIndex++;
-		PlayerStats.Rounds = waveIndex;
-
-		
 	}
 
 	void SpawnEnemy( GameObject enemy )
