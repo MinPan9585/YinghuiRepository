@@ -7,10 +7,13 @@ public class GameManager : MonoBehaviour
     public static bool gameEnded = false;
     public GameObject gameOverUI;
     public GameObject levelWinUI;
+    public GameObject gamePausedUI;
 
-    public GameObject[] stuffToHide;
+    public int levelToUnlock = 2;
 
-    public float transitionDuration = 1f; // The duration of the transition in seconds
+    public GameObject[] stuffToHideWinning;
+
+    private float transitionDuration = 1f; // The duration of the transition in seconds
 
     private void Start()
     {
@@ -18,6 +21,7 @@ public class GameManager : MonoBehaviour
         gameEnded = false;
         gameOverUI.SetActive(false);
         levelWinUI.SetActive(false);
+        gamePausedUI.SetActive(false);
     }
 
     void Update()
@@ -32,12 +36,16 @@ public class GameManager : MonoBehaviour
 
 
     }
-
-    void EndGame()
+    public void PauseGame()
     {
-        for (int i = 0; i < stuffToHide.Length; i++)
+        gamePausedUI.SetActive(true);
+    }
+
+    public void EndGame()
+    {
+        for (int i = 0; i < stuffToHideWinning.Length; i++)
         {
-            stuffToHide[i].SetActive(false);
+            stuffToHideWinning[i].SetActive(false);
         }
 
         StartCoroutine(TransitionTimeScale());
@@ -53,9 +61,9 @@ public class GameManager : MonoBehaviour
 
     public void WinLevel()
     {
-        for (int i = 0; i < stuffToHide.Length; i++)
+        for (int i = 0; i < stuffToHideWinning.Length; i++)
         {
-            stuffToHide[i].SetActive(false);
+            stuffToHideWinning[i].SetActive(false);
         }
 
         StartCoroutine(DramaticWin());
@@ -65,7 +73,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             gameEnded = true;
             levelWinUI.SetActive(true);
-            //PlayerPrefs.SetInt("levelReached", 2);
+            PlayerPrefs.SetInt("levelReached", levelToUnlock);
             Debug.Log("Won!!!");
         }
 
