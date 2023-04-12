@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class CubeBehaviour : MonoBehaviour, IPooledObject
+public class CubeBehaviour : MonoBehaviour, IPooledObject //This interface is needed for pooled objects
 {
     //option one, functional
     public TestSpawn testSpawn;
@@ -9,13 +9,14 @@ public class CubeBehaviour : MonoBehaviour, IPooledObject
     //option two, functional but a bit tricky
     private SubPool m_pool;
 
-    public float upForce = 25f;
-    public float sideForce = 7f;
-
+    //option two needed
     public void SetPool(SubPool pool)
     {
         m_pool = pool;
     }
+
+    public float upForce = 25f;
+    public float sideForce = 7f;
 
     public void OnObjectSpawn()
     {
@@ -33,7 +34,7 @@ public class CubeBehaviour : MonoBehaviour, IPooledObject
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("I have Hit the ground!");
+            //Debug.Log("I have Hit the ground!");
 
             m_pool.Despawn(this.gameObject);
 

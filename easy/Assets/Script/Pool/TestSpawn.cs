@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class TestSpawn : MonoBehaviour
 {
-    public PoolManager poolManager;
+    public PoolManager poolManager;    //This line needed for pooling
     public GameObject cube;
-    public string Name
+    public float spawnRate = 5f;
+    public string Name//This line needed for pooling
     {
         get { return cube.name; }
     }
 
     private void Start()
     {
-        poolManager = PoolManager.Instance;
+        poolManager = PoolManager.Instance;//This line needed for pooling
     }
 
     private float timer = 0f;
@@ -21,17 +22,18 @@ public class TestSpawn : MonoBehaviour
     void FixedUpdate()
     {
         timer += Time.deltaTime;
-        if(timer >= 0.5f)
+        if(timer >= 1f/spawnRate)
         {
-            cubeInstance = poolManager.SpawnFromSubPool(Name, transform);
+            Debug.Log(Name);
+            cubeInstance = poolManager.SpawnFromSubPool(Name, transform);//This line needed for pooling
             cubeInstance.transform.position = transform.position + Random.onUnitSphere * 2;
-        }
-        if (timer >= 4f)
-        {
-            poolManager.ClearAllSubPool();
-            timer= 0f;
+            timer = 0f;
         }
     }
 
-    
+    public void OnButtonClear()
+    {
+        poolManager.ClearAllSubPool();//This line needed for pooling
+    }
+
 }

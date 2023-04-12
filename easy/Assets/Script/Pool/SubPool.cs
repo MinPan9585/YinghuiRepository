@@ -43,7 +43,7 @@ public class SubPool
         go.SetActive(true);
         go.SendMessage("OnObjectSpawn", SendMessageOptions.DontRequireReceiver);
 
-        //option two, testing
+        //option two, functional, but need to change this
         go.GetComponent<CubeBehaviour>().SetPool(this);
 
         return go;
