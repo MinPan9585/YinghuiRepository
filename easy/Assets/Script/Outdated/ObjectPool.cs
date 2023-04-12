@@ -17,7 +17,7 @@ public class ObjectPool : MonoBehaviour
     private GameObject CreateCube()
     {
         GameObject cube = Instantiate(cubePrefab);
-        cube.GetComponent<CubeBehaviour>().SetPool(cubePool);
+        //cube.GetComponent<CubeBehaviour>().SetPool(cubePool);
         return cube;
     }
 
