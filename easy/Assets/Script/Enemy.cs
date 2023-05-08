@@ -18,10 +18,14 @@ public class Enemy : MonoBehaviour
 	public Image healthBar;
 
 	private bool isdead = false;
+	private Waypoints0508 wp0508A;
+	private Waypoints0508 wp0508B;
 
 	void Start()
 	{
-		target = Waypoints.points[0];
+		wp0508A = GameObject.Find("WayPoints1").GetComponent<Waypoints0508>();
+		wp0508B = GameObject.Find("WayPoints2").GetComponent<Waypoints0508>();
+		target = wp0508A.points[0];
 		health = startHealth;
 	}
 
@@ -60,7 +64,7 @@ public class Enemy : MonoBehaviour
 
 	void GetNextWaypoint()
 	{
-		if (wavepointIndex >= Waypoints.points.Length - 1)
+		if (wavepointIndex >= wp0508A.points.Length - 1)
 		{
 			EndPath();
 			
@@ -68,7 +72,7 @@ public class Enemy : MonoBehaviour
 		}
 
 		wavepointIndex++;
-		target = Waypoints.points[wavepointIndex];
+		target = wp0508A.points[wavepointIndex];
 	}
 
 	void EndPath()

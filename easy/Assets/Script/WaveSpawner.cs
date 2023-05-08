@@ -38,7 +38,7 @@ public class WaveSpawner : MonoBehaviour
         {
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
 			{
-                gameManager.WinLevel();
+                //gameManager.WinLevel();
                 this.enabled = false;
             } 
         }
@@ -77,7 +77,7 @@ public class WaveSpawner : MonoBehaviour
 		GameObject myEnemy = Instantiate(enemy, spawnPoint.position, Quaternion.identity);
 		EnemiesAlive++;
         //myEnemy.AddComponent<AttachToClosestChild>();
-        myEnemy.transform.parent = GameObject.Find("Waypoints").transform;
+        myEnemy.transform.parent = GameObject.Find("Enemies").transform;
 
     }
 
