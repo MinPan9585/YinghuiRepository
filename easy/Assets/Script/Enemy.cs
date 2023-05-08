@@ -12,20 +12,32 @@ public class Enemy : MonoBehaviour
 	public int value = 50;
 
 	private Transform target;
-	private int wavepointIndex = 0;
+	public int wavepointIndex = 0;
 
 	[Header("Unity Stuff")]
 	public Image healthBar;
 
 	private bool isdead = false;
-	private Waypoints0508 wp0508A;
-	private Waypoints0508 wp0508B;
+	public Waypoints0508 wp0508A;
+	public Waypoints0508 wp0508B;
+	public Waypoints0508 currentWay;
+	private SwitchPath01 switchPathA;
 
 	void Start()
 	{
 		wp0508A = GameObject.Find("WayPoints1").GetComponent<Waypoints0508>();
 		wp0508B = GameObject.Find("WayPoints2").GetComponent<Waypoints0508>();
-		target = wp0508A.points[0];
+		switchPathA = Object.FindObjectOfType<SwitchPath01>();
+        if (switchPathA.isLeft)
+        {
+			currentWay = wp0508A;
+        }
+        else
+        {
+			currentWay = wp0508B;
+		}
+		
+		target = currentWay.points[0];
 		health = startHealth;
 	}
 
@@ -64,7 +76,7 @@ public class Enemy : MonoBehaviour
 
 	void GetNextWaypoint()
 	{
-		if (wavepointIndex >= wp0508A.points.Length - 1)
+		if (wavepointIndex >= currentWay.points.Length - 1)
 		{
 			EndPath();
 			
@@ -72,7 +84,7 @@ public class Enemy : MonoBehaviour
 		}
 
 		wavepointIndex++;
-		target = wp0508A.points[wavepointIndex];
+		target = currentWay.points[wavepointIndex];
 	}
 
 	void EndPath()
