@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2764582061297583724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.21, y: 1.21, z: 1.21}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4118d3347379e54da70cc96b347a4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 20
+  damage: 10
+  explosionRadius: 0
   hitEnemyFX: {fileID: 4620547089914393206, guid: 9d08d6267553bcc4588d1d1a22861036,
     type: 3}
