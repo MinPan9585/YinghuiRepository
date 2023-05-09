@@ -4,7 +4,7 @@ using UnityEngine.Pool;
 public class CubeBehaviour : MonoBehaviour, IPooledObject //This interface is needed for pooled objects
 {
     //option one, functional
-    public TestSpawn testSpawn;
+    //public TestSpawn testSpawn;
 
     //option two, functional but a bit tricky
     private SubPool m_pool;

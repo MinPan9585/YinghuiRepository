@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Missile : MonoBehaviour
 {
     private Transform target;
 
@@ -11,8 +11,12 @@ public class Bullet : MonoBehaviour
     public int damage = 50;
 
     public float explosionRadius;
+    public float affRadius = 0.5f;
     public GameObject hitEnemyFX;
 
+    public string enemyTag = "Enemy";
+
+    private bool hit = false;
     public void Seek(Transform _target)
     {
         target = _target;
@@ -22,15 +26,16 @@ public class Bullet : MonoBehaviour
     {
         if(target== null)
         {
-            Destroy(gameObject);
+            UpdateTarget();
             return;
         }
 
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        if(dir.magnitude <= distanceThisFrame)
+        if(dir.magnitude <= distanceThisFrame && hit == false)
         {
+            hit = true;
             HitTarget();
             return;
         }
@@ -49,9 +54,8 @@ public class Bullet : MonoBehaviour
         }
         else 
         {
-            Damage(target);
+            Damage(target, 1);
         }
-
         Destroy(gameObject);
     }
 
@@ -62,17 +66,20 @@ public class Bullet : MonoBehaviour
         {
             if(collider.tag == "Enemy")
             {
-                float damageRatio = Vector3.Distance(collider.transform.position ,transform.position);
-                Damage(collider.transform.parent);
+                float damageRatio = 1 - Vector3.Distance(collider.transform.position, transform.position)/(explosionRadius + affRadius);
+                Debug.Log("The damage ratio is: " + damageRatio);
+                Damage(collider.transform.parent, damageRatio);
             }
         }
     }
 
-    void Damage(Transform enemy)
+    void Damage(Transform enemy, float damageRatio)
     {
         Enemy e = enemy.GetComponent<Enemy>();
         if (e != null)
         {
+            float floatDamage = damage * damageRatio;
+            Debug.Log("The damage taken is: " + (int)floatDamage);
             e.TakeDamage(damage);
         }
         
@@ -83,5 +90,32 @@ public class Bullet : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    }
+
+    void UpdateTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance)
+            {
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
+            }
+        }
+
+        if (nearestEnemy != null)
+        {
+            target = nearestEnemy.transform;
+        }
+        else
+        {
+            target = null;
+            Destroy(gameObject);
+        }
+
     }
 }
