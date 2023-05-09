@@ -15,16 +15,18 @@ public class SwitchPath01 : MonoBehaviour
         {
             if(enemyObject.GetComponent<Enemy>()!= null)
             {
-                if (enemyObject.GetComponent<Enemy>().wavepointIndex <= 3)
+                Debug.Log(enemyObject.GetComponent<Enemy>().wavepointIndex);
+                if (enemyObject.GetComponent<Enemy>().wavepointIndex <= 1)
                 {
                     enemiesChanged.Add(enemyObject.GetComponent<Enemy>());
                 }
             }
             
         }
+        isLeft = !isLeft;
         if (isLeft)
         {
-            rotationSwitch.transform.rotation = Quaternion.Euler(0, 0, 0);
+            rotationSwitch.transform.rotation = Quaternion.Euler(0, 90, 0);
             foreach (var enemy in enemiesChanged)
             {
                 enemy.currentWay = enemy.wp0508A;
@@ -32,12 +34,12 @@ public class SwitchPath01 : MonoBehaviour
         }
         else
         {
-            rotationSwitch.transform.rotation = Quaternion.Euler(0, 90, 0);
+            rotationSwitch.transform.rotation = Quaternion.Euler(0, 0, 0);
             foreach (var enemy in enemiesChanged)
             {
                 enemy.currentWay = enemy.wp0508B;
             }
         }
-        isLeft = !isLeft;
+        
     }
 }
