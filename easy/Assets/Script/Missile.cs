@@ -67,19 +67,22 @@ public class Missile : MonoBehaviour
             if(collider.tag == "Enemy")
             {
                 float damageRatio = 1 - Vector3.Distance(collider.transform.position, transform.position)/(explosionRadius + affRadius);
-                Debug.Log("The damage ratio is: " + damageRatio);
-                Damage(collider.transform.parent, damageRatio);
+                //Debug.Log("The damage ratio is: " + damageRatio);
+                Damage(collider.transform, damageRatio);
             }
         }
     }
 
     void Damage(Transform enemy, float damageRatio)
     {
+        //Debug.Log("Test phrase");
+
         Enemy e = enemy.GetComponent<Enemy>();
         if (e != null)
         {
             float floatDamage = damage * damageRatio;
-            Debug.Log("The damage taken is: " + (int)floatDamage);
+            //Debug.Log("The damage taken by AOE Missile is: " + (int)floatDamage);
+            damage = (int)floatDamage;
             e.TakeDamage(damage);
         }
         
