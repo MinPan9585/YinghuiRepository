@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 2108542420}
   - component: {fileID: 2108542419}
   m_Layer: 0
-  m_Name: Enemy0508
+  m_Name: EnemyBig0510
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ Transform:
   m_GameObject: {fileID: 4414548395614788915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3774734344253393327}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  startHealth: 50
+  startHealth: 150
   value: 50
   wavepointIndex: 0
   healthBar: {fileID: 7096154443829578861}

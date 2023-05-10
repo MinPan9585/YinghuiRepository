@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 10
+  damage: 30
   explosionRadius: 0
   hitEnemyFX: {fileID: 4620547089914393206, guid: 9d08d6267553bcc4588d1d1a22861036,
     type: 3}
