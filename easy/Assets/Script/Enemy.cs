@@ -1,29 +1,65 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IPooledObject
 {
 
 	public float speed = 10f;
 
 	public float startHealth = 100f;
-	private float health;
+    [SerializeField] private float health;
 
 	public int value = 50;
 
-	private Transform target;
+	[SerializeField] private Transform target;
 	public int wavepointIndex = 0;
 
 	[Header("Unity Stuff")]
 	public Image healthBar;
 
-	private bool isdead = false;
+    [SerializeField] private bool isdead = false;
 	public Waypoints0508 wp0508A;
 	public Waypoints0508 wp0508B;
 	public Waypoints0508 currentWay;
 	private SwitchPath01 switchPathA;
 
-	void Start()
+    [Header("Testing")]
+    [SerializeField] private bool isActive; 
+
+    //using pool start
+    //Must have, even left blank. Also, put everything in Start() function here
+    public void OnObjectSpawn()
+    {
+        RestoreValues();
+        PickRoute();
+    }
+
+    //Must have, even left blank.
+    public void OnObjectDespawn()
+    {
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+
+    //specifically for restoring some values, like health
+    public void RestoreValues()
+    {
+        //reset die only once bool
+        isdead = false;
+
+        //reset health
+        health = startHealth;
+        healthBar.fillAmount = health / startHealth;
+
+        //reset movement status (recommended for every pooled object)
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+    //using pool end
+
+    public void PickRoute()
 	{
 		wp0508A = GameObject.Find("WayPoints1").GetComponent<Waypoints0508>();
 		wp0508B = GameObject.Find("WayPoints2").GetComponent<Waypoints0508>();
@@ -38,10 +74,14 @@ public class Enemy : MonoBehaviour
 		}
 		
 		target = currentWay.points[0];
-		health = startHealth;
 	}
 
-	public void TakeDamage(int amount)
+    private void OnDisable()
+    {
+        Debug.Log("Just got diabled");
+    }
+
+    public void TakeDamage(int amount)
     {
 		health -= amount;
 
@@ -57,13 +97,16 @@ public class Enemy : MonoBehaviour
 	void Die()
     {
 		PlayerStats.Money += value;
-		WaveSpawner.EnemiesAlive--;
+		//WaveSpawner.EnemiesAlive--;
 		Debug.Log(this + " died!");
-		Destroy(gameObject);
+        //Destroy(gameObject);
+        GetComponent<PooledObjectAttachment>().PutBackToPool();
     }
 
-	void Update()
+    void Update()
 	{
+		//testing 
+		isActive = gameObject.activeInHierarchy;
 
         Vector3 dir = target.position - transform.position;
 		transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
@@ -91,6 +134,7 @@ public class Enemy : MonoBehaviour
     {
 		PlayerStats.Lives--;
 		WaveSpawner.EnemiesAlive--;
-		Destroy(gameObject);
-	}
+        //Destroy(gameObject);
+        GetComponent<PooledObjectAttachment>().PutBackToPool();
+    }
 }

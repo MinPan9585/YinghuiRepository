@@ -44,7 +44,7 @@ public class SubPool
         go.SendMessage("OnObjectSpawn", SendMessageOptions.DontRequireReceiver);
 
         //option two, functional, but need to change this
-        go.GetComponent<CubeBehaviour>().SetPool(this);
+        go.GetComponent<PooledObjectAttachment>().SetPool(this);
 
         return go;
     }
@@ -53,7 +53,7 @@ public class SubPool
     {
         if (Contain(go))
         {
-            go.SendMessage("OnObjectDespawn", SendMessageOptions.DontRequireReceiver);
+            //go.SendMessage("OnObjectDespawn", SendMessageOptions.DontRequireReceiver);
             go.SetActive(false);
         }
     }

@@ -47,19 +47,27 @@ public class RoundSpawner : MonoBehaviour
     }
     IEnumerator SpawnARound()
     {
-        Round round = roundList.rounds[roundNum];
-
-        foreach (Wave wave in round.waves)
+        if(roundNum < roundList.rounds.Count)
         {
-            theWave = wave;
-            Debug.Log(theWave.enemyPrefab);
-            StartCoroutine(SpawnAWave());
+            Round round = roundList.rounds[roundNum];
 
-            yield return new WaitForSeconds(wave.interval + intervalAdded);
+            foreach (Wave wave in round.waves)
+            {
+                theWave = wave;
+                Debug.Log("A new wave is realsed with: "  + theWave.enemyPrefab);
+                StartCoroutine(SpawnAWave());
 
+                yield return new WaitForSeconds(wave.interval + intervalAdded);
+
+            }
+
+            roundNum++;
         }
-
-        roundNum++;
+        else
+        {
+            Debug.Log("All rounds are released");
+        }
+        
         
         if(roundNum >= roundList.rounds.Count)
         {
@@ -78,7 +86,7 @@ public class RoundSpawner : MonoBehaviour
     }
     void SpawnAEnemy(GameObject prefab)
     {
-        Debug.Log(theWave.enemyPrefab.name);
+        //Debug.Log(theWave.enemyPrefab.name);
         GameObject obj = poolManager.SpawnFromSubPool(prefab.name.ToString(), transform);//This line needed for pooling
         obj.transform.position = transform.position + Random.onUnitSphere * 2;
     }

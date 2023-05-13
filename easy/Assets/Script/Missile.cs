@@ -17,31 +17,84 @@ public class Missile : MonoBehaviour
     public string enemyTag = "Enemy";
 
     private bool hit = false;
+
+    //Variables for testing
+    [Header("Testing")]
+    [SerializeField] private Transform currentEnemy;
+    [SerializeField] private bool enemyIsActive;
+    [SerializeField] private GameObject[] enemies;
     public void Seek(Transform _target)
     {
         target = _target;
+    }
+    private void Start()
+    {
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     void Update()
     {
         if(target== null)
         {
-            UpdateTarget();
+            //UpdateTarget();
+            Destroy(gameObject);
             return;
         }
-
-        Vector3 dir = target.position - transform.position;
-        float distanceThisFrame = speed * Time.deltaTime;
-
-        if(dir.magnitude <= distanceThisFrame && hit == false)
+        else
         {
-            hit = true;
-            HitTarget();
-            return;
+            Vector3 dir = target.position - transform.position;
+            float distanceThisFrame = speed * Time.deltaTime;
+            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+            transform.LookAt(target);
+            if (dir.magnitude <= distanceThisFrame && hit == false)
+            {
+                hit = true;
+                HitTarget();
+                return;
+            }
         }
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(target);
     }
+
+    void UpdateTarget()
+    {
+        //GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy.activeSelf == true)
+            {
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy < shortestDistance)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
+            }
+        }
+
+        if (nearestEnemy != null)
+        {
+            target = nearestEnemy.transform;
+            currentEnemy = nearestEnemy.transform;
+            //Debug.Log("This enemy target's activeSelf is:" + nearestEnemy.activeSelf);
+            //Invoke("CheckAgain", 0.1f);
+        }
+        else
+        {
+            target = null;
+        }
+
+    }
+    //private void CheckAgain()
+    //{
+    //    enemyIsActive = currentEnemy.gameObject.activeSelf;
+    //    if (enemyIsActive == false)
+    //    {
+    //        Debug.Log("Wrong target");
+    //    }
+    //}
 
     void HitTarget()
     {
@@ -85,6 +138,10 @@ public class Missile : MonoBehaviour
             damage = (int)floatDamage;
             e.TakeDamage(damage);
         }
+        else
+        {
+            Debug.LogWarning("No component on the enemy found, check if it's the right script");
+        }
         
         //Destroy(enemy.gameObject);
     }
@@ -95,30 +152,5 @@ public class Missile : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 
-    void UpdateTarget()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
-        foreach (GameObject enemy in enemies)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance)
-            {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
-            }
-        }
-
-        if (nearestEnemy != null)
-        {
-            target = nearestEnemy.transform;
-        }
-        else
-        {
-            target = null;
-            Destroy(gameObject);
-        }
-
-    }
+    
 }

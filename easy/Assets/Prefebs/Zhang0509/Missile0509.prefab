@@ -48,6 +48,7 @@ MonoBehaviour:
   speed: 5
   damage: 20
   explosionRadius: 1
+  affRadius: 0.5
   hitEnemyFX: {fileID: 4620547089914393206, guid: 9d08d6267553bcc4588d1d1a22861036,
     type: 3}
   enemyTag: Enemy

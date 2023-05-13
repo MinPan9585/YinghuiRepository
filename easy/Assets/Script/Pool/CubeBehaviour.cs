@@ -3,6 +3,7 @@ using UnityEngine.Pool;
 
 public class CubeBehaviour : MonoBehaviour, IPooledObject //This interface is needed for pooled objects
 {
+    [Header("Testing")][SerializeField] private bool isActive;
     //option one, functional
     //public TestSpawn testSpawn;
 
@@ -46,5 +47,11 @@ public class CubeBehaviour : MonoBehaviour, IPooledObject //This interface is ne
         transform.localPosition = Vector3.zero; 
         transform.localRotation = Quaternion.identity;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+    
+    //Testing
+    private void Update()
+    {
+        isActive = gameObject.activeSelf;
     }
 }
