@@ -25,13 +25,13 @@ public class Turret : MonoBehaviour
 	public Transform partToRotate;
 	public float turnSpeed = 10f;
 	
-
 	public Transform firePoint;
 
-	void Start()
+
+    void Start()
 	{
 		InvokeRepeating("UpdateTarget", 0f, 0.5f);
-	}
+    }
 
 	void UpdateTarget()
 	{
@@ -89,8 +89,8 @@ public class Turret : MonoBehaviour
 	}
 	void Shoot()
 	{
-		GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-		Bullet bullet = bulletGO.GetComponent<Bullet>();
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
 		if (bullet != null)
 			bullet.Seek(target);
 	}

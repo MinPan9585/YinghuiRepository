@@ -22,6 +22,7 @@ public class RoundSpawner : MonoBehaviour
     public bool waveAllOut;
     public bool roundFinished = false;
 
+    //This variable is for pooling
     public PoolManager poolManager;
 
     public Wave theWave= null;

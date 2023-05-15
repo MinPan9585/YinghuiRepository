@@ -52,6 +52,9 @@ MonoBehaviour:
   hitEnemyFX: {fileID: 4620547089914393206, guid: 9d08d6267553bcc4588d1d1a22861036,
     type: 3}
   enemyTag: Enemy
+  currentEnemy: {fileID: 0}
+  enemyIsActive: 0
+  enemies: []
 --- !u!1 &8379820398699095047
 GameObject:
   m_ObjectHideFlags: 0

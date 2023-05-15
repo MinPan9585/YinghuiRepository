@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,9 +24,6 @@ public class Enemy : MonoBehaviour, IPooledObject
 	public Waypoints0508 currentWay;
 	private SwitchPath01 switchPathA;
 
-    [Header("Testing")]
-    [SerializeField] private bool isActive; 
-
     //using pool start
     //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
@@ -34,13 +32,8 @@ public class Enemy : MonoBehaviour, IPooledObject
         PickRoute();
     }
 
-    //Must have, even left blank.
-    public void OnObjectDespawn()
-    {
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-    }
+    //Must have, now have some issues, just leave it blank.
+    public void OnObjectDespawn() { }
 
     //specifically for restoring some values, like health
     public void RestoreValues()
@@ -57,29 +50,30 @@ public class Enemy : MonoBehaviour, IPooledObject
         transform.localRotation = Quaternion.identity;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
+    private void OnDisable()
+    {
+        Debug.Log("Just got diabled");
+    }
     //using pool end
 
     public void PickRoute()
 	{
+        
 		wp0508A = GameObject.Find("WayPoints1").GetComponent<Waypoints0508>();
 		wp0508B = GameObject.Find("WayPoints2").GetComponent<Waypoints0508>();
 		switchPathA = Object.FindObjectOfType<SwitchPath01>();
         if (switchPathA.isLeft)
         {
-			currentWay = wp0508A;
+            currentWay = wp0508A;
         }
         else
         {
-			currentWay = wp0508B;
-		}
-		
-		target = currentWay.points[0];
-	}
+            currentWay = wp0508B;
+        }
 
-    private void OnDisable()
-    {
-        Debug.Log("Just got diabled");
-    }
+        wavepointIndex = 0;
+        target = currentWay.points[0];
+	}
 
     public void TakeDamage(int amount)
     {
@@ -105,9 +99,6 @@ public class Enemy : MonoBehaviour, IPooledObject
 
     void Update()
 	{
-		//testing 
-		isActive = gameObject.activeInHierarchy;
-
         Vector3 dir = target.position - transform.position;
 		transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 

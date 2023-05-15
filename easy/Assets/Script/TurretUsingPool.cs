@@ -13,25 +13,21 @@ public class TurretUsingPool : MonoBehaviour
 	public float fireRate = 1f;
 	private float fireCountdown = 0f;
 
-	[Header("Use Laser")]
-	public bool useLaser = false;
-
-	public int damageOverTime = 30;
-
-	public LineRenderer lineRenderer;
-
 	[Header("Unity Setup Fields")]
 	public string enemyTag = "Enemy";
 	public Transform partToRotate;
-	public float turnSpeed = 10f;
-	
+	public float turnSpeed = 10f;	
 
 	public Transform firePoint;
+
+    //This variable is for pooling
+    public PoolManager poolManager;
 
     void Start()
 	{
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
-	}
+        poolManager = PoolManager.Instance;
+    }
 
 	void UpdateTarget()
 	{
@@ -63,46 +59,33 @@ public class TurretUsingPool : MonoBehaviour
 	{
 		if (target == null)
         {
-            if (useLaser)
-            {
-				if (lineRenderer.enabled)
-					lineRenderer.enabled = false;
-            }
 			return;
 		}
 
 		LockOnTarget();
 
-        if (useLaser)
+        if (fireCountdown <= 0f)
         {
-			Laser();
+            Shoot();
+            fireCountdown = 1f / fireRate;
         }
-        else
-        {
-			if (fireCountdown <= 0f)
-			{
-				Shoot();
-				fireCountdown = 1f / fireRate;
-			}
-			fireCountdown -= Time.deltaTime;
-		}
-	}
+        fireCountdown -= Time.deltaTime;
+
+    }
 	void Shoot()
 	{
-        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-		Bullet bullet = bulletGO.GetComponent<Bullet>();
-		if (bullet != null)
-			bullet.Seek(target);
+        //GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletGO = poolManager.SpawnFromSubPool(bulletPrefab.name.ToString(), transform);//This line needed for pooling
+        bulletGO.transform.SetParent(GameObject.Find("PooledProjectiles").transform, true);
+        bulletGO.transform.position = transform.position;
+		bulletGO.transform.rotation = transform.rotation;
+		
+
+	    //Bullet bullet = bulletGO.GetComponent<Bullet>();
+		//if (bullet != null)
+		//	bullet.Seek(target);
 	}
 
-	void Laser()
-    {
-		if (!lineRenderer.enabled)
-			lineRenderer.enabled = true;
-
-		lineRenderer.SetPosition(0, firePoint.position);
-		lineRenderer.SetPosition(1, target.position);
-    }
 
 	void LockOnTarget()
     {
