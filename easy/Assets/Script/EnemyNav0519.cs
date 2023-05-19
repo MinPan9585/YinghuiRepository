@@ -51,7 +51,7 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
 
         //reset health
         health = startHealth;
-        healthBar.fillAmount = health / startHealth;
+        //healthBar.fillAmount = health / startHealth;
 
         //reset movement status (recommended for every pooled object)
         transform.localPosition = Vector3.zero;
