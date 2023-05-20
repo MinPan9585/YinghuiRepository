@@ -13,7 +13,8 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
 
 	public int value = 50;
 
-	[SerializeField] private Transform target;
+    [SerializeField] private Transform start;
+    [SerializeField] private Transform target;
     public NavMeshAgent agent;
 
 
@@ -25,8 +26,11 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
     private void Awake()
     {
         //RestoreValues();
+        start = GameObject.Find("Start").transform;
+        agent.Warp(start.position);
         target = GameObject.Find("End").transform;
         Debug.Log(target.name);
+        //agent.enabled = true;
         agent.SetDestination(target.position);
     }
 
@@ -34,9 +38,13 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
     //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
     {
+        start = GameObject.Find("Start").transform;
+        agent.Warp(start.position);
+        //agent.enabled = true;
         RestoreValues();
         target = GameObject.Find("End").transform;
         Debug.Log(target.name);
+        
         agent.SetDestination(target.position);
     }
 
@@ -102,9 +110,11 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
 
 	void EndPath()
     {
-		PlayerStats.Lives--;
+        //agent.enabled = false;
+        PlayerStats.Lives--;
 		WaveSpawner.EnemiesAlive--;
         //Destroy(gameObject);
+        
         GetComponent<PooledObjectAttachment>().PutBackToPool();
     }
 }

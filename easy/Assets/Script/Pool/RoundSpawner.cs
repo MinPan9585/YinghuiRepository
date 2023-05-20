@@ -22,12 +22,14 @@ public class RoundSpawner : MonoBehaviour
     public bool waveAllOut;
     public bool roundFinished = false;
 
+    public Transform startPoint;
     //This variable is for pooling
     public PoolManager poolManager;
 
     public Wave theWave= null;
     private void Start()
     {
+        startPoint = GameObject.Find("Start").transform;
         roundFinished = false;
         waveAllOut = true;
         roundNum = 0;
@@ -89,7 +91,8 @@ public class RoundSpawner : MonoBehaviour
     {
         //Debug.Log(theWave.enemyPrefab.name);
         GameObject obj = poolManager.SpawnFromSubPool(prefab.name.ToString(), transform);//This line needed for pooling
-        obj.transform.position = transform.position + Random.onUnitSphere * 2;
+        //obj.transform.position = transform.position + Random.onUnitSphere * 2;
+        obj.transform.position = startPoint.position;
     }
     public void OnButtonClear()
     {
