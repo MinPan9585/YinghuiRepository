@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6424471213542169609}
   - component: {fileID: 8330315393738648049}
   - component: {fileID: 7855858678739534693}
+  - component: {fileID: 8413900912995353891}
+  - component: {fileID: -8867852661199854663}
   m_Layer: 0
   m_Name: HitEnemyFX
   m_TagString: Untagged
@@ -41,7 +43,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4620547089914393206}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -4870,3 +4872,28 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8413900912995353891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620547089914393206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58eb5d5ba49057a4b885624579203e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 0}
+--- !u!114 &-8867852661199854663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620547089914393206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd86185e72c9154c9f80fe6c44b1974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
