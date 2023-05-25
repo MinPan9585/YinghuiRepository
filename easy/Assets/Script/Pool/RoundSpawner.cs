@@ -70,12 +70,8 @@ public class RoundSpawner : MonoBehaviour
         {
             Debug.Log("All rounds are released");
         }
-        
-        
-        if(roundNum >= roundList.rounds.Count)
-        {
-            Debug.Log("All rounds are released");
-        }
+
+        //Set the round state when all waves are out
         waveAllOut = true;
     }
 

@@ -20,13 +20,9 @@ public class TurretUsingPool : MonoBehaviour
 
 	public Transform firePoint;
 
-    //This variable is for pooling
-    public PoolManager poolManager;
-
     void Start()
 	{
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
-        poolManager = PoolManager.Instance;
     }
 
 	void UpdateTarget()
@@ -75,7 +71,7 @@ public class TurretUsingPool : MonoBehaviour
 	void Shoot()
 	{
         //GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        GameObject bulletGO = poolManager.SpawnFromSubPool(bulletPrefab.name.ToString(), transform);//This line needed for pooling
+        GameObject bulletGO = PoolManager.Instance.SpawnFromSubPool(bulletPrefab.name.ToString(), transform);//This line needed for pooling
         bulletGO.transform.SetParent(GameObject.Find("PooledProjectiles").transform, true);
         bulletGO.transform.position = transform.position;
 		bulletGO.transform.rotation = transform.rotation;

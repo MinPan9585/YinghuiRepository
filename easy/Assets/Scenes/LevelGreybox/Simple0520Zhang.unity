@@ -10105,21 +10105,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5278036505394170597, guid: 4e53290330fa80f438c799ae153dbb53,
-        type: 3}
-      propertyPath: roundsText
-      value: 
-      objectReference: {fileID: 1458673132}
-    - target: {fileID: 5278036505394170597, guid: 4e53290330fa80f438c799ae153dbb53,
-        type: 3}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 833480233}
-    - target: {fileID: 5278036505394170597, guid: 4e53290330fa80f438c799ae153dbb53,
-        type: 3}
-      propertyPath: waveCountdownText
-      value: 
-      objectReference: {fileID: 320473571}
     - target: {fileID: 5278036505394170598, guid: 4e53290330fa80f438c799ae153dbb53,
         type: 3}
       propertyPath: m_Name
@@ -10211,7 +10196,7 @@ PrefabInstance:
     - target: {fileID: 7223481139082323610, guid: fdc7a8d57c5cd554eba6ef75f29df1cb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8031366740326497312, guid: fdc7a8d57c5cd554eba6ef75f29df1cb,
         type: 3}

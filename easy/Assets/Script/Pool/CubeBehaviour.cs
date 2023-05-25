@@ -3,22 +3,8 @@ using UnityEngine.Pool;
 
 public class CubeBehaviour : MonoBehaviour, IPooledObject //This interface is needed for pooled objects
 {
-    [Header("Testing")][SerializeField] private bool isActive;
-    //option one, functional
-    //public TestSpawn testSpawn;
-
-    //option two, functional but a bit tricky
-    private SubPool m_pool;
-
-    //option two needed
-    public void SetPool(SubPool pool)
-    {
-        m_pool = pool;
-    }
-
-    public float upForce = 25f;
-    public float sideForce = 7f;
-
+    //using pool start
+    //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
     {
         float xForce = Random.Range(-sideForce, sideForce);
@@ -27,8 +13,25 @@ public class CubeBehaviour : MonoBehaviour, IPooledObject //This interface is ne
 
         Vector3 force = new Vector3(xForce, yForce, zForce);
 
-        GetComponent<Rigidbody>().velocity= force;
+        GetComponent<Rigidbody>().velocity = force;
+
+        Invoke("TimeToDisabe", 2f);
     }
+    //Must have, even left blank.
+    public void OnObjectDespawn()
+    {
+    }
+
+    private void OnDisable()//用这个来代替OnObjectDespawn()
+    {
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+    //using pool end
+
+    public float upForce = 25f;
+    public float sideForce = 7f;
 
     //option two, testing
     private void OnCollisionEnter(Collision collision)
@@ -37,21 +40,12 @@ public class CubeBehaviour : MonoBehaviour, IPooledObject //This interface is ne
         {
             //Debug.Log("I have Hit the ground!");
 
-            m_pool.Despawn(this.gameObject);
-
+            GetComponent<PooledObjectAttachment>().PutBackToPool();
         }
-    }
+    }    
 
-    public void OnObjectDespawn()
+    private void TimeToDisabe()
     {
-        transform.localPosition = Vector3.zero; 
-        transform.localRotation = Quaternion.identity;
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-    }
-    
-    //Testing
-    private void Update()
-    {
-        isActive = gameObject.activeSelf;
+        GetComponent<PooledObjectAttachment>().PutBackToPool();
     }
 }

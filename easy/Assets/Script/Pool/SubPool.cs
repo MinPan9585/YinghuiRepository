@@ -44,7 +44,11 @@ public class SubPool
         go.SendMessage("OnObjectSpawn", SendMessageOptions.DontRequireReceiver);
 
         //option two, functional, but need to change this
-        go.GetComponent<PooledObjectAttachment>().SetPool(this);
+        
+        PooledObjectAttachment attachment = go.GetComponent<PooledObjectAttachment>();
+        if (attachment == null) 
+            attachment = go.AddComponent<PooledObjectAttachment>();
+        attachment.SetPool(this);
 
         return go;
     }

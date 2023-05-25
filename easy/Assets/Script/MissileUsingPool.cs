@@ -23,9 +23,6 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
     private Vector3 rotGoal;
     private float rotTimeCount = 0.0f;
 
-    //This variable is for pooling, yea this pooled object is pooling other pooled objects
-    public PoolManager poolManager;
-
     //using pool start
     //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
@@ -48,11 +45,6 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
         CancelInvoke();
     }
     //using pool end
-
-    private void Start()
-    {
-        poolManager = PoolManager.Instance;
-    }
 
     void Update()
     {
@@ -153,7 +145,7 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
     
     private void SpawnFX()
     {
-        GameObject go = poolManager.SpawnFromSubPool(hitEnemyFX.name.ToString(), transform);//This line needed for pooling
+        GameObject go = PoolManager.Instance.SpawnFromSubPool(hitEnemyFX.name.ToString(), transform);//This line needed for pooling
         go.transform.SetParent(GameObject.Find("PooledFX").transform, true);
         go.transform.position = transform.position;
         go.transform.rotation = transform.rotation;
