@@ -1,37 +1,71 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelStatus : MonoBehaviour
+public static class LevelStatus //: MonoBehaviour 
 {
-    private static int _money;
-    public int Money
+    private static int _lives = 100;
+    public static int Lives
+    {
+        get { return _lives; }
+
+        set 
+        {
+            _lives = value;
+            if(_lives <= 0)
+            {
+                _lives = 0;
+                Debug.LogWarning("Die!!!");
+                GameEvents.Instance.LoseTheGame();
+            }
+        }
+    }
+
+    private static int _money = 400;
+    public static int Money
     {
         get { return _money; }
-        set { _money = value; }
+
+        set 
+        { 
+            _money = value;
+            if (_money < 0)
+            {
+                _money = 0;
+                Debug.LogWarning("Not enough money");
+            }
+        }
     }
 
-    private static int _lives;
-    public int Lives;
+    //#region Singleton
+    //private static LevelStatus _levelStatus;
+    //public static LevelStatus Instance
+    //{
+    //    get
+    //    {
+    //        if (_levelStatus == null)
+    //        {
+    //            GameObject.Find("GameMaster").AddComponent<LevelStatus>();
+    //        }
+    //        return _levelStatus;
+    //    }
+    //}
+    //#endregion
 
-    public static int Rounds;
+    //private void Awake()
+    //{
+    //    if (_levelStatus != null && _levelStatus != this)
+    //    {
+    //        Destroy(this.gameObject);
+    //    }
+    //    else
+    //    {
+    //        _levelStatus = this;
+    //    }
+    //}
+
     
-    //Singleton
-    private static LevelStatus _instance;
-    public static LevelStatus Instance { get { return _instance; } }
-
-    private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
-    }
-    //Singleton end
 
 }
 

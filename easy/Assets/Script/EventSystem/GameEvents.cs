@@ -9,9 +9,18 @@ public class GameEvents : MonoBehaviour
     [Header("Test")]
     [SerializeField]private GameObject ob;
 
-    public static GameEvents _eventManager;
-
-    public static GameEvents eventManager { get { return _eventManager; } }
+    private static GameEvents _eventManager;
+    public static GameEvents Instance 
+    {
+        get 
+        { 
+            if (_eventManager == null)
+            {
+                GameObject.Find("GameMaster").AddComponent<GameEvents>();
+            }
+            return _eventManager; 
+        } 
+    }
 
     private void Awake()
     {
@@ -38,5 +47,11 @@ public class GameEvents : MonoBehaviour
     public void MiddleMouseCliked(GameObject go, Transform positionTrans)
     {
         OnSpawnObjectFromPool?.Invoke(go, positionTrans);
+    }
+
+    public event Action OnDie;
+    public void LoseTheGame()
+    {
+        OnDie?.Invoke();
     }
 }
