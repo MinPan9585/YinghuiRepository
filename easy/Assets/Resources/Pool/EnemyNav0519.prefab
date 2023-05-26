@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5896686383895256776}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,9 +271,10 @@ MonoBehaviour:
   startHealth: 100
   health: 10
   value: 50
+  start: {fileID: 0}
   target: {fileID: 0}
   agent: {fileID: 6901989869929868175}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 7096154443829578861}
   isdead: 0
 --- !u!195 &6901989869929868175
 NavMeshAgent:
@@ -309,7 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd86185e72c9154c9f80fe6c44b1974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 0
 --- !u!1 &5016279630119488192
 GameObject:
   m_ObjectHideFlags: 0

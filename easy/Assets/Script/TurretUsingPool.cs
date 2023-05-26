@@ -22,7 +22,7 @@ public class TurretUsingPool : MonoBehaviour
 
     void Start()
 	{
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f);
     }
 
 	void UpdateTarget()
@@ -62,8 +62,12 @@ public class TurretUsingPool : MonoBehaviour
 
         if (fireCountdown <= 0f)
         {
-            Shoot();
-            fireCountdown = 1f / fireRate;
+			if (!Physics.Raycast(transform.position, target.transform.position + new Vector3(0, 0.5f, 0) - transform.position,
+						(range - 0.8f), ~3))
+			{
+                Shoot();
+                fireCountdown = 1f / fireRate;
+            }
         }
         fireCountdown -= Time.deltaTime;
 
@@ -72,9 +76,8 @@ public class TurretUsingPool : MonoBehaviour
 	{
         //GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         GameObject bulletGO = PoolManager.Instance.SpawnFromSubPool(bulletPrefab.name.ToString(), transform);//This line needed for pooling
-        bulletGO.transform.SetParent(GameObject.Find("PooledProjectiles").transform, true);
-        bulletGO.transform.position = transform.position;
-		bulletGO.transform.rotation = transform.rotation;
+        bulletGO.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
+		bulletGO.transform.SetPositionAndRotation(firePoint.position, firePoint.rotation);
 		
 
 	    //Bullet bullet = bulletGO.GetComponent<Bullet>();

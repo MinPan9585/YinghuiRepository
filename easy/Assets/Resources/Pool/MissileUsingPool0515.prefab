@@ -46,15 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9bbe61e3519a2448a92bf8eccb6c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  damage: 20
+  speed: 6
+  damage: 40
   explosionRadius: 1
   affRadius: 0.5
   hitEnemyFX: {fileID: 4620547089914393206, guid: 9d08d6267553bcc4588d1d1a22861036,
     type: 3}
   enemyTag: Enemy
-  currentEnemy: {fileID: 0}
-  enemyIsActive: 0
   enemies: []
 --- !u!114 &6666556503272366274
 MonoBehaviour:
@@ -68,7 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd86185e72c9154c9f80fe6c44b1974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 0
 --- !u!1 &8379820398699095047
 GameObject:
   m_ObjectHideFlags: 0

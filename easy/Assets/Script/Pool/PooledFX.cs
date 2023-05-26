@@ -24,10 +24,10 @@ public class PooledFX : MonoBehaviour, IPooledObject
         
     }
 
-    private void OnDisable()
-    {
+    //private void OnDisable()
+    //{
         
-    }
+    //}
     //using pool end
 
     private void Awake()

@@ -11,7 +11,7 @@ public class TurrentAOE : MonoBehaviour
     private float fireCountdown = 0f;
 
     // Store enemies that can be hit
-    public List<Enemy> enemiesInRange = new List<Enemy>();
+    public List<EnemyNav0519> enemiesInRange = new List<EnemyNav0519>();
 
     //Graphics
     public ParticleSystem fireParticle;
@@ -45,8 +45,8 @@ public class TurrentAOE : MonoBehaviour
             {
                 if (c.tag == "Enemy")
                 {
-                    Enemy enemy = c.GetComponent<Enemy>();
-                    if (!Physics.Raycast(transform.position, enemy.transform.position - transform.position,
+                    EnemyNav0519 enemy = c.GetComponent<EnemyNav0519>();
+                    if (!Physics.Raycast(transform.position, enemy.transform.position + new Vector3(0, 0.5f, 0) - transform.position,
                         (attackRange - 0.8f), ~3)) //~LayerMask.GetMask("Ground")
                     {
                         //Debug.Log("Raycast hit something");
@@ -62,12 +62,12 @@ public class TurrentAOE : MonoBehaviour
     {
         if (enemiesInRange.Count > 0)
         {
-            foreach (Enemy e in enemiesInRange)
+            foreach (EnemyNav0519 e in enemiesInRange)
             {
                 e.TakeDamage(damage);
             }
         }
-        //fireParticle.Emit(100);
+        fireParticle.Emit(100);
 
     }
     

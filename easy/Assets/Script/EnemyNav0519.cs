@@ -29,7 +29,7 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
         start = GameObject.Find("Start").transform;
         agent.Warp(start.position);
         target = GameObject.Find("End").transform;
-        Debug.Log(target.name);
+        //Debug.Log(target.name);
         //agent.enabled = true;
         agent.SetDestination(target.position);
     }
@@ -59,6 +59,7 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
 
         //reset health
         health = startHealth;
+        healthBar.fillAmount = health / startHealth;
         //healthBar.fillAmount = health / startHealth;
 
         //reset movement status (recommended for every pooled object)

@@ -17,6 +17,7 @@ public class RoundSpawner : MonoBehaviour
 
     public RoundList roundList = new RoundList();
 
+    [Header("Test parameter, ignore")]
     public int roundNum = 0;
     public float intervalAdded = 1f;
     public bool waveAllOut;
@@ -87,6 +88,7 @@ public class RoundSpawner : MonoBehaviour
     {
         //Debug.Log(theWave.enemyPrefab.name);
         GameObject obj = poolManager.SpawnFromSubPool(prefab.name.ToString(), transform);//This line needed for pooling
+        obj.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
         //obj.transform.position = transform.position + Random.onUnitSphere * 2;
         obj.transform.position = startPoint.position;
     }

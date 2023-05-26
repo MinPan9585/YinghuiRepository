@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileUsingPool : MonoBehaviour, IPooledObject
+public class BulletUsingPool : MonoBehaviour, IPooledObject
 {
     private Transform target;
 
@@ -16,6 +16,8 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
     public GameObject hitEnemyFX;
 
     public string enemyTag = "Enemy";
+
+    [Header("Test parameters, ignore")]
     [SerializeField] private GameObject[] enemies;
 
     //rotation variables
@@ -27,7 +29,7 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
     //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        Invoke(nameof(UpdateTarget), 0f);
         RestoreValues();
     }
     //Must have, even left blank.
@@ -128,6 +130,7 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
 
     void HitTarget()
     {
+        //Debug.Log("HitTarget is called");
         //GameObject effectIns = Instantiate(hitEnemyFX, transform.position, transform.rotation);
         //Destroy(effectIns, 2f);
         SpawnFX();
@@ -140,23 +143,24 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
         {
             Damage(target, 1);
         }
+
         GetComponent<PooledObjectAttachment>().PutBackToPool();
+        
     }
     
     private void SpawnFX()
     {
         GameObject go = PoolManager.Instance.SpawnFromSubPool(hitEnemyFX.name.ToString(), transform);//This line needed for pooling
-        go.transform.SetParent(GameObject.Find("PooledFX").transform, true);
-        go.transform.position = transform.position;
-        go.transform.rotation = transform.rotation;
+        go.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
+        go.transform.SetPositionAndRotation(transform.position, transform.rotation);
     }
 
     void Explode()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position,explosionRadius);
         foreach (Collider collider in colliders)
         {
-            if(collider.tag == "Enemy")
+            if(collider.CompareTag(enemyTag))
             {
                 float damageRatio = 1 - Vector3.Distance(collider.transform.position, transform.position)/(explosionRadius + affRadius);
                 //Debug.Log("The damage ratio is: " + damageRatio);
@@ -169,7 +173,7 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
     {
         //Debug.Log("Test phrase");
 
-        Enemy e = enemy.GetComponent<Enemy>();
+        EnemyNav0519 e = enemy.GetComponent<EnemyNav0519>();
         if (e != null)
         {
             float floatDamage = damage * damageRatio;
