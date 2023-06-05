@@ -23,7 +23,7 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
 
     [SerializeField] private bool isdead = false;
 
-    private void Awake()
+    private void Start()
     {
         //RestoreValues();
         start = GameObject.Find("Start").transform;
@@ -43,7 +43,7 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
         //agent.enabled = true;
         RestoreValues();
         target = GameObject.Find("End").transform;
-        Debug.Log(target.name);
+        //Debug.Log(target.name);
         
         agent.SetDestination(target.position);
     }
@@ -69,10 +69,9 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
     }
     private void OnDisable()
     {
-        Debug.Log("Just got diabled");
+        //Debug.Log("Just got diabled");
     }
     //using pool end
-
 
     public void TakeDamage(int amount)
     {
@@ -89,10 +88,13 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
 
 	void Die()
     {
-		PlayerStats.Money += value;
-		//WaveSpawner.EnemiesAlive--;
-		Debug.Log(this + " died!");
+        //PlayerStats.Money += value;
+        //WaveSpawner.EnemiesAlive--;
+        //Debug.Log(this + " died!");
         //Destroy(gameObject);
+
+        LevelStatus.Money += value;
+        GameEvents.Instance.UpdateDisplay();
         GetComponent<PooledObjectAttachment>().PutBackToPool();
     }
 
@@ -112,9 +114,11 @@ public class EnemyNav0519 : MonoBehaviour, IPooledObject
 	void EndPath()
     {
         //agent.enabled = false;
-        PlayerStats.Lives--;
-		WaveSpawner.EnemiesAlive--;
+        //PlayerStats.Lives--;
+        //WaveSpawner.EnemiesAlive--;
         //Destroy(gameObject);
+        LevelStatus.Lives--;
+        GameEvents.Instance.UpdateDisplay();
         
         GetComponent<PooledObjectAttachment>().PutBackToPool();
     }

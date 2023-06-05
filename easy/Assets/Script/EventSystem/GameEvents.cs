@@ -6,18 +6,18 @@ using UnityEngine.Events;
 
 public class GameEvents : MonoBehaviour
 {
-    [Header("Test")]
-    [SerializeField]private GameObject ob;
+    private GameObject ob;
 
+    #region Singleton
     private static GameEvents _eventManager;
     public static GameEvents Instance 
     {
         get 
         { 
-            if (_eventManager == null)
-            {
-                GameObject.Find("GameMaster").AddComponent<GameEvents>();
-            }
+            //if (_eventManager == null)
+            //{
+            //    GameObject.Find("GameMaster").AddComponent<GameEvents>();
+            //}
             return _eventManager; 
         } 
     }
@@ -32,8 +32,9 @@ public class GameEvents : MonoBehaviour
         {
             _eventManager = this;
         }
-    }    
-
+    }
+    #endregion
+    #region TestToPassParameter
     public delegate GameObject OnSpawnAPooledObject(GameObject go, Transform positionTrans);
     public event OnSpawnAPooledObject spawnAPooledObject;
     public GameObject ButClicked(GameObject go, Transform positionTrans)
@@ -42,16 +43,36 @@ public class GameEvents : MonoBehaviour
         return ob;
     }
 
-
     public event Action<GameObject, Transform> OnSpawnObjectFromPool;
     public void MiddleMouseCliked(GameObject go, Transform positionTrans)
     {
         OnSpawnObjectFromPool?.Invoke(go, positionTrans);
     }
+    #endregion
 
     public event Action OnDie;
     public void LoseTheGame()
     {
         OnDie?.Invoke();
+    }
+
+    public event Action<int> OnSwitchPath;
+    public void SwitchPath(int id) 
+    {
+        //Debug.Log("Event is called");
+        OnSwitchPath?.Invoke(id); 
+    }
+
+    public event Action OnSpawnRound;
+    public void SpawnRound()
+    {
+        //Debug.Log("Event is called");
+        OnSpawnRound?.Invoke();
+    }
+
+    public event Action OnUpdateDisplay;
+    public void UpdateDisplay()
+    {
+        OnUpdateDisplay?.Invoke();
     }
 }

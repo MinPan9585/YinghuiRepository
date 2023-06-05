@@ -72,7 +72,7 @@ public class ButtonTrigger : MonoBehaviour
     private void DelegateSpawn()
     {
         Debug.Log("mouse on for new delegate pooling");
-        go = GameEvents.Instance.ButClicked(objectFromPool, transform);
+        //go = GameEvents.Instance.ButClicked(objectFromPool, transform);
     }
 
     private void ActionSpawn()

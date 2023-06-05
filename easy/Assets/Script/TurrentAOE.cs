@@ -9,6 +9,7 @@ public class TurrentAOE : MonoBehaviour
     public int damage = 10;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
+    public LayerMask layerToBlock;
 
     // Store enemies that can be hit
     public List<EnemyNav0519> enemiesInRange = new List<EnemyNav0519>();
@@ -47,7 +48,7 @@ public class TurrentAOE : MonoBehaviour
                 {
                     EnemyNav0519 enemy = c.GetComponent<EnemyNav0519>();
                     if (!Physics.Raycast(transform.position, enemy.transform.position + new Vector3(0, 0.5f, 0) - transform.position,
-                        (attackRange - 0.8f), ~3)) //~LayerMask.GetMask("Ground")
+                        (attackRange - 0.8f), layerToBlock)) //~LayerMask.GetMask("Ground")
                     {
                         //Debug.Log("Raycast hit something");
                         enemiesInRange.Add(enemy);

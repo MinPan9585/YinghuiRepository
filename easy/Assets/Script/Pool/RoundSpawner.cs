@@ -44,10 +44,7 @@ public class RoundSpawner : MonoBehaviour
             waveAllOut = false;
             StartCoroutine(SpawnARound());
         }
-        else
-        {
-            Debug.Log("Current round still running, can't release next round");
-        }
+        
     }
     IEnumerator SpawnARound()
     {
@@ -88,9 +85,9 @@ public class RoundSpawner : MonoBehaviour
     {
         //Debug.Log(theWave.enemyPrefab.name);
         GameObject obj = poolManager.SpawnFromSubPool(prefab.name.ToString(), transform);//This line needed for pooling
-        obj.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
+        obj.transform.SetParent(startPoint, true);
         //obj.transform.position = transform.position + Random.onUnitSphere * 2;
-        obj.transform.position = startPoint.position;
+        //obj.transform.position = startPoint.position;
     }
     public void OnButtonClear()
     {

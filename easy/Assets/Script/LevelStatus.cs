@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class LevelStatus //: MonoBehaviour 
 {
-    private static int _lives = 100;
+    private static int _lives = 20;
     public static int Lives
     {
         get { return _lives; }
@@ -38,34 +38,23 @@ public static class LevelStatus //: MonoBehaviour
         }
     }
 
-    //#region Singleton
-    //private static LevelStatus _levelStatus;
-    //public static LevelStatus Instance
-    //{
-    //    get
-    //    {
-    //        if (_levelStatus == null)
-    //        {
-    //            GameObject.Find("GameMaster").AddComponent<LevelStatus>();
-    //        }
-    //        return _levelStatus;
-    //    }
-    //}
-    //#endregion
+    public static int TotalRound = 0;
+    private static int _round = 0;
+    public static int Round
+    {
+        get { return _round; }
 
-    //private void Awake()
-    //{
-    //    if (_levelStatus != null && _levelStatus != this)
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
-    //    else
-    //    {
-    //        _levelStatus = this;
-    //    }
-    //}
+        set
+        {
+            _round = value;
+            if (_round > TotalRound)
+            {
+                _round = TotalRound;
+                Debug.LogWarning("Last round is out");
+            }
+        }
+    }
 
-    
 
 }
 

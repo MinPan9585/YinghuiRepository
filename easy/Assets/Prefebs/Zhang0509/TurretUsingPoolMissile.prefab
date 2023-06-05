@@ -801,15 +801,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58158d3b361765349b818f8f70eabb96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 6
+  range: 4
   bulletPrefab: {fileID: 2764582061297583724, guid: 5f6b04cbabf1d2b45aa45cdb36b6c248,
     type: 3}
-  fireRate: 3
+  fireRate: 1
   enemyTag: Enemy
   partToRotate: {fileID: 9175983432821091884}
   turnSpeed: 10
   firePoint: {fileID: 9175983432821091884}
-  poolManager: {fileID: 0}
 --- !u!1 &8730313954337270060
 GameObject:
   m_ObjectHideFlags: 0
