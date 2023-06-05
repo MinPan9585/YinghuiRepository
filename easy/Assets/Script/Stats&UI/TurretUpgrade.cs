@@ -31,6 +31,7 @@ public class TurretUpgrade : MonoBehaviour
     private void Start()
     {
         _money = PlayerStats.Money;
+        _Tlist = turretList1;
     }
 
     private void Update()
