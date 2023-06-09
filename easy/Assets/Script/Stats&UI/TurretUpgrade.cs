@@ -24,7 +24,6 @@ public class TurretUpgrade : MonoBehaviour
 
     private RaycastHit hit;
     private Ray ray;
-    Vector3 target;
     GameObject _curGameObject;
 
     [SerializeField] private GameObject UI;
@@ -39,27 +38,24 @@ public class TurretUpgrade : MonoBehaviour
         if(Input.GetMouseButton(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit,Mathf.Infinity,LayerMask.GetMask("Turret")))
             {
                 if (hit.transform.gameObject.CompareTag("TurretCat1"))
                 {
                     UI.SetActive(true);
+                    TurretSelected();
                 }
                 else if (hit.transform.gameObject.CompareTag("TurretCat2"))
                 {
                     UI.SetActive(true);
+                    TurretSelected();
                 }
                 else if (hit.transform.gameObject.CompareTag("TurretCat3"))
                 {
                     UI.SetActive(true);
+                    TurretSelected();
                 }
             }
-            target = hit.point;
-            _curGameObject = hit.transform.gameObject;
-            _turretTag = _curGameObject.tag;
-
-            Debug.Log("鼠标世界坐标:" + target);
-            Debug.Log("物体信息:" + _curGameObject);
         }
 
         switch (_turretTag)
@@ -93,30 +89,11 @@ public class TurretUpgrade : MonoBehaviour
             _level2 = false;
             _level3 = true;
         }
-        
-        // if (turretLevel1.activeSelf)
-        // {
-        //     _level1 = true;
-        //     _level2 = false;
-        //     _level3 = false;
-        // }
-        // else if (turretLevel2.activeSelf)
-        // {
-        //     _level1 = false;
-        //     _level2 = true;
-        //     _level3 = false;
-        // }
-        // else if(turretLevel3.activeSelf)
-        // {
-        //     _level1 = false;
-        //     _level2 = false;
-        //     _level3 = true;
-        // }
     }
 
     private void FixedUpdate()
     {
-        _money = PlayerStats.Money;
+        _money = LevelStatus.Money;
     }
 
     public void TurretLevelUp()
@@ -125,13 +102,13 @@ public class TurretUpgrade : MonoBehaviour
         {
             _Tlist[0].SetActive(false);
             _Tlist[1].SetActive(true);
-            PlayerStats.Money = PlayerStats.Money - _1to2;
+            LevelStatus.Money = LevelStatus.Money - _1to2;
         }
         else if (_level2 && _money >= _2to3)
         {
             _Tlist[1].SetActive(false);
             _Tlist[2].SetActive(true);
-            PlayerStats.Money = PlayerStats.Money - _2to3;
+            LevelStatus.Money = LevelStatus.Money - _2to3;
         }
     }
 
@@ -141,13 +118,22 @@ public class TurretUpgrade : MonoBehaviour
         {
             _Tlist[1].SetActive(false);
             _Tlist[0].SetActive(true);
-            PlayerStats.Money = PlayerStats.Money + _1to2;
+            LevelStatus.Money = LevelStatus.Money + _1to2;
         }
         else if (_level3)
         {
             _Tlist[2].SetActive(false);
             _Tlist[1].SetActive(true);
-            PlayerStats.Money = PlayerStats.Money + _2to3;
+            LevelStatus.Money = LevelStatus.Money + _2to3;
         }
+    }
+
+    public void TurretSelected()
+    {
+        _curGameObject = hit.transform.gameObject;
+        _turretTag = _curGameObject.tag;
+
+        // Debug.Log("鼠标世界坐标:" + target);
+        Debug.Log("物体信息:" + _curGameObject);
     }
 }

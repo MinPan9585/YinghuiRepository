@@ -13,7 +13,7 @@ public class LivesUI : MonoBehaviour
 
     void Update()
     {
-        _fill.fillAmount = (float)PlayerStats.Lives / 20f;
+        _fill.fillAmount = (float)LevelStatus.Lives / 20f;
 
         livesText.text = PlayerStats.Lives.ToString() + "/20";
     }
