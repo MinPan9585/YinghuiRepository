@@ -13,6 +13,9 @@ public class TurretUpgrade : MonoBehaviour
     public GameObject[] turretList1;
     public GameObject[] turretList2;
     public GameObject[] turretList3;
+    public GameObject[] turretList4;
+    public GameObject[] turretList5;
+    public GameObject[] turretList6;
 
     private bool _level1 = true;
     private bool _level2 = false;
@@ -55,6 +58,21 @@ public class TurretUpgrade : MonoBehaviour
                     UI.SetActive(true);
                     TurretSelected();
                 }
+                else if (hit.transform.gameObject.CompareTag("TurretCat4"))
+                {
+                    UI.SetActive(true);
+                    TurretSelected();
+                }
+                else if (hit.transform.gameObject.CompareTag("TurretCat5"))
+                {
+                    UI.SetActive(true);
+                    TurretSelected();
+                }
+                else if (hit.transform.gameObject.CompareTag("TurretCat6"))
+                {
+                    UI.SetActive(true);
+                    TurretSelected();
+                }
             }
         }
 
@@ -68,6 +86,15 @@ public class TurretUpgrade : MonoBehaviour
                 break;
             case "TurretCat3":
                 _Tlist = turretList3;
+                break;
+            case "TurretCat4":
+                _Tlist = turretList4;
+                break;
+            case "TurretCat5":
+                _Tlist = turretList5;
+                break;
+            case "TurretCat6":
+                _Tlist = turretList6;
                 break;
         }
 
@@ -128,12 +155,12 @@ public class TurretUpgrade : MonoBehaviour
         }
     }
 
-    public void TurretSelected()
+    private void TurretSelected()
     {
         _curGameObject = hit.transform.gameObject;
         _turretTag = _curGameObject.tag;
 
         // Debug.Log("鼠标世界坐标:" + target);
-        Debug.Log("物体信息:" + _curGameObject);
+        //Debug.Log("物体信息:" + _curGameObject);
     }
 }

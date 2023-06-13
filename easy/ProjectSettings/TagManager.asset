@@ -8,6 +8,9 @@ TagManager:
   - TurretCat1
   - TurretCat2
   - TurretCat3
+  - TurretCat4
+  - TurretCat5
+  - TurretCat6
   layers:
   - Default
   - TransparentFX
