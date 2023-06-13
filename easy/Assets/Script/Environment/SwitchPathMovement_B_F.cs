@@ -50,7 +50,7 @@ public class SwitchPathMovement_B_F : MonoBehaviour
 
     private void SwitchPath(int id)
     {
-        Debug.Log("DOOOOOO");
+        //Debug.Log("DOOOOOO");
         if (id == this.id)
         {
             if (isRotate)

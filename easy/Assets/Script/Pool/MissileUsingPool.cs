@@ -5,17 +5,17 @@ using UnityEngine;
 public class MissileUsingPool : MonoBehaviour, IPooledObject
 {
     private Transform target;
-
+    [Header("Base parameter")]
     public float speed = 70f;
-
     public int damage = 50;
     private int actualDamage;
-
-    public float explosionRadius;
-    public float affRadius = 0.5f;
-    public GameObject hitEnemyFX;
-
     public string enemyTag = "Enemy";
+    [Header("Explosion")]
+    public float explosionRadius;
+    public float xRadius = 0.5f;
+    [Header("Visual")]
+    public GameObject hitEnemyFX;
+   
 
     [Header("Test parameters, ignore")]
     [SerializeField] private GameObject[] enemies;
@@ -25,11 +25,10 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
     private Vector3 rotGoal;
     private float rotTimeCount = 0.0f;
 
-    //using pool start
+    #region Pool
     //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
     {
-        InvokeRepeating(nameof(UpdateTarget), 0f, 0.5f);
         RestoreValues();
     }
     //Must have, even left blank.
@@ -46,16 +45,19 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
     {
         CancelInvoke();
     }
-    //using pool end
+    #endregion
 
     void Update()
     {
         if(target== null)
         {
-            //UpdateTarget();
-            GetComponent<PooledObjectAttachment>().PutBackToPool();
-            SpawnFX();
-            return;
+            target = UpdateTarget();
+            if (target == null)
+            {
+                GetComponent<PooledObjectAttachment>().PutBackToPool();
+                SpawnFX();
+                return;
+            } 
         }
         else
         {
@@ -68,12 +70,10 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
                 HitTarget();
                 return;
             }
-        }
-
-        
+        }        
     }
 
-    void UpdateTarget()
+    private Transform UpdateTarget()
     {
         //GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         enemies = GameObject.FindGameObjectsWithTag(enemyTag);
@@ -94,12 +94,12 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
 
         if (nearestEnemy != null)
         {
-            target = nearestEnemy.transform;
             PrepareRotation(target);
+            return nearestEnemy.transform;
         }
         else
         {
-            target = null;
+            return null;
         }
     }
     private void PrepareRotation(Transform enemyTarget)
@@ -130,9 +130,6 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
 
     void HitTarget()
     {
-        //Debug.Log("HitTarget is called");
-        //GameObject effectIns = Instantiate(hitEnemyFX, transform.position, transform.rotation);
-        //Destroy(effectIns, 2f);
         SpawnFX();
         
         if (explosionRadius > 0f)
@@ -162,7 +159,7 @@ public class MissileUsingPool : MonoBehaviour, IPooledObject
         {
             if(collider.CompareTag(enemyTag))
             {
-                float damageRatio = 1 - Vector3.Distance(collider.transform.position, transform.position)/(explosionRadius + affRadius);
+                float damageRatio = 1 - Vector3.Distance(collider.transform.position, transform.position)/(explosionRadius + xRadius);
                 //Debug.Log("The damage ratio is: " + damageRatio);
                 Damage(collider.transform, damageRatio);
             }

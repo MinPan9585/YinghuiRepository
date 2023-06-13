@@ -37,6 +37,7 @@ public class StatusManager : MonoBehaviour
             if (!go.waveAllOut)
             {
                 wavesAllOut = false;
+                Debug.Log("Current round still running");
                 break;
             }
         }

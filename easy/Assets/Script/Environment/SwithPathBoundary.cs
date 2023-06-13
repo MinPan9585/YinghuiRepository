@@ -20,8 +20,8 @@ public class SwithPathBoundary : MonoBehaviour
         resetPoint = bCollider.bounds.center;
 
         //below two lines are for testing
-        boxTrans = new GameObject();
-        boxTrans.transform.position= resetPoint;
+        //boxTrans = new GameObject();
+        //boxTrans.transform.position= resetPoint;
     }
     private void OnTriggerEnter(Collider other)
     {
