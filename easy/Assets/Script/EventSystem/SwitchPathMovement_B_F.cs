@@ -9,6 +9,7 @@ public class SwitchPathMovement_B_F : MonoBehaviour
     public int id;
     [Header("Movement")]
     public bool isRotate;
+    public float duration = 1f;
     public Vector3 altTrans;
 
     private Vector3 iniTrans;
@@ -37,12 +38,13 @@ public class SwitchPathMovement_B_F : MonoBehaviour
 
     public void Back_Forth(int id)
     {
+        if(id == this.id)
         StartCoroutine(B_F());
     }
     IEnumerator B_F()
     {
         SwitchPath(id);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(duration);
         SwitchPath(id);
     }
 
@@ -55,17 +57,17 @@ public class SwitchPathMovement_B_F : MonoBehaviour
             {
                 if (alt)
                     //transform.rotation = Quaternion.Euler(altTrans);
-                    LeanTween.rotate(gameObject, altTrans, 0.2f).setEase(LeanTweenType.easeOutQuad);
+                    LeanTween.rotate(gameObject, altTrans, 0.1f).setEase(LeanTweenType.easeOutQuad);
                 else
-                    LeanTween.rotate(gameObject, iniTrans, 0.2f).setEase(LeanTweenType.easeOutQuad);
+                    LeanTween.rotate(gameObject, iniTrans, 0.1f).setEase(LeanTweenType.easeOutQuad);
             }
             else
             {
                 if (alt)
                     //transform.position = altTrans;
-                    LeanTween.moveLocal(gameObject, altTrans, 0.2f).setEase(LeanTweenType.easeOutQuad);
+                    LeanTween.moveLocal(gameObject, altTrans, 0.1f).setEase(LeanTweenType.easeOutQuad);
                 else
-                    LeanTween.moveLocal(gameObject, iniTrans, 0.2f).setEase(LeanTweenType.easeOutQuad);
+                    LeanTween.moveLocal(gameObject, iniTrans, 0.1f).setEase(LeanTweenType.easeOutQuad);
             }
 
             alt = !alt;
