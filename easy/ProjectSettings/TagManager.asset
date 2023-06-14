@@ -3,25 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
-  - TurretCat1
-  - TurretCat2
-  - TurretCat3
-  - TurretCat4
-  - TurretCat5
-  - TurretCat6
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - RollingStone
-  - NavMeshObstacle
-  - HiddenNavMesh
-  - Turret
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

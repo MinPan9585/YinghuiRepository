@@ -5,12 +5,13 @@ using UnityEngine;
 public class RollingStone : MonoBehaviour, IPooledObject
 {
     public int stoneDamage = 20;
+    public float lifeTime = 5f;
     #region Pool
     //using pool start
     //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
     {
-        Invoke(nameof(DestroyStone), 5f);
+        Invoke(nameof(DestroyStone), lifeTime);
         RestoreValues(); //注释:这是一个例子,将原本在Start()内的放到这里
     }
     //Must have, even left blank.
@@ -47,8 +48,15 @@ public class RollingStone : MonoBehaviour, IPooledObject
     {
         if (other.CompareTag("Enemy"))
         {
-            EnemyNav0519 e = other.GetComponent<EnemyNav0519>();
-            e.TakeDamage(stoneDamage);
+            if (other.TryGetComponent<KnockedOff>(out KnockedOff minion))
+            {
+                minion.KnockOff();
+            }
+            else
+            {
+                ITakeDamage e = other.GetComponent<ITakeDamage>();
+                e.TakeDamage(stoneDamage);
+            }
         }
     }
 }

@@ -1,78 +1,82 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
-public class BulletUsingPool : MonoBehaviour, IPooledObject
+public class Projectile : MonoBehaviour, IPooledObject, ISetTarget
 {
-    private Transform target;
-
+    [SerializeField]private Transform target;
+    [Header("Base parameter")]
     public float speed = 70f;
-
     public int damage = 50;
     private int actualDamage;
-
+    public string enemyTag = "Enemy";
+    [Header("Explosion")]
     public float explosionRadius;
-    public float affRadius = 0.5f;
+    public float xRadius = 0.5f;
+    [Header("Visual")]
     public GameObject hitEnemyFX;
 
-    public string enemyTag = "Enemy";
 
     [Header("Test parameters, ignore")]
     [SerializeField] private GameObject[] enemies;
+    [SerializeField] private Vector3 deadPos;
+    [SerializeField] private Vector3 targetPos;
 
-    //rotation variables
-    private Vector3 rotFormal;
-    private Vector3 rotGoal;
-    private float rotTimeCount = 0.0f;
-
+    [SerializeField] bool purpose = true;
     #region Pool
     //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
     {
-        Invoke(nameof(UpdateTarget), 0f);
-        RestoreValues();
     }
     //Must have, even left blank.
     public void OnObjectDespawn()
     {
     }
-    //specifically for restoring some values, like health
-    public void RestoreValues()
-    {
-        rotTimeCount = 0.0f;
-    }
-
     private void OnDisable()
     {
-        CancelInvoke();
     }
     #endregion
-
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+        transform.LookAt(target);
+        purpose = true;
+    }
     void Update()
     {
-        if(target== null)
+        if (purpose)
         {
-            GetComponent<PooledObjectAttachment>().PutBackToPool();
-            SpawnFX();
-            return;
-        }
-        else
-        {
-            Vector3 dir = target.position - transform.position;
-            float distanceThisFrame = speed * Time.deltaTime;
-            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-            AimRotation(target);
-            if (dir.magnitude <= distanceThisFrame )
+            if (target.GetComponent<EnemyBase>().isdead )
             {
-                HitTarget();
-                return;
+                targetPos = deadPos;
+
+                Debug.Log("I have no purpose");
+                purpose = false;
+            }
+            else
+            {
+                targetPos = target.position;
+                deadPos = target.position;
             }
         }
-
         
+
+        //position
+        Vector3 dir = targetPos - transform.position;
+        float distanceThisFrame = speed * Time.deltaTime;
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        //rotation
+        transform.LookAt(targetPos);
+        //hit enemy
+        if (dir.magnitude <= distanceThisFrame)
+        {
+            HitTarget();
+            return;
+        }
     }
 
-    void UpdateTarget()
+    private Transform UpdateTarget()
     {
         //GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         enemies = GameObject.FindGameObjectsWithTag(enemyTag);
@@ -80,7 +84,7 @@ public class BulletUsingPool : MonoBehaviour, IPooledObject
         GameObject nearestEnemy = null;
         foreach (GameObject enemy in enemies)
         {
-            if (enemy.activeSelf == true)
+            if (!enemy.GetComponent<EnemyBase>().isdead)
             {
                 float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
                 if (distanceToEnemy < shortestDistance)
@@ -93,60 +97,31 @@ public class BulletUsingPool : MonoBehaviour, IPooledObject
 
         if (nearestEnemy != null)
         {
-            target = nearestEnemy.transform;
-            PrepareRotation(target);
+            return nearestEnemy.transform;
         }
         else
         {
-            target = null;
+            return null;
         }
-    }
-    private void PrepareRotation(Transform enemyTarget)
-    {
-        if(enemyTarget != null)
-        {
-            rotTimeCount = 0.0f;
-            rotFormal = transform.forward;
-            rotGoal = enemyTarget.position - transform.position;
-        }
-    }
-    private void AimRotation(Transform enemyTarget)
-    {
-        if(enemyTarget != null)
-        {
-            if (rotTimeCount < 1.0f)
-            {
-                transform.forward = Vector3.Lerp(rotFormal, rotGoal, rotTimeCount);
-                rotTimeCount += 10 * Time.deltaTime;//define the rotate speed
-            }
-            else
-            {
-                transform.forward = enemyTarget.position - transform.position;
-            }
-        }
-        
     }
 
     void HitTarget()
     {
-        //Debug.Log("HitTarget is called");
-        //GameObject effectIns = Instantiate(hitEnemyFX, transform.position, transform.rotation);
-        //Destroy(effectIns, 2f);
         SpawnFX();
-        
+
         if (explosionRadius > 0f)
         {
             Explode();
         }
-        else 
+        else
         {
             Damage(target, 1);
         }
 
         GetComponent<PooledObjectAttachment>().PutBackToPool();
-        
+
     }
-    
+
     private void SpawnFX()
     {
         GameObject go = PoolManager.Instance.SpawnFromSubPool(hitEnemyFX.name.ToString(), transform);//This line needed for pooling
@@ -156,12 +131,12 @@ public class BulletUsingPool : MonoBehaviour, IPooledObject
 
     void Explode()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position,explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider collider in colliders)
         {
-            if(collider.CompareTag(enemyTag))
+            if (collider.CompareTag(enemyTag))
             {
-                float damageRatio = 1 - Vector3.Distance(collider.transform.position, transform.position)/(explosionRadius + affRadius);
+                float damageRatio = 1 - Vector3.Distance(collider.transform.position, transform.position) / (explosionRadius + xRadius);
                 //Debug.Log("The damage ratio is: " + damageRatio);
                 Damage(collider.transform, damageRatio);
             }
@@ -182,9 +157,9 @@ public class BulletUsingPool : MonoBehaviour, IPooledObject
         }
         else
         {
-            Debug.LogWarning("No ITakeDamage found, check if the interface is attached");
+            Debug.LogWarning("No component on the enemy found, check if it's the right script");
         }
-        
+
         //Destroy(enemy.gameObject);
     }
 
