@@ -27,10 +27,18 @@ public class SwithPathBoundary : MonoBehaviour
     {
         if(other.TryGetComponent<NavMeshAgent>(out NavMeshAgent agent))
         {
-            if(bCollider != null)
+
+            if (other.TryGetComponent<KnockedOff>(out KnockedOff minion))
             {
-                agent.Warp(resetPoint);
-                agent.SetDestination(end);
+                minion.KnockOff();
+            }
+            else
+            {
+                if (bCollider != null)
+                {
+                    agent.Warp(resetPoint);
+                    agent.SetDestination(end);
+                }
             }
         }
     }

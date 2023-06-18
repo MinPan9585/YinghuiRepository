@@ -4,30 +4,33 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class EnemyBase : MonoBehaviour, ITakeDamage
+public class EnemyBase : MonoBehaviour, ITakeDamage, ISlowDown
 {
     [Header("Enemy parameters")]
     public float speed = 3;
 
     public float startHealth = 100f;
-    [SerializeField] private float health;
+    private float health;
+    [Tooltip("Actual damage is reduced by armor%")]
+    public float armor = 5;
 
     public int value = 50;
+    public int deathCount = 1;
 
     private Transform start;
     private Transform target;
+
+    [Header("Public accessible parameters")]
     public NavMeshAgent agent;
+    public float remainingDistance;
 
     [Header("Needs assign")]
     public Image healthBar;
 
+    [Header("Other coding parameters, ignore")]
     public bool isdead = false;
 
-    
-
-    [Header("Test")]
-    [SerializeField] private float remainingDistance;
-
+    private NavMeshPath path;
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -36,6 +39,7 @@ public class EnemyBase : MonoBehaviour, ITakeDamage
         agent.Warp(start.position);
         target = GameObject.Find("End").transform;
         agent.SetDestination(target.position);
+        path = new NavMeshPath();
     }
 
     #region Pool
@@ -82,24 +86,53 @@ public class EnemyBase : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(int amount)
     {
-        health -= amount;
-
-        healthBar.fillAmount = health / startHealth;
-
-        if (health <= 0 && !isdead)
+        if (!isdead)
         {
-            isdead = true;
-            Die();
-        }
+            //armor
+            amount = (int)(amount * (1 - armor * 0.01));
+
+            health -= amount;
+
+            healthBar.fillAmount = health / startHealth;
+
+            if (health <= 0 && !isdead)
+            {
+                isdead = true;
+                Die();
+            }
+        } 
     }
 
-    
+    public void SlowDown(int time)
+    {
+        if (!isdead)
+        {
+            StartCoroutine(SlowSlow(time));
+        }
+    }
+    IEnumerator SlowSlow(int time)
+    {
+        float originalSpeed = agent.speed;
+        agent.speed = agent.speed / 2;
+        yield return new WaitForSeconds(time);
+        agent.speed = originalSpeed;
+    }
+
 
     public void Die()
     {
         LevelStatus.Money += value;
+        LevelStatus.EnemyBaseList.Remove(this);
         GameEvents.Instance.UpdateDisplay();
         GetComponent<PooledObjectAttachment>().PutBackToPool();
+    }
+
+    public void RecalculatePath()
+    {
+        if (!isdead)
+        {
+            agent.SetDestination(target.position);
+        }
     }
 
     public float GetPathRemainingDistance(bool performant)
@@ -127,7 +160,8 @@ public class EnemyBase : MonoBehaviour, ITakeDamage
 
     public void EndPath()
     {
-        LevelStatus.Lives--;
+        LevelStatus.Lives -= deathCount;
+        LevelStatus.EnemyBaseList.Remove(this);
         GameEvents.Instance.UpdateDisplay();
         GetComponent<PooledObjectAttachment>().PutBackToPool();
     }

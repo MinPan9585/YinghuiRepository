@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 5825527678452537605}
   - component: {fileID: 5221207844119613102}
   - component: {fileID: 3242494644259434524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TurretThrowStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,8 +174,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.66, y: 1, z: 2}
-  m_Center: {x: 0, y: 0, z: 3}
+  m_Size: {x: 2.25, y: 8.549999, z: 15.689999}
+  m_Center: {x: 0, y: -4, z: 9}
 --- !u!114 &3242494644259434524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,8 +190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stonePrefab: {fileID: 3272200926379644989, guid: 8f5f472d712a7d34dafbb6ef9a8ef458,
     type: 3}
-  throwPosition: {fileID: 0}
-  rollingSpeed: 8
+  rollingSpeed: 6
+  coolDown: 1
 --- !u!1 &7643478606779952517
 GameObject:
   m_ObjectHideFlags: 0

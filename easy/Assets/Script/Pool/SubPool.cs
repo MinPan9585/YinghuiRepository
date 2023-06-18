@@ -74,6 +74,17 @@ public class SubPool
         }
     }
 
+    //public void TidyUp()
+    //{
+    //    foreach (var obj in m_objects)
+    //    {
+    //        if (!obj.activeSelf)
+    //        {
+    //            Object.Destroy(obj);
+    //        }
+    //    }
+    //}
+
     //Judge if in the list or not
     public bool Contain(GameObject go)
     {

@@ -55,6 +55,14 @@ public class PoolManager : MonoBehaviour
         }
     }
 
+    //public void TidyUpAllSubPool()
+    //{
+    //    foreach (var p in m_pools.Values)
+    //    {
+    //        p.TidyUp();
+    //    }
+    //}
+
     //create a new pool
     void RegisterNewPool(string names, Transform trans)
     {

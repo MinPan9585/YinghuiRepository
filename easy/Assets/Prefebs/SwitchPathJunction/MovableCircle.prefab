@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3189051481146597655}
   - component: {fileID: 3189051481146597648}
   - component: {fileID: 3189051481146597649}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Collider (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3189051481146597651}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3189051481253153929}
   - component: {fileID: 3189051481253153928}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: RotatePart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3189051481647275242}
   - component: {fileID: 3189051481647275243}
   - component: {fileID: 3189051481647275220}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3189051481647275222}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 3189051481852472359}
   - component: {fileID: 3189051481852472352}
   - component: {fileID: 3189051481852472353}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: BoundaryCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 3189051481865744767}
   - component: {fileID: 3189051481865744760}
   - component: {fileID: 3189051481865744761}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Collider (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3189051481865744763}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -479,7 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3189051482174593309}
   - component: {fileID: 3189051482174593308}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: MovePart2nd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 3189051482423512350}
   - component: {fileID: 3189051482423512349}
   - component: {fileID: 3189051482423512348}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: MovableCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 3189051482488397425}
   - component: {fileID: 3189051482488397426}
   - component: {fileID: 3189051482488397431}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,7 +633,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3189051482488397436}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -708,6 +708,7 @@ GameObject:
   - component: {fileID: 3189051482616892499}
   - component: {fileID: 3189051482616892497}
   - component: {fileID: 3189051482616892498}
+  - component: {fileID: 2295297078846505342}
   m_Layer: 3
   m_Name: VisualCube
   m_TagString: Untagged
@@ -780,6 +781,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2295297078846505342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3189051482616892508}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3189051482857530618
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,7 +807,7 @@ GameObject:
   - component: {fileID: 3189051482857530623}
   - component: {fileID: 3189051482857530616}
   - component: {fileID: 3189051482857530621}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +844,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3189051482857530618}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -904,7 +918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3189051482936925256}
   - component: {fileID: 3189051482936925263}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: MovePart1st
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,7 +971,7 @@ GameObject:
   - component: {fileID: 3189051483212936351}
   - component: {fileID: 3189051483212936344}
   - component: {fileID: 3189051483212936345}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +1008,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3189051483212936347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

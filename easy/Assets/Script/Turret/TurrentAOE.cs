@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class TurrentAOE : MonoBehaviour
 {
-    // Attack range of tower
+    [Header("Parameters")]
     public float attackRange = 2f;
     public int damage = 10;
-    public float fireRate = 1f;
+    public float coolDown = 1f;
+    public int slowTime = 2;
     private float fireCountdown = 0f;
     public LayerMask layerToBlock;
 
-    // Store enemies that can be hit
-    public List<ITakeDamage> enemiesInRange = new List<ITakeDamage>();
-
-    //Graphics
+    [Header("Graphics")]
     public ParticleSystem fireParticle;
+
+    [Header("Ignore, enemy in range")]
+    public List<EnemyBase> enemiesInRange = new List<EnemyBase>();
+    
     void Start()
     {
         fireParticle= GetComponent<ParticleSystem>();
@@ -26,7 +28,7 @@ public class TurrentAOE : MonoBehaviour
     {
         fireCountdown += Time.deltaTime;
 
-        if (fireCountdown >= 1/fireRate && enemiesInRange.Count > 0)
+        if (fireCountdown >= coolDown && enemiesInRange.Count > 0)
         {
             fireCountdown = 0;
             AOEDamage();
@@ -46,7 +48,7 @@ public class TurrentAOE : MonoBehaviour
             {
                 if (c.tag == "Enemy")
                 {
-                    ITakeDamage enemy = c.GetComponent<ITakeDamage>();
+                    EnemyBase enemy = c.GetComponent<EnemyBase>();
                     if (!Physics.Raycast(transform.position, c.transform.position + new Vector3(0, 0.5f, 0) - transform.position,
                         (attackRange - 0.8f), layerToBlock)) //~LayerMask.GetMask("Ground")
                     {
@@ -63,9 +65,10 @@ public class TurrentAOE : MonoBehaviour
     {
         if (enemiesInRange.Count > 0)
         {
-            foreach (ITakeDamage e in enemiesInRange)
+            foreach (EnemyBase e in enemiesInRange)
             {
                 e.TakeDamage(damage);
+                e.SlowDown(slowTime);
             }
         }
         fireParticle.Emit(100);

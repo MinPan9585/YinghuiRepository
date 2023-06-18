@@ -15,6 +15,7 @@ public class KnockedOff : MonoBehaviour
     }
     public void KnockOff()
     {
+        GetComponent<EnemyBase>().isdead = true;
         GetComponent<NavMeshAgent>().enabled=false;
         GetComponent<SphereCollider>().enabled = false;
         GetComponent<Rigidbody>().isKinematic= false;

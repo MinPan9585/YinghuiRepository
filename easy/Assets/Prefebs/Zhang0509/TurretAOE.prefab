@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 7223481139082323608}
   - component: {fileID: 7223481139082323590}
   - component: {fileID: 7223481139082323591}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TurretAOE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7223481139082323610}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.83, y: 5.3, z: 0.339}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
@@ -803,10 +803,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396347e2af3d25e44bdd92092fcd4a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2
-  damage: 10
-  fireRate: 1
-  enemiesInRange: []
+  attackRange: 3.55
+  damage: 15
+  fireRate: 2
+  layerToBlock:
+    serializedVersion: 2
+    m_Bits: 8
   fireParticle: {fileID: 8330315393738648049, guid: 9d08d6267553bcc4588d1d1a22861036,
     type: 3}
 --- !u!199 &7223481139082323590

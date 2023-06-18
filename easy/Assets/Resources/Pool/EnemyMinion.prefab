@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3774734344253393327}
   - component: {fileID: 7305026560160104339}
   - component: {fileID: 5298339590665551591}
-  - component: {fileID: 5896686383895256776}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae56d410824578e4fbd48bc35456dee8, type: 2}
+  - {fileID: 2100000, guid: 6754f1729cd8aa6469976387315c2cd6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5896686383895256776
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662696813168451531}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.49999994
-  m_Center: {x: 0, y: 0, z: -0.00000095367426}
 --- !u!1 &2158049205351565418
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,8 +176,8 @@ GameObject:
   - component: {fileID: -389343510875969689}
   - component: {fileID: -3083515680909709768}
   - component: {fileID: 6901989869929868175}
-  m_Layer: 9
-  m_Name: EnemyBaseTestFast
+  m_Layer: 10
+  m_Name: EnemyMinion
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,13 +242,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  startHealth: 100
-  health: 0
-  value: 50
+  startHealth: 50
+  armor: 5
+  value: 100
+  deathCount: 2
   agent: {fileID: 0}
+  remainingDistance: 0
   healthBar: {fileID: 7096154443829578861}
   isdead: 0
-  remainingDistance: 0
 --- !u!114 &-740227112950932413
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class UIDisplay : MonoBehaviour
     private void Start()
     {
         GameEvents.Instance.OnUpdateDisplay += UpdateDisplay;
+        UpdateDisplay();
     }
     private void OnDisable()
     {
@@ -26,6 +27,7 @@ public class UIDisplay : MonoBehaviour
         _livesFill.fillAmount = (float)LevelStatus.Lives / 20f;
         livesText.text = LevelStatus.Lives.ToString() + "/20";
         moneyText.text = "$ " + LevelStatus.Money.ToString();
-        //Debug.Log("UI display updatede");
+        
+        //Debug.Log("UI display updatede. " + LevelStatus.Round + "  " + LevelStatus.Money);
     }
 }

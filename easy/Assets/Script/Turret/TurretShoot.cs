@@ -46,12 +46,11 @@ public class TurretShoot: MonoBehaviour
         {
             if(enemiesInRange.Count == 0)
             {
-                Debug.Log("Check");
                 InvokeRepeating(nameof(GetEnemyTarget), 0f, coolDown);
             }
 		}
     }
-	
+
     void GetEnemyQualified()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, range, enemyLayer);
@@ -60,13 +59,13 @@ public class TurretShoot: MonoBehaviour
             EnemyBase enemy = col.GetComponent<EnemyBase>();
             
             if(enemy.isdead)
-            { Debug.Log("dead"); continue; }
+            { continue; }
             else if( Physics.Raycast(transform.position,
                 enemy.transform.position + new Vector3(0, 0.5f, 0) - transform.position,
                 range, layerToBlock))
-            { Debug.Log("Blocked"); continue; }
+            { continue; }
             else if(Vector3.Distance(transform.position, enemy.transform.position) > range + 0.5f) 
-            { Debug.Log("Out of Range"); continue; }
+            { continue; }
             
             enemiesInRange.Add(enemy);
         }
@@ -82,16 +81,15 @@ public class TurretShoot: MonoBehaviour
 
         if (enemiesInRange.Count == 0)
         {
-            Debug.Log("Got canceld");
             CancelInvoke(nameof(GetEnemyTarget));
         }
         else
 		{
             target = enemiesInRange[0].transform;
-            float minDistance = enemiesInRange[0].GetPathRemainingDistance(true);
+            float minDistance = enemiesInRange[0].remainingDistance;
             foreach (EnemyBase enemy in enemiesInRange)
             {
-                if(minDistance > enemy.GetPathRemainingDistance(true))
+                if(minDistance > enemy.remainingDistance)
                 {
                     target = enemy.transform;
                 }
@@ -136,15 +134,6 @@ public class TurretShoot: MonoBehaviour
         projectile.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
         projectile.transform.SetPositionAndRotation(firePoint.position, partToRotate.rotation);
     }
-
-    //private void Update()
-    //{
-    //    if (!useRotate && target != null)
-    //    {
-    //        if(target.gameObject.activeSelf == true)
-    //            partToRotate.transform.LookAt(target);
-    //    }
-    //}
 
     void OnDrawGizmosSelected()
 	{

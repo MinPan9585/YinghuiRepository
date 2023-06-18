@@ -13,6 +13,7 @@ public class SwitchPathFreeze : MonoBehaviour
     [SerializeField] private List<NavMeshAgent> agents;
     private BoxCollider bColidder;
     //[SerializeField] private Vector3 relativeMoveDir;
+    [Header("No need to assign")]
     [SerializeField] private GameObject boundaryCheck;
 
     private void OnTriggerEnter(Collider other)

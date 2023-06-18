@@ -46,14 +46,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262c7809f567c1f488a4255df67346d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   speed: 8
-  damage: 40
+  damage: 20
   enemyTag: Enemy
   explosionRadius: 1
   xRadius: 0.5
   hitEnemyFX: {fileID: 4620547089914393206, guid: 9d08d6267553bcc4588d1d1a22861036,
     type: 3}
   enemies: []
+  deadPos: {x: 0, y: 0, z: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  purpose: 1
 --- !u!114 &6666556503272366274
 MonoBehaviour:
   m_ObjectHideFlags: 0

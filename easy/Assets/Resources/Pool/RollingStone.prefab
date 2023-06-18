@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3272200926379644984}
   - component: {fileID: 3272200926379645380}
   - component: {fileID: 3272200926379644991}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RollingStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stoneDamage: 30
+  lifeTime: 5
 --- !u!114 &3272200926379644991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4585128021332355488}
   - component: {fileID: 8844082995004181092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TriggerDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,5 +186,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}

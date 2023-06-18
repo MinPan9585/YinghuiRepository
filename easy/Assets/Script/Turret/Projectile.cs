@@ -51,7 +51,7 @@ public class Projectile : MonoBehaviour, IPooledObject, ISetTarget
             {
                 targetPos = deadPos;
 
-                Debug.Log("I have no purpose");
+                //Debug.Log("I have no purpose");
                 purpose = false;
             }
             else
