@@ -7,41 +7,48 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ground
+  m_Name: Tree 1
   m_Shader: {fileID: 4800000, guid: 216baab372734d21aadd9a8a375cf8d2, type: 3}
   m_ValidKeywords:
+  - BACKSOLID
+  - BOTTOMSOLID
   - FRONTSOLID
-  - HEIGHT_FOG
+  - LEFTSOLID
+  - LIGHTMAP_AO
   - RIGHTSOLID
-  - TOPGRADIENT
+  - TOPSOLID
   m_InvalidKeywords:
   - _AOUV_UV0
   - _GRADIENTSPACE_WORLD_SPACE
   - _GRADSETTINGS_B_USE_GLOBAL
   - _GRADSETTINGS_D_USE_GLOBAL
-  - _GRADSETTINGS_F_CUSTOM
+  - _GRADSETTINGS_F_USE_GLOBAL
   - _GRADSETTINGS_L_USE_GLOBAL
-  - _GRADSETTINGS_R_CUSTOM
+  - _GRADSETTINGS_R_USE_GLOBAL
   - _GRADSETTINGS_T_USE_GLOBAL
-  - _HFOGENABLE_ON
-  - _LMAPBLENDINGMODE_ADD
+  - _LMAPBLENDINGMODE_AO
+  - _LMAPENABLE_ON
   - _MODE_OPAQUE
-  - _SHADING_B_VERTEX_COLOR
-  - _SHADING_D_VERTEX_COLOR
-  - _SHADING_F_GRADIENT
-  - _SHADING_L_VERTEX_COLOR
-  - _SHADING_R_GRADIENT
+  - _SHADING_B_SOLID_COLOR
+  - _SHADING_D_SOLID_COLOR
+  - _SHADING_F_SOLIDCOLOR
+  - _SHADING_L_SOLID_COLOR
+  - _SHADING_R_SOLID_COLOR
   - _SHADING_T_SOLID_COLOR
+  - _SHOWBACK_ON
+  - _SHOWBOTTOM_ON
   - _SHOWCUSTOMSHADING_ON
-  - _SHOWFOG_ON
   - _SHOWFRONT_ON
+  - _SHOWLEFT_ON
+  - _SHOWLMAP_ON
   - _SHOWRIGHT_ON
   - _SHOWTOP_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -110,35 +117,35 @@ Material:
     - _DontMix: 0
     - _DstBlend: 0
     - _Fade: 1
-    - _FogHeight: 1
-    - _FogYStartPos: -3.2
+    - _FogHeight: 10
+    - _FogYStartPos: 0
     - _GSpace: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GradSettings_B: 0
     - _GradSettings_D: 0
-    - _GradSettings_F: 1
+    - _GradSettings_F: 0
     - _GradSettings_L: 0
-    - _GradSettings_R: 1
-    - _GradSettings_T: 1
-    - _GradientHeight_B: 1
+    - _GradSettings_R: 0
+    - _GradSettings_T: 0
+    - _GradientHeight_B: 0.1
     - _GradientHeight_D: 1
-    - _GradientHeight_F: 1.68
-    - _GradientHeight_G: 1
+    - _GradientHeight_F: 0.1
+    - _GradientHeight_G: 0.1
     - _GradientHeight_L: 1
-    - _GradientHeight_R: 1.6833985
-    - _GradientHeight_T: 0.31
+    - _GradientHeight_R: 0.1
+    - _GradientHeight_T: 1
     - _GradientSpace: 0
-    - _HFogEnable: 1
-    - _LMPower: 0
-    - _LmapBlendingMode: 0
-    - _LmapEnable: 0
+    - _HFogEnable: 0
+    - _LMPower: 1
+    - _LmapBlendingMode: 2
+    - _LmapEnable: 1
     - _MainTexturePower: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OtherSettings: 0
+    - _OtherSettings: 1
     - _Parallax: 0.02
     - _RealtimeShadow: 0
     - _RimEnable: 0
@@ -148,28 +155,28 @@ Material:
     - _Rotation_F: 0
     - _Rotation_G: 0
     - _Rotation_L: 0
-    - _Rotation_R: 358.63257
-    - _Rotation_T: 135
+    - _Rotation_R: 0
+    - _Rotation_T: 0
     - _Saturation: 1
-    - _Shading_B: 0
-    - _Shading_D: 0
+    - _Shading_B: 1
+    - _Shading_D: 1
     - _Shading_F: 1
-    - _Shading_L: 0
+    - _Shading_L: 1
     - _Shading_R: 1
-    - _Shading_T: 2
+    - _Shading_T: 1
     - _ShadowBlend: 0.5
     - _ShadowInfluence: 0.5
     - _ShowAO: 0
     - _ShowAmbientSettings: 0
-    - _ShowBack: 0
-    - _ShowBottom: 0
+    - _ShowBack: 1
+    - _ShowBottom: 1
     - _ShowColorCorrection: 0
     - _ShowCustomShading: 1
     - _ShowFog: 0
     - _ShowFront: 1
-    - _ShowGlobalGradientSettings: 0
-    - _ShowLMap: 0
-    - _ShowLeft: 0
+    - _ShowGlobalGradientSettings: 1
+    - _ShowLMap: 1
+    - _ShowLeft: 1
     - _ShowRight: 1
     - _ShowTexture: 0
     - _ShowTop: 1
@@ -184,19 +191,19 @@ Material:
     - _AOColor: {r: 1, g: 1, b: 1, a: 1}
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_B: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_D: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_F: {r: 0.22196503, g: 0.512502, b: 0.8207547, a: 1}
-    - _Color1_L: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_R: {r: 0.65124005, g: 0.7169343, b: 0.9245283, a: 1}
-    - _Color1_T: {r: 0.75157225, g: 0.8873111, b: 1, a: 1}
-    - _Color2_B: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1_B: {r: 0.5763221, g: 0.9433962, b: 0.25513223, a: 1}
+    - _Color1_D: {r: 0.40899462, g: 0.735849, b: 0.039337788, a: 1}
+    - _Color1_F: {r: 0, g: 0.6075772, b: 0.6117647, a: 1}
+    - _Color1_L: {r: 0.69803923, g: 0.78823537, b: 0.29411766, a: 1}
+    - _Color1_R: {r: 0.11658517, g: 0.8584906, b: 0, a: 1}
+    - _Color1_T: {r: 0.37944353, g: 0.9339623, b: 0.023495832, a: 1}
+    - _Color2_B: {r: 0.19215685, g: 0.25490195, b: 0.21568623, a: 1}
     - _Color2_D: {r: 1, g: 1, b: 1, a: 1}
-    - _Color2_F: {r: 0.18039216, g: 0.49411768, b: 0.7568628, a: 1}
+    - _Color2_F: {r: 0.11764703, g: 0.14901957, b: 0.11372546, a: 1}
     - _Color2_L: {r: 1, g: 1, b: 1, a: 1}
-    - _Color2_R: {r: 0.18039216, g: 0.49411768, b: 0.7568628, a: 1}
-    - _Color2_T: {r: 0.61006284, g: 0.9150943, b: 0.8628032, a: 1}
-    - _Color_Fog: {r: 0.1764706, g: 0.48627454, b: 0.7411765, a: 1}
+    - _Color2_R: {r: 0.1333333, g: 0.14117643, b: 0.082352914, a: 1}
+    - _Color2_T: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_Fog: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GizmoPosition_B: {r: 0, g: 0, b: 10, a: 10}
     - _GizmoPosition_D: {r: 0, g: 0, b: 10, a: 10}
@@ -206,12 +213,12 @@ Material:
     - _GizmoPosition_T: {r: 0, g: 0, b: 10, a: 10}
     - _GradientXStartPos_D: {r: 0, g: 0, b: 0, a: 0}
     - _GradientXStartPos_T: {r: 0, g: 0, b: 0, a: 0}
-    - _GradientYStartPos_B: {r: 0, g: 0, b: 0, a: 0}
-    - _GradientYStartPos_F: {r: 0, g: -1.4, b: 0, a: 0}
-    - _GradientYStartPos_G: {r: 0, g: 0, b: 0, a: 0}
+    - _GradientYStartPos_B: {r: 0, g: 0.05, b: 0, a: 0}
+    - _GradientYStartPos_F: {r: 0, g: 0.05, b: 0, a: 0}
+    - _GradientYStartPos_G: {r: 0, g: 0.05, b: 0, a: 0}
     - _GradientYStartPos_L: {r: 0, g: 0, b: 0, a: 0}
-    - _GradientYStartPos_R: {r: 0, g: -1.4060116, b: 0, a: 0}
-    - _LMColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GradientYStartPos_R: {r: 0, g: 0.05, b: 0, a: 0}
+    - _LMColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}
