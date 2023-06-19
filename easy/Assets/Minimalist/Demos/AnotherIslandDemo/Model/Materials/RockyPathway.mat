@@ -168,7 +168,7 @@ Material:
     - _ShowBack: 1
     - _ShowBottom: 0
     - _ShowColorCorrection: 0
-    - _ShowCustomShading: 0
+    - _ShowCustomShading: 1
     - _ShowFog: 0
     - _ShowFront: 1
     - _ShowGlobalGradientSettings: 1

@@ -174,7 +174,7 @@ Material:
     - _Shading_T: 1
     - _ShadowBlend: 0.5
     - _ShadowInfluence: 0.5
-    - _ShowAO: 0
+    - _ShowAO: 1
     - _ShowAmbientSettings: 0
     - _ShowBack: 1
     - _ShowBottom: 0
