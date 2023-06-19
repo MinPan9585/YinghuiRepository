@@ -167,16 +167,16 @@ Material:
     - _Shading_T: 1
     - _ShadowBlend: 0.5
     - _ShadowInfluence: 0.5
-    - _ShowAO: 0
+    - _ShowAO: 1
     - _ShowAmbientSettings: 0
     - _ShowBack: 1
     - _ShowBottom: 1
     - _ShowColorCorrection: 0
-    - _ShowCustomShading: 0
+    - _ShowCustomShading: 1
     - _ShowFog: 0
     - _ShowFront: 1
     - _ShowGlobalGradientSettings: 0
-    - _ShowLMap: 0
+    - _ShowLMap: 1
     - _ShowLeft: 1
     - _ShowRight: 1
     - _ShowTexture: 0

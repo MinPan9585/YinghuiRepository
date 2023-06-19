@@ -10,7 +10,12 @@ Material:
   m_Name: Grass
   m_Shader: {fileID: 4800000, guid: 216baab372734d21aadd9a8a375cf8d2, type: 3}
   m_ValidKeywords:
+  - BACKGRADIENT
+  - BOTTOMSOLID
+  - FRONTGRADIENT
+  - LEFTSOLID
   - LIGHTMAP_AO
+  - RIGHTGRADIENT
   - TOPSOLID
   m_InvalidKeywords:
   - _AOUV_UV0
@@ -36,8 +41,9 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3

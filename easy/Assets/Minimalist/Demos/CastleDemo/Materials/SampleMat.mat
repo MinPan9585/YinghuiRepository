@@ -10,6 +10,7 @@ Material:
   m_Name: SampleMat
   m_Shader: {fileID: 4800000, guid: 216baab372734d21aadd9a8a375cf8d2, type: 3}
   m_ValidKeywords:
+  - FRONTSOLID
   - LIGHTMAP_AO
   m_InvalidKeywords:
   - _AOUV_UV0

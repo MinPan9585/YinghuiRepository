@@ -25,7 +25,7 @@ public class BulletUsingPool : MonoBehaviour, IPooledObject
     private Vector3 rotGoal;
     private float rotTimeCount = 0.0f;
 
-    //using pool start
+    #region Pool
     //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
     {
@@ -46,13 +46,12 @@ public class BulletUsingPool : MonoBehaviour, IPooledObject
     {
         CancelInvoke();
     }
-    //using pool end
+    #endregion
 
     void Update()
     {
         if(target== null)
         {
-            //UpdateTarget();
             GetComponent<PooledObjectAttachment>().PutBackToPool();
             SpawnFX();
             return;
@@ -173,17 +172,17 @@ public class BulletUsingPool : MonoBehaviour, IPooledObject
     {
         //Debug.Log("Test phrase");
 
-        EnemyNav0519 e = enemy.GetComponent<EnemyNav0519>();
-        if (e != null)
+        ITakeDamage takeDamage = enemy.GetComponent<ITakeDamage>();
+        if (takeDamage != null)
         {
             float floatDamage = damage * damageRatio;
             //Debug.Log("The damage taken by AOE Missile is: " + (int)floatDamage);
             actualDamage = (int)floatDamage;
-            e.TakeDamage(actualDamage);
+            takeDamage.TakeDamage(actualDamage);
         }
         else
         {
-            Debug.LogWarning("No component on the enemy found, check if it's the right script");
+            Debug.LogWarning("No ITakeDamage found, check if the interface is attached");
         }
         
         //Destroy(enemy.gameObject);

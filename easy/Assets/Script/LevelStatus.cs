@@ -47,13 +47,15 @@ public static class LevelStatus //: MonoBehaviour
         set
         {
             _round = value;
-            if (_round > TotalRound)
+            if (_round >= TotalRound)
             {
                 _round = TotalRound;
                 Debug.LogWarning("Last round is out");
             }
         }
     }
+
+    public static List<EnemyBase> EnemyBaseList = new List<EnemyBase>();
 
 
 }

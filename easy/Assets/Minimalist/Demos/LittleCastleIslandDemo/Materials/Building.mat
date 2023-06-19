@@ -10,9 +10,9 @@ Material:
   m_Name: Building
   m_Shader: {fileID: 4800000, guid: 216baab372734d21aadd9a8a375cf8d2, type: 3}
   m_ValidKeywords:
-  - FRONTGRADIENT
+  - FRONTSOLID
   - HEIGHT_FOG
-  - RIGHTGRADIENT
+  - RIGHTSOLID
   - TOPSOLID
   m_InvalidKeywords:
   - _AOUV_UV0
