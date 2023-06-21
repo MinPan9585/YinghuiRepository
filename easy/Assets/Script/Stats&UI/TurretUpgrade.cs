@@ -6,16 +6,19 @@ using UnityEngine;
 
 public class TurretUpgrade : MonoBehaviour
 {
-    [SerializeField]int _1to2;
-    [SerializeField]int _2to3;
+    [Header("Price")]
+    [SerializeField]int aoe_1to2;
+    [SerializeField]int aoe_2to3;
+    [SerializeField]int shoot_1to2;
+    [SerializeField]int shoot_2to3;
+    [SerializeField]int lazer_1to2;
+    [SerializeField]int lazer_2to3;
+    [SerializeField]int stone_1to2;
+    [SerializeField]int stone_2to3;
+    private int _1to2 = 100;
+    private int _2to3 = 150;
 
     private string _turretTag;
-    public GameObject[] turretList1;
-    public GameObject[] turretList2;
-    public GameObject[] turretList3;
-    public GameObject[] turretList4;
-    public GameObject[] turretList5;
-    public GameObject[] turretList6;
 
     private bool _level1 = true;
     private bool _level2 = false;
@@ -23,17 +26,14 @@ public class TurretUpgrade : MonoBehaviour
 
     private int _money;
 
-    private static GameObject[] _Tlist;
-
     private RaycastHit hit;
     private Ray ray;
     GameObject _curGameObject;
-
+    
     [SerializeField] private GameObject UI;
     private void Start()
     {
         _money = PlayerStats.Money;
-        _Tlist = turretList1;
     }
 
     private void Update()
@@ -43,78 +43,28 @@ public class TurretUpgrade : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit,Mathf.Infinity,LayerMask.GetMask("Turret")))
             {
-                if (hit.transform.gameObject.CompareTag("TurretCat1"))
-                {
-                    UI.SetActive(true);
-                    TurretSelected();
-                }
-                else if (hit.transform.gameObject.CompareTag("TurretCat2"))
-                {
-                    UI.SetActive(true);
-                    TurretSelected();
-                }
-                else if (hit.transform.gameObject.CompareTag("TurretCat3"))
-                {
-                    UI.SetActive(true);
-                    TurretSelected();
-                }
-                else if (hit.transform.gameObject.CompareTag("TurretCat4"))
-                {
-                    UI.SetActive(true);
-                    TurretSelected();
-                }
-                else if (hit.transform.gameObject.CompareTag("TurretCat5"))
-                {
-                    UI.SetActive(true);
-                    TurretSelected();
-                }
-                else if (hit.transform.gameObject.CompareTag("TurretCat6"))
-                {
-                    UI.SetActive(true);
-                    TurretSelected();
-                }
+                TurretSelected();
             }
         }
 
         switch (_turretTag)
         {
-            case "TurretCat1":
-                _Tlist = turretList1;
+            case "Shoot":
+                _1to2 = shoot_1to2;
+                _2to3 = shoot_2to3;
                 break;
-            case "TurretCat2":
-                _Tlist = turretList2;
+            case "AOE":
+                _1to2 = aoe_1to2;
+                _2to3 = aoe_2to3;
                 break;
-            case "TurretCat3":
-                _Tlist = turretList3;
+            case "ThrowStone":
+                _1to2 = stone_1to2;
+                _2to3 = stone_2to3;
                 break;
-            case "TurretCat4":
-                _Tlist = turretList4;
+            case "Lazer":
+                _1to2 = lazer_1to2;
+                _2to3 = lazer_2to3;
                 break;
-            case "TurretCat5":
-                _Tlist = turretList5;
-                break;
-            case "TurretCat6":
-                _Tlist = turretList6;
-                break;
-        }
-
-        if (_Tlist[0].activeSelf)
-        {
-            _level1 = true;
-            _level2 = false;
-            _level3 = false;
-        }
-        else if (_Tlist[1].activeSelf)
-        {
-            _level1 = false;
-            _level2 = true;
-            _level3 = false;
-        }
-        else if (_Tlist[2].activeSelf)
-        {
-            _level1 = false;
-            _level2 = false;
-            _level3 = true;
         }
     }
 
@@ -127,14 +77,50 @@ public class TurretUpgrade : MonoBehaviour
     {
         if (_level1 && _money >= _1to2)
         {
-            _Tlist[0].SetActive(false);
-            _Tlist[1].SetActive(true);
+            switch (_turretTag)
+            {
+                case "Shoot":
+                    _curGameObject.GetComponent<TurretShoot>().range += 50;
+                    break;
+                case "AOE":
+                    _curGameObject.GetComponent<TurrentAOE>().damage += 50;
+                    _curGameObject.GetComponent<TurrentAOE>().coolDown -= 0.4f;
+                    _curGameObject.GetComponent<TurrentAOE>().attackRange += 10;
+                    _curGameObject.GetComponent<TurrentAOE>().slowTime += 2;
+                    break;
+                case "ThrowStone":
+                    _curGameObject.GetComponent<TurretThrowStone>().coolDown -= 2f;
+                    break;
+                case "Lazer":
+                    _curGameObject.GetComponent<TurretLazer>().burnDamage += 50;
+                    _curGameObject.GetComponent<TurretLazer>().burnDuration += 2;
+                    _curGameObject.GetComponent<TurretLazer>().burnWait -= 1;
+                    break;
+            }
             LevelStatus.Money = LevelStatus.Money - _1to2;
         }
         else if (_level2 && _money >= _2to3)
         {
-            _Tlist[1].SetActive(false);
-            _Tlist[2].SetActive(true);
+            switch (_turretTag)
+            {
+                case "Shoot":
+                    _curGameObject.GetComponent<TurretShoot>().range += 50;
+                    break;
+                case "AOE":
+                    _curGameObject.GetComponent<TurrentAOE>().damage += 50;
+                    _curGameObject.GetComponent<TurrentAOE>().coolDown -= 0.4f;
+                    _curGameObject.GetComponent<TurrentAOE>().attackRange += 10;
+                    _curGameObject.GetComponent<TurrentAOE>().slowTime += 2;
+                    break;
+                case "ThrowStone":
+                    _curGameObject.GetComponent<TurretThrowStone>().coolDown -= 2f;
+                    break;
+                case "Lazer":
+                    _curGameObject.GetComponent<TurretLazer>().burnDamage += 50;
+                    _curGameObject.GetComponent<TurretLazer>().burnDuration += 2;
+                    _curGameObject.GetComponent<TurretLazer>().burnWait -= 1;
+                    break;
+            }
             LevelStatus.Money = LevelStatus.Money - _2to3;
         }
     }
@@ -143,14 +129,50 @@ public class TurretUpgrade : MonoBehaviour
     {
         if (_level2)
         {
-            _Tlist[1].SetActive(false);
-            _Tlist[0].SetActive(true);
+            switch (_turretTag)
+            {
+                case "Shoot":
+                    _curGameObject.GetComponent<TurretShoot>().range -= 50;
+                    break;
+                case "AOE":
+                    _curGameObject.GetComponent<TurrentAOE>().damage -= 50;
+                    _curGameObject.GetComponent<TurrentAOE>().coolDown += 0.4f;
+                    _curGameObject.GetComponent<TurrentAOE>().attackRange -= 10;
+                    _curGameObject.GetComponent<TurrentAOE>().slowTime -= 2;
+                    break;
+                case "ThrowStone":
+                    _curGameObject.GetComponent<TurretThrowStone>().coolDown += 2f;
+                    break;
+                case "Lazer":
+                    _curGameObject.GetComponent<TurretLazer>().burnDamage -= 50;
+                    _curGameObject.GetComponent<TurretLazer>().burnDuration -= 2;
+                    _curGameObject.GetComponent<TurretLazer>().burnWait += 1;
+                    break;
+            }
             LevelStatus.Money = LevelStatus.Money + _1to2;
         }
         else if (_level3)
         {
-            _Tlist[2].SetActive(false);
-            _Tlist[1].SetActive(true);
+            switch (_turretTag)
+            {
+                case "Shoot":
+                    _curGameObject.GetComponent<TurretShoot>().range -= 50;
+                    break;
+                case "AOE":
+                    _curGameObject.GetComponent<TurrentAOE>().damage -= 50;
+                    _curGameObject.GetComponent<TurrentAOE>().coolDown += 0.4f;
+                    _curGameObject.GetComponent<TurrentAOE>().attackRange -= 10;
+                    _curGameObject.GetComponent<TurrentAOE>().slowTime -= 2;
+                    break;
+                case "ThrowStone":
+                    _curGameObject.GetComponent<TurretThrowStone>().coolDown += 2f;
+                    break;
+                case "Lazer":
+                    _curGameObject.GetComponent<TurretLazer>().burnDamage -= 50;
+                    _curGameObject.GetComponent<TurretLazer>().burnDuration -= 2;
+                    _curGameObject.GetComponent<TurretLazer>().burnWait += 1;
+                    break;
+            }
             LevelStatus.Money = LevelStatus.Money + _2to3;
         }
     }
@@ -159,8 +181,8 @@ public class TurretUpgrade : MonoBehaviour
     {
         _curGameObject = hit.transform.gameObject;
         _turretTag = _curGameObject.tag;
-
-        // Debug.Log("鼠标世界坐标:" + target);
+        UI.SetActive(true);
+        
         //Debug.Log("物体信息:" + _curGameObject);
     }
 }
