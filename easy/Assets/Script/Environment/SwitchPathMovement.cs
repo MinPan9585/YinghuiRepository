@@ -37,8 +37,11 @@ public class SwitchPathMovement : MonoBehaviour
 
     public void SwitchPath(int id)
     {
-        if(id == this.id)
+        
+
+        if (id == this.id)
         {
+            Debug.Log("Movement");
             if (isRotate)
             {
                 if (alt)
