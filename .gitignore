@@ -62,3 +62,4 @@ easy/ProjectSettings/URPProjectSettings.asset
 *.asset
 *.asset
 easy/.vscode/settings.json
+easy/UserSettings/EditorUserSettings.asset
