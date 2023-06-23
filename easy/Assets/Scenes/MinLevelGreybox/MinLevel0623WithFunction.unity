@@ -23370,6 +23370,7 @@ GameObject:
   - component: {fileID: 8037755955769262201}
   - component: {fileID: 8037755955769262207}
   - component: {fileID: 8037755955769262205}
+  - component: {fileID: 8037755955769262208}
   m_Layer: 5
   m_Name: QiantaoUI0622
   m_TagString: Untagged
@@ -23422,6 +23423,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundSpawnerButton: {fileID: 0}
+--- !u!114 &8037755955769262208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8037755955769262200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076c52eb779023b49bbe2b5eb573214e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxVolSlider: {fileID: 330995190}
+  musicVolSlider: {fileID: 1826278087}
 --- !u!1 &8037755955786780245
 GameObject:
   m_ObjectHideFlags: 0
