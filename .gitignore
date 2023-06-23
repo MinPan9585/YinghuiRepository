@@ -58,3 +58,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+easy/ProjectSettings/URPProjectSettings.asset
+*.asset
+*.asset
+easy/.vscode/settings.json
