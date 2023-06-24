@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_HologramTest0624
+  m_Name: HologramDarkBG
   m_Shader: {fileID: -6465566751694194690, guid: e4d112fe070f5624aa64a65998348122,
     type: 3}
   m_ValidKeywords:
@@ -62,7 +62,7 @@ Material:
     - _Cull: 0
     - _DstBlend: 10
     - _FresnelIntensity: 1
-    - _FresnelPower: 1.23
+    - _FresnelPower: 0.89
     - _IntersectionDepth: 0.53
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -73,6 +73,6 @@ Material:
     - _ZWriteControl: 0
     - _offset: 2.37
     m_Colors:
-    - _FresnelColor: {r: 0, g: 0.18931635, b: 0.3301887, a: 1}
+    - _FresnelColor: {r: 0.5019608, g: 0, b: 0.18634202, a: 1}
     - _Speed: {r: 0.1, g: 0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
