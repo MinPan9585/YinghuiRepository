@@ -17,6 +17,22 @@ public class TurretUpgrade : MonoBehaviour
     [SerializeField]int stone_2to3;
     private int _1to2 = 100;
     private int _2to3 = 150;
+    
+    [Header("AOE Properties")]
+    [SerializeField] private int aoe_Damage;
+    [SerializeField] private int aoe_SlowDownTime;
+    [SerializeField] private float aoe_CD;
+    
+    [Header("Shoot Properties")]
+    [SerializeField] private float shoot_Range;
+    
+    [Header("Stone Properties")]
+    [SerializeField] private float stone_CD;
+    
+    [Header("Lazer Properties")]
+    [SerializeField] private float lazer_CD;
+    [SerializeField] private int lazer_BurnDamage;
+    [SerializeField] private float lazer_BuranDuration;
 
     private string _turretTag;
 
@@ -80,21 +96,21 @@ public class TurretUpgrade : MonoBehaviour
             switch (_turretTag)
             {
                 case "Shoot":
-                    _curGameObject.GetComponent<TurretShoot>().range += 50;
+                    _curGameObject.GetComponent<TurretShoot>().range += shoot_Range;
                     break;
                 case "AOE":
-                    _curGameObject.GetComponent<TurrentAOE>().damage += 50;
-                    _curGameObject.GetComponent<TurrentAOE>().coolDown -= 0.4f;
-                    _curGameObject.GetComponent<TurrentAOE>().attackRange += 10;
-                    _curGameObject.GetComponent<TurrentAOE>().slowTime += 2;
+                    _curGameObject.GetComponent<TurrentAOE>().damage += aoe_Damage;
+                    _curGameObject.GetComponent<TurrentAOE>().coolDown -= aoe_CD;
+                    // _curGameObject.GetComponent<TurrentAOE>().attackRange += 10;
+                    _curGameObject.GetComponent<TurrentAOE>().slowTime += aoe_SlowDownTime;
                     break;
                 case "ThrowStone":
-                    _curGameObject.GetComponent<TurretThrowStone>().coolDown -= 2f;
+                    _curGameObject.GetComponent<TurretThrowStone>().coolDown -= stone_CD;
                     break;
                 case "Lazer":
-                    _curGameObject.GetComponent<TurretLazer>().burnDamage += 50;
-                    _curGameObject.GetComponent<TurretLazer>().burnDuration += 2;
-                    _curGameObject.GetComponent<TurretLazer>().burnWait -= 1;
+                    _curGameObject.GetComponent<TurretLazer>().burnDamage += lazer_BurnDamage;
+                    _curGameObject.GetComponent<TurretLazer>().burnDuration += lazer_BuranDuration;
+                    _curGameObject.GetComponent<TurretLazer>().burnWait -= lazer_CD;
                     break;
             }
             LevelStatus.Money = LevelStatus.Money - _1to2;
@@ -104,21 +120,21 @@ public class TurretUpgrade : MonoBehaviour
             switch (_turretTag)
             {
                 case "Shoot":
-                    _curGameObject.GetComponent<TurretShoot>().range += 50;
+                    _curGameObject.GetComponent<TurretShoot>().range += shoot_Range;
                     break;
                 case "AOE":
-                    _curGameObject.GetComponent<TurrentAOE>().damage += 50;
-                    _curGameObject.GetComponent<TurrentAOE>().coolDown -= 0.4f;
-                    _curGameObject.GetComponent<TurrentAOE>().attackRange += 10;
-                    _curGameObject.GetComponent<TurrentAOE>().slowTime += 2;
+                    _curGameObject.GetComponent<TurrentAOE>().damage += aoe_Damage;
+                    _curGameObject.GetComponent<TurrentAOE>().coolDown -= aoe_CD;
+                    // _curGameObject.GetComponent<TurrentAOE>().attackRange += 10;
+                    _curGameObject.GetComponent<TurrentAOE>().slowTime += aoe_SlowDownTime;
                     break;
                 case "ThrowStone":
-                    _curGameObject.GetComponent<TurretThrowStone>().coolDown -= 2f;
+                    _curGameObject.GetComponent<TurretThrowStone>().coolDown -= stone_CD;
                     break;
                 case "Lazer":
-                    _curGameObject.GetComponent<TurretLazer>().burnDamage += 50;
-                    _curGameObject.GetComponent<TurretLazer>().burnDuration += 2;
-                    _curGameObject.GetComponent<TurretLazer>().burnWait -= 1;
+                    _curGameObject.GetComponent<TurretLazer>().burnDamage += lazer_BurnDamage;
+                    _curGameObject.GetComponent<TurretLazer>().burnDuration += lazer_BuranDuration;
+                    _curGameObject.GetComponent<TurretLazer>().burnWait -= lazer_CD;
                     break;
             }
             LevelStatus.Money = LevelStatus.Money - _2to3;
@@ -132,21 +148,21 @@ public class TurretUpgrade : MonoBehaviour
             switch (_turretTag)
             {
                 case "Shoot":
-                    _curGameObject.GetComponent<TurretShoot>().range -= 50;
+                    _curGameObject.GetComponent<TurretShoot>().range -= shoot_Range;
                     break;
                 case "AOE":
-                    _curGameObject.GetComponent<TurrentAOE>().damage -= 50;
-                    _curGameObject.GetComponent<TurrentAOE>().coolDown += 0.4f;
-                    _curGameObject.GetComponent<TurrentAOE>().attackRange -= 10;
-                    _curGameObject.GetComponent<TurrentAOE>().slowTime -= 2;
+                    _curGameObject.GetComponent<TurrentAOE>().damage -= aoe_Damage;
+                    _curGameObject.GetComponent<TurrentAOE>().coolDown += aoe_CD;
+                    // _curGameObject.GetComponent<TurrentAOE>().attackRange -= 10;
+                    _curGameObject.GetComponent<TurrentAOE>().slowTime -= aoe_SlowDownTime;
                     break;
                 case "ThrowStone":
-                    _curGameObject.GetComponent<TurretThrowStone>().coolDown += 2f;
+                    _curGameObject.GetComponent<TurretThrowStone>().coolDown += stone_CD;
                     break;
                 case "Lazer":
-                    _curGameObject.GetComponent<TurretLazer>().burnDamage -= 50;
-                    _curGameObject.GetComponent<TurretLazer>().burnDuration -= 2;
-                    _curGameObject.GetComponent<TurretLazer>().burnWait += 1;
+                    _curGameObject.GetComponent<TurretLazer>().burnDamage -= lazer_BurnDamage;
+                    _curGameObject.GetComponent<TurretLazer>().burnDuration -= lazer_BuranDuration;
+                    _curGameObject.GetComponent<TurretLazer>().burnWait += lazer_CD;
                     break;
             }
             LevelStatus.Money = LevelStatus.Money + _1to2;
@@ -156,21 +172,21 @@ public class TurretUpgrade : MonoBehaviour
             switch (_turretTag)
             {
                 case "Shoot":
-                    _curGameObject.GetComponent<TurretShoot>().range -= 50;
+                    _curGameObject.GetComponent<TurretShoot>().range -= shoot_Range;
                     break;
                 case "AOE":
-                    _curGameObject.GetComponent<TurrentAOE>().damage -= 50;
-                    _curGameObject.GetComponent<TurrentAOE>().coolDown += 0.4f;
-                    _curGameObject.GetComponent<TurrentAOE>().attackRange -= 10;
-                    _curGameObject.GetComponent<TurrentAOE>().slowTime -= 2;
+                    _curGameObject.GetComponent<TurrentAOE>().damage -= aoe_Damage;
+                    _curGameObject.GetComponent<TurrentAOE>().coolDown += aoe_CD;
+                    // _curGameObject.GetComponent<TurrentAOE>().attackRange -= 10;
+                    _curGameObject.GetComponent<TurrentAOE>().slowTime -= aoe_SlowDownTime;
                     break;
                 case "ThrowStone":
-                    _curGameObject.GetComponent<TurretThrowStone>().coolDown += 2f;
+                    _curGameObject.GetComponent<TurretThrowStone>().coolDown += stone_CD;
                     break;
                 case "Lazer":
-                    _curGameObject.GetComponent<TurretLazer>().burnDamage -= 50;
-                    _curGameObject.GetComponent<TurretLazer>().burnDuration -= 2;
-                    _curGameObject.GetComponent<TurretLazer>().burnWait += 1;
+                    _curGameObject.GetComponent<TurretLazer>().burnDamage -= lazer_BurnDamage;
+                    _curGameObject.GetComponent<TurretLazer>().burnDuration -= lazer_BuranDuration;
+                    _curGameObject.GetComponent<TurretLazer>().burnWait += lazer_CD;
                     break;
             }
             LevelStatus.Money = LevelStatus.Money + _2to3;
