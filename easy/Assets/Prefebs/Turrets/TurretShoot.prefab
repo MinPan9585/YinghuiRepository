@@ -274,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315849446315823512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.258, z: 0.721}
+  m_LocalPosition: {x: 0, y: 0.258, z: 0.672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -368,7 +368,7 @@ MonoBehaviour:
     type: 3}
   coolDown: 2
   turnSpeed: 2
-  partToRotate: {fileID: 6071189529501518171}
+  partToRotate: {fileID: 315849446614053722}
   firePoint: {fileID: 315849446315823519}
   enemyTag: Enemy
   enemyLayer:
@@ -418,7 +418,7 @@ PrefabInstance:
     - target: {fileID: 2580048719914667062, guid: 22514f27d7353fd40a3c2300dc073c02,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.131
       objectReference: {fileID: 0}
     - target: {fileID: 2580048719914667062, guid: 22514f27d7353fd40a3c2300dc073c02,
         type: 3}
