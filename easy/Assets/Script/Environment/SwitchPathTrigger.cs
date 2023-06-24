@@ -16,7 +16,7 @@ public class SwitchPathTrigger : MonoBehaviour
     //}
     private void SwitchPath(int id)
     {
-        Debug.Log("Button is pressed, the path should be switched");
+        //Debug.Log("Button is pressed, the path should be switched");
         GameEvents.Instance.SwitchPath(id);
     }
 
@@ -25,9 +25,15 @@ public class SwitchPathTrigger : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Default")))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Lu")))
             {
-                SwitchPath(id);
+                Debug.Log("111");
+                if(hit.collider.gameObject.name == this.gameObject.name)
+                {
+                    Debug.Log("222");
+                    SwitchPath(id);
+                }
+                
             }
         }
     }
