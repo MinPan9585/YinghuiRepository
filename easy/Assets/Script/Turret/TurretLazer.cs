@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -26,7 +27,9 @@ public class TurretLazer : MonoBehaviour
     public int id;
 
     [Header("SFX")]
-    public string lazerSFX = "Buzzer";
+    public string lazerSFX = "Phasor";
+    [SerializeField]private int sfxID;
+    private bool playingLoop = false;
 
     [Header("Tune")]
     [SerializeField] private float checkingRate = 0.5f;
@@ -80,7 +83,13 @@ public class TurretLazer : MonoBehaviour
         if(hitColliders.Length > 0 )
         {
             lazerLine.enabled = true;
-            AudioManager.Instance.PlaySFXLoop(lazerSFX);
+            
+            if (!playingLoop)
+            {
+                sfxID = AudioManager.Instance.PlaySFXLoop(lazerSFX);
+                playingLoop = true;
+            }
+            
             foreach (RaycastHit hit in hitColliders)
             {
                 if (hit.transform.TryGetComponent<IBurn>(out IBurn eBurn))
@@ -92,6 +101,12 @@ public class TurretLazer : MonoBehaviour
         else
         {
             lazerLine.enabled = false;
+            
+            if (playingLoop)
+            {
+                playingLoop = false;
+                AudioManager.Instance.StopSFXLoop(sfxID); 
+            }
         }
     }
 

@@ -72,7 +72,7 @@ public class TurrentAOE : MonoBehaviour
                 e.SlowDown(slowTime);
             }
         }
-        GameObject go = PoolManager.Instance.SpawnFromSubPool(fireParticle.name.ToString(), transform);//This line needed for pooling
+        GameObject go = PoolManager.Instance.SpawnFromSubPool(fireParticle.name.ToString(), transform);
         go.transform.SetParent(transform, false);
         go.transform.SetPositionAndRotation(transform.position, transform.rotation);
         AudioManager.Instance.PlaySFX(hitSFX);

@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     public Sound[] musicSounds, sfxSounds;
     private AudioSource musicSource, sfxSource;
 
+    public List<AudioSource> sfxSources;
+
     private void Awake()
     {
         if(Instance == null)
@@ -66,9 +68,40 @@ public class AudioManager : MonoBehaviour
             sfxSource.PlayOneShot(s.clip);
         }
     }
-    public void PlaySFXLoop(string name)
+    public int PlaySFXLoop(string name)
     {
         Debug.Log("Loop SFX work in progress");
+
+        Sound s = Array.Find(sfxSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound Not found, check spelling");
+            return -1;
+        }
+        else
+        {
+            AudioSource sfx = PoolManager.Instance.
+                SpawnFromSubPool(sfxSource.name.ToString(), transform).
+                GetComponent<AudioSource>();
+            sfxSources.Add(sfx);
+
+            sfx.clip = s.clip;
+            sfx.loop = true;
+            sfx.Play();
+            return sfxSources.IndexOf(sfx);
+        }
+    }
+    public void StopSFXLoop(int sfxID)
+    {
+        if(sfxID < 0 || sfxID > sfxSources.Count)
+        {
+            Debug.LogWarning("Sound Not found, and can't be retrieved");
+        }
+        else
+        {
+            PoolManager.Instance.DespawnFromSubPool(sfxSources[sfxID].gameObject);
+        }
     }
     public void SfxVolumeChanged(float value)
     {
