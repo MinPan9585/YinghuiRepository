@@ -6,48 +6,77 @@ public class RollingStone : MonoBehaviour, IPooledObject
 {
     public int stoneDamage = 20;
     public float lifeTime = 5f;
+
+    [Header("SFX")]
+    public string spawnSFX = "Buzzer";
+    public string rollSFX = "Phasor";
+    [SerializeField] private int sfxID;
+    private bool playingLoop = false;
+    [Header("VFX")]
+    public GameObject spawnVFX;
+    public GameObject rollVFX;
+    public GameObject hitVFX;
+
+    private void Start()
+    {
+        GameObject go = PoolManager.Instance.SpawnFromSubPool(rollVFX.name.ToString(), transform);
+        go.transform.SetParent(transform, false);
+        go.transform.SetPositionAndRotation(transform.position, transform.rotation);
+    }
     #region Pool
     //using pool start
     //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
     {
         Invoke(nameof(DestroyStone), lifeTime);
-        RestoreValues(); //注释:这是一个例子,将原本在Start()内的放到这里
+        AudioManager.Instance.PlaySFX(spawnSFX);
+        
+        playingLoop = false;
+        if (!playingLoop)
+        {
+            sfxID = AudioManager.Instance.PlaySFXLoop(rollSFX);
+            playingLoop = true;
+        }
+
+        GameObject go = PoolManager.Instance.SpawnFromSubPool(spawnVFX.name.ToString(), transform);
+        go.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
+        go.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        RestoreValues();
     }
     //Must have, even left blank.
-    public void OnObjectDespawn()//暂时没想好要不要删掉，就先留着了
+    public void OnObjectDespawn()
     {
     }
     //specifically for restoring some values, like health
-    public void RestoreValues()//示例，这是敌人的，恢复敌人的血量
+    public void RestoreValues()
     {
         
     }
-    private void OnDisable()//用这个来代替OnObjectDespawn()
+    private void OnDisable()
     {
-        //可以是重置位置，停止计时器之类的
+        
     }
     //using pool end
     #endregion
 
     private void DestroyStone()
     {
+        if (playingLoop)
+        {
+            playingLoop = false;
+            AudioManager.Instance.StopSFXLoop(sfxID);
+        }
         GetComponent<PooledObjectAttachment>().PutBackToPool();
     }
-
-    //private void OnCollisionStay(Collision collision)
-    //{
-    //    if (collision.transform.CompareTag("Enemy"))
-    //    {
-    //        EnemyNav0519 e = collision.transform.GetComponent<EnemyNav0519>();
-    //        e.TakeDamage(stoneDamage);
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
+            GameObject go = PoolManager.Instance.SpawnFromSubPool(spawnVFX.name.ToString(), transform);
+            go.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
+            go.transform.position = other.transform.position;
+
             if (other.TryGetComponent<KnockedOff>(out KnockedOff minion))
             {
                 minion.KnockOff();

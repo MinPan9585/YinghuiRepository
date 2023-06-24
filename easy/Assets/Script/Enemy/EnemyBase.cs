@@ -27,6 +27,10 @@ public class EnemyBase : MonoBehaviour, ITakeDamage, ISlowDown
     [Header("Needs assign")]
     public Image healthBar;
 
+    [Header("FX")]
+    public string dieSFX = "Buzzer";
+    public GameObject dieVFX;
+
     [Header("Other coding parameters, ignore")]
     public bool isdead = false;
 
@@ -124,6 +128,12 @@ public class EnemyBase : MonoBehaviour, ITakeDamage, ISlowDown
         LevelStatus.Money += value;
         LevelStatus.EnemyBaseList.Remove(this);
         GameEvents.Instance.UpdateDisplay();
+
+        GameObject go = PoolManager.Instance.SpawnFromSubPool(dieVFX.name.ToString(), transform);
+        go.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
+        go.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        AudioManager.Instance.PlaySFX(dieSFX);
+
         GetComponent<PooledObjectAttachment>().PutBackToPool();
     }
 

@@ -45,6 +45,20 @@ public class PoolManager : MonoBehaviour
 
         pool.Despawn(go);
     }
+    public void DespawnFromSubPool(GameObject go, int id)
+    {
+        SubPool pool = null;
+        foreach (var p in m_pools.Values)
+        {
+            if (p.Contain(go))
+            {
+                pool = p;
+                break;
+            }
+        }
+
+        pool.Despawn(go, id);
+    }
 
     //Clear all Subpools
     public void ClearAllSubPool()
@@ -55,15 +69,21 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    //public void TidyUpAllSubPool()
-    //{
-    //    foreach (var p in m_pools.Values)
-    //    {
-    //        p.TidyUp();
-    //    }
-    //}
+    public int GetPooledIndex(GameObject go)
+    {
+        SubPool pool = null;
+        foreach (var p in m_pools.Values)
+        {
+            if (p.Contain(go))
+            {
+                pool = p;
+                break;
+            }
+        }
 
-    //create a new pool
+        return pool.GetSubPoolIndex(go);
+    }
+
     void RegisterNewPool(string names, Transform trans)
     {
         string path = ResourceDir + "/" + names;

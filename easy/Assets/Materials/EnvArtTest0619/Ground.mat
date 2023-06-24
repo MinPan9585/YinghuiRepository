@@ -15,6 +15,7 @@ Material:
   - RIGHTSOLID
   - TOPGRADIENT
   m_InvalidKeywords:
+  - AO_ON
   - _AOUV_UV0
   - _GRADIENTSPACE_WORLD_SPACE
   - _GRADSETTINGS_B_USE_GLOBAL

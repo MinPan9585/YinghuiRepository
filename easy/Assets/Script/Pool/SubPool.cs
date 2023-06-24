@@ -61,7 +61,13 @@ public class SubPool
             go.SetActive(false);
         }
     }
-
+    public void Despawn(GameObject go, int id)
+    {
+        if (Contain(go))
+        {
+            m_objects[id].SetActive(false);
+        }
+    }
 
     public void ClearAll()
     {
@@ -74,20 +80,16 @@ public class SubPool
         }
     }
 
-    //public void TidyUp()
-    //{
-    //    foreach (var obj in m_objects)
-    //    {
-    //        if (!obj.activeSelf)
-    //        {
-    //            Object.Destroy(obj);
-    //        }
-    //    }
-    //}
+    
 
     //Judge if in the list or not
     public bool Contain(GameObject go)
     {
         return m_objects.Contains(go);
+    }
+
+    public int GetSubPoolIndex(GameObject go)
+    {
+        return m_objects.IndexOf(go);
     }
 }

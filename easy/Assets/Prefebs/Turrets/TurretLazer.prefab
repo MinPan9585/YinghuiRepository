@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lazerDamage: 20
-  burnWait: 2
+  burnWait: 0.5
   burnDuration: 5
   burnDamage: 5
   lazerLine: {fileID: 1762357284082883938}

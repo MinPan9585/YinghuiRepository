@@ -16,8 +16,7 @@ public class StatusManager : MonoBehaviour
 
     private void Awake()
     {
-        GameEvents.Instance.OnSpawnRound += TrySpawnARound;
-        GameEvents.Instance.OnSwitchPath += RecalculateAllEnemiesPath;
+
 
         foreach (RoundSpawner go in roundSpawners)
         {
@@ -32,7 +31,8 @@ public class StatusManager : MonoBehaviour
     private void Start()
     {
         //GameEvents.Instance.UpdateDisplay();  //This line somehow doesn't work
-
+        GameEvents.Instance.OnSpawnRound += TrySpawnARound;
+        GameEvents.Instance.OnSwitchPath += RecalculateAllEnemiesPath;
         InvokeRepeating(nameof(CalculateAllEnemiesDistance), 1f, 0.5f);
     }
     private void OnDisable()
