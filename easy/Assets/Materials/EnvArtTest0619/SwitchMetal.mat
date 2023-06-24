@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Switch
+  m_Name: SwitchMetal
   m_Shader: {fileID: 4800000, guid: 216baab372734d21aadd9a8a375cf8d2, type: 3}
   m_ValidKeywords:
   - BACKSOLID
@@ -187,10 +187,10 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1_B: {r: 1, g: 0.3437587, b: 0, a: 1}
     - _Color1_D: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_F: {r: 0.8018868, g: 0.2730449, b: 0.2622522, a: 1}
+    - _Color1_F: {r: 0.8962264, g: 0.529228, b: 0, a: 1}
     - _Color1_L: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_R: {r: 0.8113208, g: 0.3754892, b: 0.32656932, a: 1}
-    - _Color1_T: {r: 0.764151, g: 0.28355283, b: 0.16340327, a: 1}
+    - _Color1_R: {r: 0.5754717, g: 0.43310663, b: 0.15020171, a: 1}
+    - _Color1_T: {r: 0.9150943, g: 0.627024, b: 0, a: 1}
     - _Color2_B: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_D: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_F: {r: 1, g: 1, b: 1, a: 1}
