@@ -6,12 +6,32 @@ public class RollingStone : MonoBehaviour, IPooledObject
 {
     public int stoneDamage = 20;
     public float lifeTime = 5f;
+
+    [Header("SFX")]
+    public string spawnSFX = "Buzzer";
+    public string rollSFX = "Buzzer";
+    [Header("VFX")]
+    public GameObject spawnVFX;
+    public GameObject rollVFX;
+
+    private void Start()
+    {
+        GameObject go = PoolManager.Instance.SpawnFromSubPool(rollVFX.name.ToString(), transform);
+        go.transform.SetParent(transform, false);
+        go.transform.SetPositionAndRotation(transform.position, transform.rotation);
+    }
     #region Pool
     //using pool start
     //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
     {
         Invoke(nameof(DestroyStone), lifeTime);
+        AudioManager.Instance.PlaySFX(spawnSFX);
+        AudioManager.Instance.PlaySFXLoop(rollSFX);
+
+        GameObject go = PoolManager.Instance.SpawnFromSubPool(spawnVFX.name.ToString(), transform);
+        go.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
+        go.transform.SetPositionAndRotation(transform.position, transform.rotation);
         RestoreValues(); //注释:这是一个例子,将原本在Start()内的放到这里
     }
     //Must have, even left blank.

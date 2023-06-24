@@ -13,14 +13,15 @@ public class TurrentAOE : MonoBehaviour
     public LayerMask layerToBlock;
 
     [Header("Graphics")]
-    public ParticleSystem fireParticle;
+    public GameObject fireParticle;
+    [Header("SFX")]
+    public string hitSFX = "Buzzer";
 
     [Header("Ignore, enemy in range")]
     public List<EnemyBase> enemiesInRange = new List<EnemyBase>();
     
     void Start()
     {
-        fireParticle= GetComponent<ParticleSystem>();
         InvokeRepeating("UpdateTarget",0f, 0.5f);
     }
 
@@ -71,8 +72,10 @@ public class TurrentAOE : MonoBehaviour
                 e.SlowDown(slowTime);
             }
         }
-        fireParticle.Emit(100);
-
+        GameObject go = PoolManager.Instance.SpawnFromSubPool(fireParticle.name.ToString(), transform);//This line needed for pooling
+        go.transform.SetParent(transform, false);
+        go.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        AudioManager.Instance.PlaySFX(hitSFX);
     }
     
     void OnDrawGizmosSelected()

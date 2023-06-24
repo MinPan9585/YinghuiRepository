@@ -131,6 +131,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stoneDamage: 30
   lifeTime: 5
+  spawnSFX: Buzzer
+  rollSFX: Buzzer
+  spawnVFX: {fileID: 4029915016176896542, guid: 39f3da203d0dc3b4eabe0050d4847718,
+    type: 3}
+  rollVFX: {fileID: 4854088472955890398, guid: 820603ea893ad024386bcf7478713a09, type: 3}
 --- !u!114 &3272200926379644991
 MonoBehaviour:
   m_ObjectHideFlags: 0

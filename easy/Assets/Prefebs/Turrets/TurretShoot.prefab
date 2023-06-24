@@ -364,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   range: 3
-  bulletPrefab: {fileID: 2764582061297583724, guid: 9e7028f0e3b3a664a8d65e75b2e23adc,
+  bulletPrefab: {fileID: 2764582061297583724, guid: 515a6913bb0662a40a5d550734537071,
     type: 3}
   coolDown: 2
   turnSpeed: 2

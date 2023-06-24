@@ -249,6 +249,8 @@ MonoBehaviour:
   agent: {fileID: 0}
   remainingDistance: 0
   healthBar: {fileID: 7096154443829578861}
+  dieSFX: Buzzer
+  dieVFX: {fileID: 5802479888461929704, guid: d3f6b88f1bb8ff4488fa6d4861367253, type: 3}
   isdead: 0
 --- !u!114 &-5212916425848885124
 MonoBehaviour:
@@ -265,6 +267,7 @@ MonoBehaviour:
   burnStep: 0
   burnCount: 0
   isBurning: 0
+  burnVFX: {fileID: 5802479888461929704, guid: d3f6b88f1bb8ff4488fa6d4861367253, type: 3}
 --- !u!114 &-3083515680909709768
 MonoBehaviour:
   m_ObjectHideFlags: 0

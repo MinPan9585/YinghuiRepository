@@ -66,6 +66,10 @@ public class AudioManager : MonoBehaviour
             sfxSource.PlayOneShot(s.clip);
         }
     }
+    public void PlaySFXLoop(string name)
+    {
+        Debug.Log("Loop SFX work in progress");
+    }
     public void SfxVolumeChanged(float value)
     {
         sfxSource.volume = value;

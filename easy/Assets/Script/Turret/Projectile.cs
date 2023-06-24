@@ -16,6 +16,10 @@ public class Projectile : MonoBehaviour, IPooledObject, ISetTarget
     public float xRadius = 0.5f;
     [Header("Visual")]
     public GameObject hitEnemyFX;
+    public GameObject flyFX;
+    [Header("SFX")]
+    public string shootSFX = "Buzzer";
+    public string hitSFX = "Buzzer";
 
 
     [Header("Test parameters, ignore")]
@@ -27,7 +31,8 @@ public class Projectile : MonoBehaviour, IPooledObject, ISetTarget
     #region Pool
     //Must have, even left blank. Also, put everything in Start() function here
     public void OnObjectSpawn()
-    {
+    { 
+        AudioManager.Instance.PlaySFX(shootSFX);
     }
     //Must have, even left blank.
     public void OnObjectDespawn()
@@ -37,6 +42,12 @@ public class Projectile : MonoBehaviour, IPooledObject, ISetTarget
     {
     }
     #endregion
+    private void Start()
+    {
+        GameObject go = PoolManager.Instance.SpawnFromSubPool(flyFX.name.ToString(), transform);
+        go.transform.SetParent(transform, false);
+        go.transform.SetPositionAndRotation(transform.position, transform.rotation);
+    }
     public void SetTarget(Transform target)
     {
         this.target = target;
@@ -124,9 +135,11 @@ public class Projectile : MonoBehaviour, IPooledObject, ISetTarget
 
     private void SpawnFX()
     {
+        AudioManager.Instance.PlaySFX(hitSFX);
         GameObject go = PoolManager.Instance.SpawnFromSubPool(hitEnemyFX.name.ToString(), transform);//This line needed for pooling
         go.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
-        go.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        go.transform.position = transform.position;
+        //go.transform.SetPositionAndRotation(transform.position, transform.rotation);
     }
 
     void Explode()

@@ -25,6 +25,9 @@ public class TurretLazer : MonoBehaviour
     [Header("Change terrain ID")]
     public int id;
 
+    [Header("SFX")]
+    public string lazerSFX = "Buzzer";
+
     [Header("Tune")]
     [SerializeField] private float checkingRate = 0.5f;
     private void Start()
@@ -77,6 +80,7 @@ public class TurretLazer : MonoBehaviour
         if(hitColliders.Length > 0 )
         {
             lazerLine.enabled = true;
+            AudioManager.Instance.PlaySFXLoop(lazerSFX);
             foreach (RaycastHit hit in hitColliders)
             {
                 if (hit.transform.TryGetComponent<IBurn>(out IBurn eBurn))

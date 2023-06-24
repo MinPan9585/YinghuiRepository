@@ -12,6 +12,9 @@ public class GetBurned : MonoBehaviour, IBurn
 
     private EnemyBase enemyBase;
 
+    [Header("Visual")]
+    public GameObject burnVFX;
+
     private void Start()
     {
         enemyBase= GetComponent<EnemyBase>();
@@ -43,7 +46,12 @@ public class GetBurned : MonoBehaviour, IBurn
 
                 isBurning = true;
                 burningCount = 0;
+
                 Debug.Log("Play flame effects here");
+                GameObject go = PoolManager.Instance.SpawnFromSubPool(burnVFX.name.ToString(), transform);//This line needed for pooling
+                go.transform.SetParent(transform, false);
+                go.transform.SetPositionAndRotation(transform.position, transform.rotation);
+
                 StartCoroutine(SufferBurn(burnDuration, burnDamage));
             }
         }

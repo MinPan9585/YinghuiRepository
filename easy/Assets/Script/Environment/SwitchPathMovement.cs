@@ -13,6 +13,8 @@ public class SwitchPathMovement : MonoBehaviour
     
     private Vector3 iniTrans;
     private bool alt;
+    [Header("SFX")]
+    public string moveSFX = "Buzzer";
 
     private void Start()
     {
@@ -42,6 +44,7 @@ public class SwitchPathMovement : MonoBehaviour
         if (id == this.id)
         {
             Debug.Log("Movement");
+            AudioManager.Instance.PlaySFX(moveSFX);
             if (isRotate)
             {
                 if (alt)

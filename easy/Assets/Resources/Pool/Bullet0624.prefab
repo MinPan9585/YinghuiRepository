@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6248472124497675716}
   - component: {fileID: 6666556503272366274}
   m_Layer: 0
-  m_Name: Missile0612
+  m_Name: Bullet0624
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,11 +50,11 @@ MonoBehaviour:
   speed: 8
   damage: 20
   enemyTag: Enemy
-  explosionRadius: 1
+  explosionRadius: 0
   xRadius: 0.5
-  hitEnemyFX: {fileID: 3120573175635606906, guid: 2d4b9dcd2475be94cbf8d93bbf2ef094,
+  hitEnemyFX: {fileID: 4253681916832025191, guid: 0cbb4a5088076e745959358c7ca363bb,
     type: 3}
-  flyFX: {fileID: 1144142673183336136, guid: 9908839d3c49fef4b95db906ab81e461, type: 3}
+  flyFX: {fileID: 7194152785608746701, guid: f9f14261dee88de4e8613b09ef6eaae7, type: 3}
   enemies: []
   deadPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
