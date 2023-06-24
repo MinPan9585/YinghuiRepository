@@ -15,6 +15,7 @@ Material:
   - RIGHTSOLID
   - TOPGRADIENT
   m_InvalidKeywords:
+  - AO_ON
   - _AOUV_UV0
   - _GRADIENTSPACE_WORLD_SPACE
   - _GRADSETTINGS_B_USE_GLOBAL
@@ -164,7 +165,7 @@ Material:
     - _ShowBack: 0
     - _ShowBottom: 0
     - _ShowColorCorrection: 0
-    - _ShowCustomShading: 1
+    - _ShowCustomShading: 0
     - _ShowFog: 0
     - _ShowFront: 1
     - _ShowGlobalGradientSettings: 0
