@@ -80,8 +80,8 @@ public class EnemyBase : MonoBehaviour, ITakeDamage, ISlowDown
     private void OnDisable()
     {
         //reset movement status (recommended for every pooled object)
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
+        //transform.localPosition = Vector3.zero;
+        //transform.localRotation = Quaternion.identity;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         CancelInvoke();
         StopAllCoroutines();
@@ -170,6 +170,7 @@ public class EnemyBase : MonoBehaviour, ITakeDamage, ISlowDown
 
     public void EndPath()
     {
+        isdead = true;
         LevelStatus.Lives -= deathCount;
         LevelStatus.EnemyBaseList.Remove(this);
         GameEvents.Instance.UpdateDisplay();

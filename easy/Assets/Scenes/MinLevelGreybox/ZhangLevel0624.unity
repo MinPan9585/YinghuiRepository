@@ -1921,12 +1921,12 @@ PrefabInstance:
     - target: {fileID: 1762357284057064564, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.65
+      value: 3.45
       objectReference: {fileID: 0}
     - target: {fileID: 1762357284057064564, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.24
+      value: 5.81
       objectReference: {fileID: 0}
     - target: {fileID: 1762357284057064564, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
         type: 3}
@@ -1972,6 +1972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: lazerSFX
       value: Phasor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762357284057064566, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
+        type: 3}
+      propertyPath: animationGap
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1762357284057064571, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
         type: 3}
@@ -4052,7 +4057,6 @@ MonoBehaviour:
   sfxSounds:
   - clip: {fileID: 8300000, guid: cd99601e4efd35948adc5ed9f8e6c108, type: 3}
   - clip: {fileID: 8300000, guid: e64b96be6f4143343b77123910a6d2ea, type: 3}
-  sfxSources: []
 --- !u!1 &318146740
 GameObject:
   m_ObjectHideFlags: 0

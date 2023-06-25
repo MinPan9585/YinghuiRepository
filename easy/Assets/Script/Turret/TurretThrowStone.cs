@@ -12,6 +12,7 @@ public class TurretThrowStone : MonoBehaviour
     public float coolDown = 1f;
     private float timer = 0f;
     private bool readyToThrow;
+    public float animationGap = 0.4f;
 
     //private BoxCollider col;
     //private float colCenter;
@@ -27,8 +28,12 @@ public class TurretThrowStone : MonoBehaviour
         //col.center = new Vector3(0, 0, colCenter);
     }
 
-    public void ThrowStone()
+    IEnumerator ThrowStone()
     {
+        Debug.Log(gameObject.name + ": Start Animation here");
+
+        yield return new WaitForSeconds(animationGap);
+
         GameObject go = PoolManager.Instance.SpawnFromSubPool(stonePrefab.name.ToString(), transform);
         go.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
         go.transform.position = throwPosition.position;
@@ -57,7 +62,7 @@ public class TurretThrowStone : MonoBehaviour
         if (other.CompareTag("Enemy") && readyToThrow)
         {
             readyToThrow = false;
-            ThrowStone();
+            StartCoroutine(ThrowStone());
         }
     }
 }

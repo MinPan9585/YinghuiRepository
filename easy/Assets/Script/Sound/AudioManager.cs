@@ -71,8 +71,6 @@ public class AudioManager : MonoBehaviour
     }
     public int PlaySFXLoop(string name)
     {
-        Debug.Log("Loop SFX work in progress");
-
         Sound s = Array.Find(sfxSounds, x => x.name == name);
 
         if (s == null)
