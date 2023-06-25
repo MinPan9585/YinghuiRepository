@@ -86,8 +86,8 @@ public class TurretLazer : MonoBehaviour
             
             if (!playingLoop)
             {
-                sfxID = AudioManager.Instance.PlaySFXLoop(lazerSFX);
                 playingLoop = true;
+                sfxID = AudioManager.Instance.PlaySFXLoop(lazerSFX);
             }
             
             foreach (RaycastHit hit in hitColliders)

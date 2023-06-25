@@ -47,7 +47,7 @@ public class GetBurned : MonoBehaviour, IBurn
                 isBurning = true;
                 burningCount = 0;
 
-                Debug.Log("Play flame effects here");
+                //Debug.Log("Play flame effects here");
                 GameObject go = PoolManager.Instance.SpawnFromSubPool(burnVFX.name.ToString(), transform);//This line needed for pooling
                 go.transform.SetParent(transform, false);
                 go.transform.SetPositionAndRotation(transform.position, transform.rotation);
@@ -62,7 +62,7 @@ public class GetBurned : MonoBehaviour, IBurn
         {
             enemyBase.TakeDamage(burnDamage);
             burningCount++;
-            Debug.Log("Taken flame damage " + burningCount);
+            //Debug.Log("Taken flame damage " + burningCount);
             yield return new WaitForSeconds(1);
         }
 

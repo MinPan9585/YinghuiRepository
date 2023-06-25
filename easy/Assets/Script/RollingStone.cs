@@ -34,8 +34,8 @@ public class RollingStone : MonoBehaviour, IPooledObject
         playingLoop = false;
         if (!playingLoop)
         {
-            sfxID = AudioManager.Instance.PlaySFXLoop(rollSFX);
             playingLoop = true;
+            sfxID = AudioManager.Instance.PlaySFXLoop(rollSFX);
         }
 
         GameObject go = PoolManager.Instance.SpawnFromSubPool(spawnVFX.name.ToString(), transform);
