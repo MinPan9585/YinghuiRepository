@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 315849446614053722}
   - component: {fileID: 315849446614053721}
   - component: {fileID: 315849446614053720}
+  - component: {fileID: 459145699}
   m_Layer: 9
   m_Name: TurretShoot
   m_TagString: Shoot
@@ -394,6 +395,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6873621
   m_Center: {x: -0.0011640191, y: 0.057313323, z: 0.16380513}
+--- !u!114 &459145699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315849446614053723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40530457f6d7647d1a41237b1405349d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 1
 --- !u!1001 &8615137674769286509
 PrefabInstance:
   m_ObjectHideFlags: 0

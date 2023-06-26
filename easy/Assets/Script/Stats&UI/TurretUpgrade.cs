@@ -25,6 +25,8 @@ public class TurretUpgrade : MonoBehaviour
     
     [Header("Shoot Properties")]
     [SerializeField] private float shoot_Range;
+    [SerializeField] float shoot_CD = 1f;
+    [SerializeField] float shoot_turnSpeed = 1f;
     
     [Header("Stone Properties")]
     [SerializeField] private float stone_CD;
@@ -34,11 +36,14 @@ public class TurretUpgrade : MonoBehaviour
     [SerializeField] private int lazer_BurnDamage;
     [SerializeField] private float lazer_BuranDuration;
 
+    private int _curlevel;
+    private TurretLevel _turretLevel;
+    private TurretShoot _turretShoot;
+    private TurrentAOE _turrentAoe;
+    private TurretThrowStone _turretThrowStone;
+    private TurretLazer _turretLazer;
+    
     private string _turretTag;
-
-    private bool _level1 = true;
-    private bool _level2 = false;
-    private bool _level3 = false;
 
     private int _money;
 
@@ -52,9 +57,9 @@ public class TurretUpgrade : MonoBehaviour
         _money = PlayerStats.Money;
     }
 
-    private void Update()
+    public void Update()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButtonUp(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit,Mathf.Infinity,LayerMask.GetMask("Turret")))
@@ -89,107 +94,39 @@ public class TurretUpgrade : MonoBehaviour
         _money = LevelStatus.Money;
     }
 
-    public void TurretLevelUp()
+    public void UpgradeButton()
     {
-        if (_level1 && _money >= _1to2)
+        if (_curlevel >= 3)
         {
-            switch (_turretTag)
-            {
-                case "Shoot":
-                    _curGameObject.GetComponent<TurretShoot>().range += shoot_Range;
-                    break;
-                case "AOE":
-                    _curGameObject.GetComponent<TurrentAOE>().damage += aoe_Damage;
-                    _curGameObject.GetComponent<TurrentAOE>().coolDown -= aoe_CD;
-                    // _curGameObject.GetComponent<TurrentAOE>().attackRange += 10;
-                    _curGameObject.GetComponent<TurrentAOE>().slowTime += aoe_SlowDownTime;
-                    break;
-                case "ThrowStone":
-                    _curGameObject.GetComponent<TurretThrowStone>().coolDown -= stone_CD;
-                    break;
-                case "Lazer":
-                    _curGameObject.GetComponent<TurretLazer>().burnDamage += lazer_BurnDamage;
-                    _curGameObject.GetComponent<TurretLazer>().burnDuration += lazer_BuranDuration;
-                    _curGameObject.GetComponent<TurretLazer>().burnWait -= lazer_CD;
-                    break;
-            }
-            LevelStatus.Money = LevelStatus.Money - _1to2;
+            Debug.Log("The turret is max level!");
         }
-        else if (_level2 && _money >= _2to3)
+        else if (_curlevel < 2 && _money >= _1to2)
         {
-            switch (_turretTag)
-            {
-                case "Shoot":
-                    _curGameObject.GetComponent<TurretShoot>().range += shoot_Range;
-                    break;
-                case "AOE":
-                    _curGameObject.GetComponent<TurrentAOE>().damage += aoe_Damage;
-                    _curGameObject.GetComponent<TurrentAOE>().coolDown -= aoe_CD;
-                    // _curGameObject.GetComponent<TurrentAOE>().attackRange += 10;
-                    _curGameObject.GetComponent<TurrentAOE>().slowTime += aoe_SlowDownTime;
-                    break;
-                case "ThrowStone":
-                    _curGameObject.GetComponentInParent<TurretThrowStone>().coolDown -= stone_CD;
-                    break;
-                case "Lazer":
-                    _curGameObject.GetComponent<TurretLazer>().burnDamage += lazer_BurnDamage;
-                    _curGameObject.GetComponent<TurretLazer>().burnDuration += lazer_BuranDuration;
-                    _curGameObject.GetComponent<TurretLazer>().burnWait -= lazer_CD;
-                    break;
-            }
-            LevelStatus.Money = LevelStatus.Money - _2to3;
+            LevelStatus.Money -= _1to2;
+            UpLevel();
+        }
+        else if(_curlevel < 3 && _money >= _2to3)
+        {
+            LevelStatus.Money -= _2to3;
+            UpLevel();
         }
     }
 
-    public void TurretLevelDown()
+    public void DowngradeButton()
     {
-        if (_level2)
+        if (_curlevel == 1)
         {
-            switch (_turretTag)
-            {
-                case "Shoot":
-                    _curGameObject.GetComponent<TurretShoot>().range -= shoot_Range;
-                    break;
-                case "AOE":
-                    _curGameObject.GetComponent<TurrentAOE>().damage -= aoe_Damage;
-                    _curGameObject.GetComponent<TurrentAOE>().coolDown += aoe_CD;
-                    // _curGameObject.GetComponent<TurrentAOE>().attackRange -= 10;
-                    _curGameObject.GetComponent<TurrentAOE>().slowTime -= aoe_SlowDownTime;
-                    break;
-                case "ThrowStone":
-                    _curGameObject.GetComponent<TurretThrowStone>().coolDown += stone_CD;
-                    break;
-                case "Lazer":
-                    _curGameObject.GetComponent<TurretLazer>().burnDamage -= lazer_BurnDamage;
-                    _curGameObject.GetComponent<TurretLazer>().burnDuration -= lazer_BuranDuration;
-                    _curGameObject.GetComponent<TurretLazer>().burnWait += lazer_CD;
-                    break;
-            }
-            LevelStatus.Money = LevelStatus.Money + _1to2;
+            Debug.Log("The turret is min level");
         }
-        else if (_level3)
+        else if (_curlevel > 2)
         {
-            switch (_turretTag)
-            {
-                case "Shoot":
-                    _curGameObject.GetComponent<TurretShoot>().range -= shoot_Range;
-                    break;
-                case "AOE":
-                    _curGameObject.GetComponent<TurrentAOE>().damage -= aoe_Damage;
-                    _curGameObject.GetComponent<TurrentAOE>().coolDown += aoe_CD;
-                    // _curGameObject.GetComponent<TurrentAOE>().attackRange -= 10;
-                    _curGameObject.GetComponent<TurrentAOE>().slowTime -= aoe_SlowDownTime;
-                    break;
-                case "ThrowStone":
-                    _curGameObject.GetComponent<TurretThrowStone>().coolDown += stone_CD;
-                    break;
-                case "Lazer":
-                    _curGameObject.GetComponent<TurretLazer>().burnDamage -= lazer_BurnDamage;
-                    _curGameObject.GetComponent<TurretLazer>().burnDuration -= lazer_BuranDuration;
-                    _curGameObject.GetComponent<TurretLazer>().burnWait += lazer_CD;
-                    break;
-            }
-            LevelStatus.Money = LevelStatus.Money + _2to3;
+            LevelStatus.Money += _2to3;
+            DownLevel();
+        }
+        else if (_curlevel > 1)
+        {
+            LevelStatus.Money += _1to2;
+            DownLevel();
         }
     }
 
@@ -199,6 +136,96 @@ public class TurretUpgrade : MonoBehaviour
         _turretTag = _curGameObject.tag;
         UI.SetActive(true);
         
-        Debug.Log("物体信息:" + _curGameObject);
+        if (_turretTag == "Shoot")
+        {
+            _turretLevel = _curGameObject.GetComponent<TurretLevel>();
+            _turretShoot = _curGameObject.GetComponent<TurretShoot>();
+            _turrentAoe = null;
+            _turretThrowStone = null;
+            _turretLazer = null;
+        }
+        else if(_turretTag == "AOE")
+        {
+            _turretLevel = _curGameObject.GetComponent<TurretLevel>();
+            _turrentAoe = _curGameObject.GetComponent<TurrentAOE>();
+            _turretShoot = null;
+            _turretThrowStone = null;
+            _turretLazer = null;
+        }
+        else if (_turretTag == "ThrowStone")
+        {
+            _turretLevel = _curGameObject.GetComponentInParent<TurretLevel>();
+            _turretThrowStone = _curGameObject.GetComponentInParent<TurretThrowStone>();
+            _turretShoot = null;
+            _turrentAoe = null;
+            _turretLazer = null;
+        }
+        else if(_turretTag == "Lazer")
+        {
+            _turretLevel = _curGameObject.GetComponent<TurretLevel>();
+            _turretLazer = _curGameObject.GetComponent<TurretLazer>();
+            _turretShoot = null;
+            _turrentAoe = null;
+            _turretThrowStone = null;
+        }
+        _curlevel = _turretLevel.currentLevel;
+        
+        Debug.Log("物体信息:" + _curGameObject + "标签:" + _turretTag);
+    }
+
+    private void UpLevel()
+    {
+        Debug.Log("UP");
+        _turretLevel.currentLevel++;
+        _curlevel++;
+        if (_turretShoot != null)
+        {
+            _turretShoot.coolDown -= shoot_CD;
+            _turretShoot.turnSpeed += shoot_turnSpeed;
+        }
+        if (_turrentAoe != null)
+        {
+            _turrentAoe.damage += aoe_Damage;
+            _turrentAoe.coolDown -= aoe_CD;
+            _turrentAoe.slowTime += aoe_SlowDownTime;
+        }
+        if (_turretThrowStone != null)
+        {
+            _turretThrowStone.coolDown -= stone_CD;
+        }
+        if (_turretLazer != null)
+        {
+            _turretLazer.burnDamage += lazer_BurnDamage;
+            _turretLazer.burnDuration += lazer_BuranDuration;
+            _turretLazer.burnWait -= lazer_CD;
+        }
+    }
+
+    private void DownLevel()
+    {
+        Debug.Log("DOWN");
+        _turretLevel.currentLevel--;
+        _curlevel--;
+        if (_turretShoot != null)
+        {
+            _turretShoot.coolDown += shoot_CD;
+            _turretShoot.turnSpeed -= shoot_turnSpeed;
+        }
+        if (_turrentAoe != null)
+        {
+            _turrentAoe.damage -= aoe_Damage;
+            _turrentAoe.coolDown += aoe_CD;
+            _turrentAoe.slowTime -= aoe_SlowDownTime;
+        }
+        if (_turretThrowStone != null)
+        {
+            _turretThrowStone.coolDown += stone_CD;
+        }
+        if (_turretLazer != null)
+        {
+            _turretLazer.burnDamage -= lazer_BurnDamage;
+            _turretLazer.burnDuration -= lazer_BuranDuration;
+            _turretLazer.burnWait += lazer_CD;
+        }
     }
 }

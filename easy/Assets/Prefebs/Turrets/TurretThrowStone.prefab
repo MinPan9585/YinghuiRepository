@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 5825527678452537605}
   - component: {fileID: 5221207844119613102}
   - component: {fileID: 3242494644259434524}
+  - component: {fileID: 643888595}
   m_Layer: 0
   m_Name: TurretThrowStone
   m_TagString: Untagged
@@ -175,8 +176,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.66, y: 1, z: 2}
-  m_Center: {x: 0, y: 0, z: 3}
+  m_Size: {x: 1.2317381, y: 4.76517, z: 5.792454}
+  m_Center: {x: -0.06820965, y: -1.882585, z: 4.896227}
 --- !u!114 &3242494644259434524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +195,19 @@ MonoBehaviour:
   rollingSpeed: 8
   coolDown: 1
   animationGap: 0.4
+--- !u!114 &643888595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487831270407191268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40530457f6d7647d1a41237b1405349d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 1
 --- !u!1 &7643478606779952517
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +390,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: xiaoji
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069063702077560098, guid: 4be9511daeed2a843b7a521def148e74,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2069063702077560098, guid: 4be9511daeed2a843b7a521def148e74,
         type: 3}

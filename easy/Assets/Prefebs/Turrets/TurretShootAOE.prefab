@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2245652407784351074}
   - component: {fileID: 2245652407784351073}
   - component: {fileID: 2245652407784351072}
+  - component: {fileID: 1961935641}
   m_Layer: 9
   m_Name: TurretShootAOE
   m_TagString: AOE
@@ -114,6 +115,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.62310123
   m_Center: {x: 0.1857326, y: -0.058311462, z: 0}
+--- !u!114 &1961935641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2245652407784351075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40530457f6d7647d1a41237b1405349d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 1
 --- !u!1 &2245652408056874912
 GameObject:
   m_ObjectHideFlags: 0
