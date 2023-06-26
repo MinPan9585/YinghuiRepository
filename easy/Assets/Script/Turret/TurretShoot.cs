@@ -23,9 +23,10 @@ public class TurretShoot: MonoBehaviour
     public string enemyTag = "Enemy";
     public LayerMask enemyLayer;
     public LayerMask layerToBlock;
+    public float animationGap = 0.4f;
 
-	//rotate
-	private Coroutine LookCorotine;
+    //rotate
+    private Coroutine LookCorotine;
     //find enemy closest to target
     private SphereCollider rangeCollider;
 	[SerializeField] private List<EnemyBase> enemiesInRange;
@@ -98,39 +99,53 @@ public class TurretShoot: MonoBehaviour
 
 		if(target != null)
 		{
-            StartRotating(target);//Shoot is called in rotate
+            StartRotating();//Shoot is called in rotate
         }
 	}
 
-	private void StartRotating(Transform enemyTarget)
+	private void StartRotating()
 	{
         //useRotate = true;
-		if (enemyTarget != null)
+		if (target != null)
 		{
             if (LookCorotine != null)
             {
                 StopCoroutine(LookCorotine);
             }
-            LookCorotine = StartCoroutine(LookAt(enemyTarget));
+            LookCorotine = StartCoroutine(LookAt());
         }
 	}
-	private IEnumerator LookAt(Transform enemyTarget)
+	private IEnumerator LookAt()
 	{
-		Quaternion lookRotation = Quaternion.LookRotation(enemyTarget.position - transform.position);
+        Debug.Log(gameObject.name + ": Start Animation here");
 		float time = 0;
 		while (time < 1)
 		{
-			partToRotate.rotation = Quaternion.Slerp(partToRotate.transform.rotation, lookRotation, time);
-			time += Time.deltaTime * turnSpeed;
-			yield return null;
+            if (!target.gameObject.activeSelf)
+            {
+                GetEnemyTarget();
+                //Debug.Log("Attack another enemy");
+            }
+
+            Quaternion lookRotation = Quaternion.LookRotation(target.position - transform.position);
+            partToRotate.rotation = Quaternion.Slerp(partToRotate.transform.rotation, lookRotation, time);
+			time += Time.deltaTime * turnSpeed; 
+
+            yield return null;
 		}
-        Shoot(enemyTarget);
+
+        if (!target.gameObject.activeSelf)
+        {
+            GetEnemyTarget();
+            //Debug.Log("Attack another enemy");
+        }
+        Shoot();
         //useRotate = false;
 	}
-    void Shoot(Transform enemyTarget)
+    void Shoot()
     {
         GameObject projectile = PoolManager.Instance.SpawnFromSubPool(bulletPrefab.name.ToString(), transform);
-        projectile.GetComponent<ISetTarget>().SetTarget(enemyTarget);
+        projectile.GetComponent<ISetTarget>().SetTarget(target);
         projectile.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
         projectile.transform.SetPositionAndRotation(firePoint.position, partToRotate.rotation);
     }

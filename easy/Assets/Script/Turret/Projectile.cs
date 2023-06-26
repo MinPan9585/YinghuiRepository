@@ -58,7 +58,7 @@ public class Projectile : MonoBehaviour, IPooledObject, ISetTarget
     {
         if (purpose)
         {
-            if (target.GetComponent<EnemyBase>().isdead )
+            if (target == null || target.GetComponent<EnemyBase>().isdead )
             {
                 targetPos = deadPos;
 

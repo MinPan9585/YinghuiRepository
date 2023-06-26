@@ -33,6 +33,8 @@ public class TurretLazer : MonoBehaviour
 
     [Header("Tune")]
     [SerializeField] private float checkingRate = 0.5f;
+    public float animationGap = 0.2f;
+    private bool inAnimation = false;
     private void Start()
     {
         //beacon displacement
@@ -44,12 +46,13 @@ public class TurretLazer : MonoBehaviour
         lazerLine.SetPosition(1, beacon_1.position);
 
         //checking
-        InvokeRepeating(nameof(BurnEnemy), 0f, checkingRate);
+        InvokeRepeating(nameof(CallBurn), 0f, checkingRate);
         lazerLine.enabled = false;//remember to change it back to false
 
         //change terrain event
         GameEvents.Instance.OnSwitchPath += UpdateBeacon;
     }
+
     private void OnDisable()
     {
         GameEvents.Instance.OnSwitchPath -= UpdateBeacon;
@@ -75,19 +78,33 @@ public class TurretLazer : MonoBehaviour
         }
     }
 
-    void BurnEnemy()
+    void CallBurn()
+    {
+        StartCoroutine(BurnEnemy());
+    }
+    IEnumerator BurnEnemy()
     {
         RaycastHit[] hitColliders = Physics.SphereCastAll
             (beacon_0.position, detectionRadius, detectDirection, maxDistance, enemyLayer, QueryTriggerInteraction.Ignore);
 
         if(hitColliders.Length > 0 )
         {
+            if (!inAnimation)
+            {
+                inAnimation = true;
+                Debug.Log(gameObject.name + ": Start Animation here");
+
+                yield return new WaitForSeconds(animationGap);
+            }
+            else { yield return null; }
+            
+
             lazerLine.enabled = true;
             
             if (!playingLoop)
             {
-                sfxID = AudioManager.Instance.PlaySFXLoop(lazerSFX);
                 playingLoop = true;
+                sfxID = AudioManager.Instance.PlaySFXLoop(lazerSFX);
             }
             
             foreach (RaycastHit hit in hitColliders)
@@ -107,6 +124,11 @@ public class TurretLazer : MonoBehaviour
                 playingLoop = false;
                 AudioManager.Instance.StopSFXLoop(sfxID); 
             }
+            if (inAnimation)
+            {
+                inAnimation= false;
+            }
+            yield return null;
         }
     }
 

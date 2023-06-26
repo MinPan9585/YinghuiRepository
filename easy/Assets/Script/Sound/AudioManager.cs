@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class AudioManager : MonoBehaviour
     public Sound[] musicSounds, sfxSounds;
     private AudioSource musicSource, sfxSource;
 
-    public List<AudioSource> sfxSources;
+    public Dictionary<int, AudioSource> sfxSources = new Dictionary<int, AudioSource>();
 
     private void Awake()
     {
@@ -70,8 +71,6 @@ public class AudioManager : MonoBehaviour
     }
     public int PlaySFXLoop(string name)
     {
-        Debug.Log("Loop SFX work in progress");
-
         Sound s = Array.Find(sfxSounds, x => x.name == name);
 
         if (s == null)
@@ -84,12 +83,17 @@ public class AudioManager : MonoBehaviour
             AudioSource sfx = PoolManager.Instance.
                 SpawnFromSubPool(sfxSource.name.ToString(), transform).
                 GetComponent<AudioSource>();
-            sfxSources.Add(sfx);
-
+            
             sfx.clip = s.clip;
             sfx.loop = true;
             sfx.Play();
-            return sfxSources.IndexOf(sfx);
+
+            int id = PoolManager.Instance.GetPooledIndex(sfx.gameObject);
+            
+            if (!sfxSources.ContainsKey(id))
+            { sfxSources.Add(id, sfx); }
+
+            return id;
         }
     }
     public void StopSFXLoop(int sfxID)
@@ -100,7 +104,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            PoolManager.Instance.DespawnFromSubPool(sfxSources[sfxID].gameObject);
+            PoolManager.Instance.DespawnFromSubPool(sfxSources[sfxID].gameObject,sfxID);
         }
     }
     public void SfxVolumeChanged(float value)
