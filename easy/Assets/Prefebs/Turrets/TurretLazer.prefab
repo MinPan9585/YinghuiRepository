@@ -114,6 +114,7 @@ MonoBehaviour:
   id: 0
   isRotate: 0
   altTrans: {x: 2, y: 0, z: 8}
+  moveSFX: Buzzer
 --- !u!1 &1762357284057064571
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,9 +125,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1762357284057064564}
   - component: {fileID: 1762357284057064566}
+  - component: {fileID: 6166386336144507725}
+  - component: {fileID: 4614584130185424087}
   m_Layer: 9
   m_Name: TurretLazer
-  m_TagString: Untagged
+  m_TagString: Lazer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,7 +176,36 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   id: 0
+  lazerSFX: Phasor
+  sfxID: 0
   checkingRate: 0.5
+  animationGap: 0.2
+--- !u!65 &6166386336144507725
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762357284057064571}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0704851, y: 2.0572731, z: 1}
+  m_Center: {x: 2.0088196, y: -0.021145463, z: 0}
+--- !u!65 &4614584130185424087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762357284057064571}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.070485, y: 2.0572734, z: 1}
+  m_Center: {x: -1.9947221, y: -0.021145582, z: 0}
 --- !u!1 &1762357284082883936
 GameObject:
   m_ObjectHideFlags: 0

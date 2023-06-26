@@ -129,7 +129,7 @@ public class TurretUpgrade : MonoBehaviour
                     _curGameObject.GetComponent<TurrentAOE>().slowTime += aoe_SlowDownTime;
                     break;
                 case "ThrowStone":
-                    _curGameObject.GetComponent<TurretThrowStone>().coolDown -= stone_CD;
+                    _curGameObject.GetComponentInParent<TurretThrowStone>().coolDown -= stone_CD;
                     break;
                 case "Lazer":
                     _curGameObject.GetComponent<TurretLazer>().burnDamage += lazer_BurnDamage;
@@ -199,6 +199,6 @@ public class TurretUpgrade : MonoBehaviour
         _turretTag = _curGameObject.tag;
         UI.SetActive(true);
         
-        //Debug.Log("物体信息:" + _curGameObject);
+        Debug.Log("物体信息:" + _curGameObject);
     }
 }

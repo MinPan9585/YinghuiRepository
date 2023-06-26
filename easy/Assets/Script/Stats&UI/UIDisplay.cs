@@ -8,9 +8,9 @@ public class UIDisplay : MonoBehaviour
 {
     [Header("Stats Display")]
     public TextMeshProUGUI roundText;
-    public Image _livesFill;
-    public Text livesText;
-    public Text moneyText;
+    // public Image _livesFill;
+    public TextMeshProUGUI livesText;
+    public TextMeshProUGUI moneyText;
 
     private void Start()
     {
@@ -23,10 +23,10 @@ public class UIDisplay : MonoBehaviour
     }
     public void UpdateDisplay()
     {
-        roundText.text = "Round " + LevelStatus.Round.ToString() + " / " + LevelStatus.TotalRound.ToString();
-        _livesFill.fillAmount = (float)LevelStatus.Lives / 20f;
-        livesText.text = LevelStatus.Lives.ToString() + "/20";
-        moneyText.text = "$ " + LevelStatus.Money.ToString();
+        roundText.text = LevelStatus.Round.ToString() + "/" + LevelStatus.TotalRound.ToString();
+        // _livesFill.fillAmount = (float)LevelStatus.Lives / 20f;
+        livesText.text = LevelStatus.Lives.ToString();
+        moneyText.text = LevelStatus.Money.ToString();
         
         //Debug.Log("UI display updatede. " + LevelStatus.Round + "  " + LevelStatus.Money);
     }
