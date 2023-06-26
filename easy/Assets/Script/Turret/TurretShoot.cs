@@ -121,16 +121,17 @@ public class TurretShoot: MonoBehaviour
 		float time = 0;
 		while (time < 1)
 		{
-            if (!target.gameObject.activeSelf)
+            if ( target == null || !target.gameObject.activeSelf)
             {
                 GetEnemyTarget();
                 //Debug.Log("Attack another enemy");
             }
-
-            Quaternion lookRotation = Quaternion.LookRotation(target.position - transform.position);
-            partToRotate.rotation = Quaternion.Slerp(partToRotate.transform.rotation, lookRotation, time);
-			time += Time.deltaTime * turnSpeed; 
-
+            else
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(target.position - transform.position);
+                partToRotate.rotation = Quaternion.Slerp(partToRotate.transform.rotation, lookRotation, time);
+                time += Time.deltaTime * turnSpeed;
+            }
             yield return null;
 		}
 

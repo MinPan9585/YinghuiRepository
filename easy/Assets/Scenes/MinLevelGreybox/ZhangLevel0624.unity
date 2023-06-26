@@ -6902,7 +6902,7 @@ MonoBehaviour:
           type: 3}
         count: 5
         rate: 1
-        interval: 5
+        interval: 0
       - enemyPrefab: {fileID: 4414548395614788915, guid: 15af67573d29fc149b8f419c9232ee8d,
           type: 3}
         count: 10
@@ -6913,12 +6913,6 @@ MonoBehaviour:
           type: 3}
         count: 4
         rate: 1
-        interval: 1
-    - waves:
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 93b729bfce0aae5439c7983c36b21c23,
-          type: 3}
-        count: 2
-        rate: 5
         interval: 1
   roundNum: 0
   intervalAdded: 1
@@ -10884,7 +10878,7 @@ PrefabInstance:
     - target: {fileID: 8037755956308252294, guid: 140d155c681151c41b201d91ff6f0f95,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8037755956308252294, guid: 140d155c681151c41b201d91ff6f0f95,
         type: 3}
@@ -12047,6 +12041,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298862183}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1301304633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8037755956736211478, guid: 140d155c681151c41b201d91ff6f0f95,
+    type: 3}
+  m_PrefabInstance: {fileID: 1180891758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1301304637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301304633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aab2f1f825c0b7448328a7670980b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1306020518
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,7 +55,7 @@ public class RoundSpawner : MonoBehaviour
             foreach (Wave wave in round.waves)
             {
                 theWave = wave;
-                Debug.Log("A new wave is realsed with: "  + theWave.enemyPrefab);
+                Debug.Log("RoundSpawner: A new wave is realsed with: "  + theWave.enemyPrefab);
                 StartCoroutine(SpawnAWave(theWave));
 
                 yield return new WaitForSeconds(wave.interval + intervalAdded);

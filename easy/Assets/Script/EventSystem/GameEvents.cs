@@ -56,6 +56,12 @@ public class GameEvents : MonoBehaviour
         OnDie?.Invoke();
     }
 
+    public event Action OnWin;
+    public void WinTheGame()
+    {
+        OnWin?.Invoke();
+    }
+
     public event Action<int> OnSwitchPath;
     public void SwitchPath(int id) 
     {

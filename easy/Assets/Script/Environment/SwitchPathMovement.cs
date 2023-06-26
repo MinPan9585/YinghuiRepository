@@ -43,7 +43,6 @@ public class SwitchPathMovement : MonoBehaviour
 
         if (id == this.id)
         {
-            Debug.Log("Movement");
             AudioManager.Instance.PlaySFX(moveSFX);
             if (isRotate)
             {

@@ -39,7 +39,10 @@ public class SwitchPathTeleport : MonoBehaviour
     IEnumerator Relaunch(NavMeshAgent agent)
     {
         yield return new WaitForSeconds(1);
-        agent.SetDestination(end);
+        if (agent.gameObject.activeSelf)
+        {
+            agent.SetDestination(end);
+        }
     }
 
     void Teleport(int id)

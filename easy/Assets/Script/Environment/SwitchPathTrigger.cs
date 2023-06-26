@@ -27,10 +27,10 @@ public class SwitchPathTrigger : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Lu")))
             {
-                Debug.Log("111");
+                //Debug.Log("111");
                 if(hit.collider.gameObject.name == this.gameObject.name)
                 {
-                    Debug.Log("222");
+                    //Debug.Log("222");
                     SwitchPath(id);
                 }
                 

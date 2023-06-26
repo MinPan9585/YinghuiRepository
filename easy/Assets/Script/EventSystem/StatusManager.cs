@@ -8,6 +8,7 @@ public class StatusManager : MonoBehaviour
     [Header("Round Spawner")]
     public List<RoundSpawner> roundSpawners;
     private int totalRoundNum = 0;
+    [Header("Parameters,ignore")]
     private bool wavesAllOut = true;
     private bool lastRoundOut = false;
 
@@ -52,7 +53,7 @@ public class StatusManager : MonoBehaviour
             {
                 wavesAllOut = false;
                 Debug.Log("Current round still running");
-                break;
+                return;
             }
         }
 
@@ -60,13 +61,12 @@ public class StatusManager : MonoBehaviour
         {
             foreach (RoundSpawner go in roundSpawners)
             {
-                //go.poolManager.TidyUpAllSubPool();
                 go.OnClickStartARound();
             }
             wavesAllOut = false;
             LevelStatus.Round++;
             GameEvents.Instance.UpdateDisplay();
-
+            
             //Last round
             if(LevelStatus.Round == LevelStatus.TotalRound)
             {
@@ -96,6 +96,7 @@ public class StatusManager : MonoBehaviour
             enemyList = LevelStatus.EnemyBaseList;
             if(enemyList.Count == 0)
             {
+                GameEvents.Instance.WinTheGame();
                 Debug.LogWarning("Win!!!");
                 CancelInvoke();
             }
