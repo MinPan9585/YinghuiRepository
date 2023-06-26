@@ -130,7 +130,6 @@ public class Projectile : MonoBehaviour, IPooledObject, ISetTarget
         }
 
         GetComponent<PooledObjectAttachment>().PutBackToPool();
-
     }
 
     private void SpawnFX()
@@ -158,8 +157,6 @@ public class Projectile : MonoBehaviour, IPooledObject, ISetTarget
 
     void Damage(Transform enemy, float damageRatio)
     {
-        //Debug.Log("Test phrase");
-
         ITakeDamage takeDamage = enemy.GetComponent<ITakeDamage>();
         if (takeDamage != null)
         {

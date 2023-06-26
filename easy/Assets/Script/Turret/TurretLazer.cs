@@ -74,6 +74,7 @@ public class TurretLazer : MonoBehaviour
             maxDistance = Vector3.Magnitude(beacon_1.position - beacon_0.position);
             lazerLine.SetPosition(0, beacon_0.position);
             lazerLine.SetPosition(1, beacon_1.position);
+
             yield return null;
         }
     }

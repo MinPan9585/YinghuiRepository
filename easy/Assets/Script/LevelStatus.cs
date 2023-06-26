@@ -50,7 +50,6 @@ public static class LevelStatus //: MonoBehaviour
             if (_round >= TotalRound)
             {
                 _round = TotalRound;
-                Debug.LogWarning("Last round is out");
             }
         }
     }
