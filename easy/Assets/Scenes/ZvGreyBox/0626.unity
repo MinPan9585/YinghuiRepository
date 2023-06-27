@@ -4394,6 +4394,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774463959}
     m_Modifications:
+    - target: {fileID: 3242494644259434524, guid: 34f04cbe1e0ba494c922806fcce30b56,
+        type: 3}
+      propertyPath: coolDown
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5825527678452537605, guid: 34f04cbe1e0ba494c922806fcce30b56,
         type: 3}
       propertyPath: m_RootOrder
@@ -6365,6 +6370,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774463959}
     m_Modifications:
+    - target: {fileID: 315849446614053720, guid: 588b37dbc5d47bc48b6048340e1a62a3,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 315849446614053720, guid: 588b37dbc5d47bc48b6048340e1a62a3,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 315849446614053720, guid: 588b37dbc5d47bc48b6048340e1a62a3,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 315849446614053720, guid: 588b37dbc5d47bc48b6048340e1a62a3,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 315849446614053720, guid: 588b37dbc5d47bc48b6048340e1a62a3,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 315849446614053722, guid: 588b37dbc5d47bc48b6048340e1a62a3,
         type: 3}
       propertyPath: m_RootOrder
@@ -6373,17 +6403,17 @@ PrefabInstance:
     - target: {fileID: 315849446614053722, guid: 588b37dbc5d47bc48b6048340e1a62a3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.5
+      value: -4.95
       objectReference: {fileID: 0}
     - target: {fileID: 315849446614053722, guid: 588b37dbc5d47bc48b6048340e1a62a3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.79
+      value: 4.45
       objectReference: {fileID: 0}
     - target: {fileID: 315849446614053722, guid: 588b37dbc5d47bc48b6048340e1a62a3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.16
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 315849446614053722, guid: 588b37dbc5d47bc48b6048340e1a62a3,
         type: 3}
@@ -6425,7 +6455,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretShoot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 315849446614053720, guid: 588b37dbc5d47bc48b6048340e1a62a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 588b37dbc5d47bc48b6048340e1a62a3, type: 3}
 --- !u!1 &545292845
 GameObject:
@@ -14398,6 +14429,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774463959}
     m_Modifications:
+    - target: {fileID: 1762357283009497697, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.119999886
+      objectReference: {fileID: 0}
     - target: {fileID: 1762357284057064564, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
         type: 3}
       propertyPath: m_RootOrder
@@ -14457,6 +14493,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TurretLazer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762357284085720934, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7e5a466b1cc1c54db0c1f6de91d87dc, type: 3}
@@ -17355,17 +17396,17 @@ PrefabInstance:
     - target: {fileID: 2245652407784351074, guid: b8d4fa45d52e822468a3f6d9248de7e7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.899
+      value: -3.23
       objectReference: {fileID: 0}
     - target: {fileID: 2245652407784351074, guid: b8d4fa45d52e822468a3f6d9248de7e7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.592
+      value: 4.51
       objectReference: {fileID: 0}
     - target: {fileID: 2245652407784351074, guid: b8d4fa45d52e822468a3f6d9248de7e7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.3
+      value: 2.61
       objectReference: {fileID: 0}
     - target: {fileID: 2245652407784351074, guid: b8d4fa45d52e822468a3f6d9248de7e7,
         type: 3}
@@ -17407,7 +17448,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretShootAOE
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2245652407784351072, guid: b8d4fa45d52e822468a3f6d9248de7e7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b8d4fa45d52e822468a3f6d9248de7e7, type: 3}
 --- !u!1 &1281221608
 GameObject:

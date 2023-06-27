@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 
 public class TurretUpgrade : MonoBehaviour
@@ -52,6 +53,8 @@ public class TurretUpgrade : MonoBehaviour
     GameObject _curGameObject;
     
     [SerializeField] private GameObject UI;
+    public TextMeshProUGUI upgradeMoney;
+    public TextMeshProUGUI downgradeMoney;
     private void Start()
     {
         _money = PlayerStats.Money;
@@ -92,6 +95,21 @@ public class TurretUpgrade : MonoBehaviour
     private void FixedUpdate()
     {
         _money = LevelStatus.Money;
+        if (_curlevel == 1)
+        {
+            upgradeMoney.text = "-" + _1to2.ToString();
+            downgradeMoney.text = "N/A";
+        }
+        else if (_curlevel == 2)
+        {
+            upgradeMoney.text = "-" + _2to3.ToString();
+            downgradeMoney.text = "+" + _1to2.ToString();
+        }
+        else if (_curlevel == 3)
+        {
+            upgradeMoney.text = "N/A";
+            downgradeMoney.text = "+" + _2to3.ToString();
+        }
     }
 
     public void UpgradeButton()
@@ -173,7 +191,7 @@ public class TurretUpgrade : MonoBehaviour
             _turretThrowStone = null;
         }
         _curlevel = _turretLevel.currentLevel;
-        
+
         Debug.Log("物体信息:" + _curGameObject + "标签:" + _turretTag);
     }
 
