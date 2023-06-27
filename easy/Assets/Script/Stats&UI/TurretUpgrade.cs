@@ -110,6 +110,10 @@ public class TurretUpgrade : MonoBehaviour
             LevelStatus.Money -= _2to3;
             UpLevel();
         }
+        else
+        {
+            Debug.Log("---POOR---");
+        }
     }
 
     public void DowngradeButton()

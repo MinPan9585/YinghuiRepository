@@ -1577,11 +1577,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1866334651}
     m_Modifications:
-    - target: {fileID: 1762357283009497725, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
-        type: 3}
-      propertyPath: id
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1762357284057064564, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
         type: 3}
       propertyPath: m_RootOrder
@@ -2396,7 +2391,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.033333335
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 82595fcf7e0c057429c7c671c86a8a09, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 5b0bf2a9e02c7453092bf8c61df62502, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &234538085
 PrefabInstance:
@@ -3693,7 +3688,14 @@ MonoBehaviour:
   musicSounds:
   - clip: {fileID: 8300000, guid: f18da36197d95a249b24ace5b6294f3f, type: 3}
   sfxSounds:
+  - clip: {fileID: 8300000, guid: 4ee3a6e8f42cd4b619868d1064688415, type: 3}
   - clip: {fileID: 8300000, guid: cd99601e4efd35948adc5ed9f8e6c108, type: 3}
+  - clip: {fileID: 8300000, guid: fe3f89bd7741a424dad13806279f2500, type: 3}
+  - clip: {fileID: 8300000, guid: 1561c30ceb50141a8995ac25075d6ab6, type: 3}
+  - clip: {fileID: 8300000, guid: be4c53257ec5743fdbcde2fe2c78aeed, type: 3}
+  - clip: {fileID: 8300000, guid: 2e308ea512d0443179eccf73a5ed6470, type: 3}
+  - clip: {fileID: 8300000, guid: c56c6b07c6eb54b46bc91398e1dd4ea8, type: 3}
+  - clip: {fileID: 8300000, guid: c55a47f0df0324b99bf279eda6cebe8a, type: 3}
 --- !u!1 &318146740
 GameObject:
   m_ObjectHideFlags: 0

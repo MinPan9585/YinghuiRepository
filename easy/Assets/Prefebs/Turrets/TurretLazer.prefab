@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbadb7e4c2576442abc62b7b1f0ddb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   isRotate: 0
   altTrans: {x: 2, y: 0, z: 8}
   moveSFX: Buzzer
@@ -179,7 +179,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   id: 0
-  lazerSFX: Phasor
+  lazerSFX: SF-CK Weapons Energy Laser Small 03
   sfxID: 0
   checkingRate: 0.5
   animationGap: 0.2

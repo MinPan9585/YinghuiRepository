@@ -55,6 +55,8 @@ MonoBehaviour:
   hitEnemyFX: {fileID: 4253681916832025191, guid: 0cbb4a5088076e745959358c7ca363bb,
     type: 3}
   flyFX: {fileID: 7194152785608746701, guid: f9f14261dee88de4e8613b09ef6eaae7, type: 3}
+  shootSFX: whoosh_swish_high_fast_04
+  hitSFX: Crocodile_hit_1
   enemies: []
   deadPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}

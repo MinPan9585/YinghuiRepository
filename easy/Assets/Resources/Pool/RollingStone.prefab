@@ -131,8 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stoneDamage: 30
   lifeTime: 5
-  spawnSFX: Buzzer
-  rollSFX: Phasor
+  spawnSFX: egg
+  rollSFX: DBCK Rock Cobbles Drop Single
   sfxID: 0
   spawnVFX: {fileID: 4029915016176896542, guid: 39f3da203d0dc3b4eabe0050d4847718,
     type: 3}
