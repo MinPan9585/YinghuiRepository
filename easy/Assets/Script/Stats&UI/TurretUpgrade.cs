@@ -132,6 +132,7 @@ public class TurretUpgrade : MonoBehaviour
         {
             Debug.Log("---POOR---");
         }
+        GameEvents.Instance.UpdateDisplay();
     }
 
     public void DowngradeButton()
@@ -150,6 +151,7 @@ public class TurretUpgrade : MonoBehaviour
             LevelStatus.Money += _1to2;
             DownLevel();
         }
+        GameEvents.Instance.UpdateDisplay();
     }
 
     private void TurretSelected()

@@ -9504,6 +9504,30 @@ PrefabInstance:
       objectReference: {fileID: 1892230235}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e49cfafce093c64092012ec5a66bcb1, type: 3}
+--- !u!114 &766270063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1206320733043186851, guid: 9e49cfafce093c64092012ec5a66bcb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 766270062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &766270064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5561808885620238323, guid: 9e49cfafce093c64092012ec5a66bcb1,
+    type: 3}
+  m_PrefabInstance: {fileID: 766270062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &786677503
 GameObject:
   m_ObjectHideFlags: 0
@@ -25763,12 +25787,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aoe_1to2: 500
   aoe_2to3: 500
-  shoot_1to2: 300
-  shoot_2to3: 500
+  shoot_1to2: 200
+  shoot_2to3: 200
   lazer_1to2: 500
   lazer_2to3: 500
-  stone_1to2: 500
-  stone_2to3: 500
+  stone_1to2: 200
+  stone_2to3: 200
   aoe_Damage: 1
   aoe_SlowDownTime: 1
   aoe_CD: 1
@@ -25780,6 +25804,8 @@ MonoBehaviour:
   lazer_BurnDamage: 1
   lazer_BuranDuration: 1
   UI: {fileID: 918786829}
+  upgradeMoney: {fileID: 766270064}
+  downgradeMoney: {fileID: 766270063}
 --- !u!1 &1894566698
 GameObject:
   m_ObjectHideFlags: 0
