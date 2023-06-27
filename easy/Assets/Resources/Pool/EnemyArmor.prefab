@@ -249,7 +249,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   remainingDistance: 0
   healthBar: {fileID: 7096154443829578861}
-  dieSFX: Buzzer
+  dieSFX: Die_M
   dieVFX: {fileID: 5802479888461929704, guid: d3f6b88f1bb8ff4488fa6d4861367253, type: 3}
   isdead: 0
 --- !u!114 &-5212916425848885124

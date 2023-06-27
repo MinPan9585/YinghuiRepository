@@ -36,6 +36,13 @@ public class TurretUpgrade : MonoBehaviour
     [SerializeField] private float lazer_CD;
     [SerializeField] private int lazer_BurnDamage;
     [SerializeField] private float lazer_BuranDuration;
+    
+    [Header("SFX")]
+    public string turretSelected = "Selected";
+    public string turretLevelUp = "Up";
+    public string turretLevelDown = "Down";
+    private int sfxID;
+    private bool playingLoop = false;
 
     private int _curlevel;
     private TurretLevel _turretLevel;
@@ -52,6 +59,7 @@ public class TurretUpgrade : MonoBehaviour
     private Ray ray;
     GameObject _curGameObject;
     
+    [Header("UI")]
     [SerializeField] private GameObject UI;
     public TextMeshProUGUI upgradeMoney;
     public TextMeshProUGUI downgradeMoney;
@@ -156,6 +164,7 @@ public class TurretUpgrade : MonoBehaviour
 
     private void TurretSelected()
     {
+        AudioManager.Instance.PlaySFX(turretSelected);
         _curGameObject = hit.transform.gameObject;
         _turretTag = _curGameObject.tag;
         UI.SetActive(true);
@@ -199,6 +208,7 @@ public class TurretUpgrade : MonoBehaviour
 
     private void UpLevel()
     {
+        AudioManager.Instance.PlaySFX(turretLevelUp);
         Debug.Log("UP");
         _turretLevel.currentLevel++;
         _curlevel++;
@@ -227,6 +237,7 @@ public class TurretUpgrade : MonoBehaviour
 
     private void DownLevel()
     {
+        AudioManager.Instance.PlaySFX(turretLevelDown);
         Debug.Log("DOWN");
         _turretLevel.currentLevel--;
         _curlevel--;

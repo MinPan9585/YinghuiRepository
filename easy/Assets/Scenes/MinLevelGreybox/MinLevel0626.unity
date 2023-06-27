@@ -3967,7 +3967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSounds:
-  - clip: {fileID: 8300000, guid: f18da36197d95a249b24ace5b6294f3f, type: 3}
+  - clip: {fileID: 8300000, guid: 3e414128dca2744f4a6556eb6773ce73, type: 3}
   sfxSounds:
   - clip: {fileID: 8300000, guid: cd99601e4efd35948adc5ed9f8e6c108, type: 3}
 --- !u!1 &318146740
