@@ -9,8 +9,13 @@ public class SwitchPathMovement : MonoBehaviour
     public int id;
     [Header("Movement")]
     public bool isRotate;
+    public bool isChangeMat;
+
     public Vector3 altTrans;
-    
+    public Material mat1;
+    public Material mat2;
+
+    private Material iniMat;
     private Vector3 iniTrans;
     private bool alt;
     [Header("SFX")]
@@ -25,6 +30,10 @@ public class SwitchPathMovement : MonoBehaviour
         {
             iniTrans = transform.rotation.eulerAngles;
         }
+        //else if (isChangeMat)
+        //{
+        //    iniMat = mat1;
+        //}
         else
         {
             //iniTrans = transform.position;
@@ -51,6 +60,13 @@ public class SwitchPathMovement : MonoBehaviour
                     LeanTween.rotate(gameObject, altTrans, 1).setEase(LeanTweenType.easeOutQuad);
                 else
                     LeanTween.rotate(gameObject, iniTrans, 1).setEase(LeanTweenType.easeOutQuad);
+            }
+            else if (isChangeMat)
+            {
+                if (alt)
+                    this.GetComponent<MeshRenderer>().material = mat2;
+                else
+                    this.GetComponent<MeshRenderer>().material = mat1;
             }
             else
             {

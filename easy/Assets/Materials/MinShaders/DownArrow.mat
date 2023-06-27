@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_UpDownArrow
+  m_Name: DownArrow
   m_Shader: {fileID: -6465566751694194690, guid: 4c55748b3cd2aa54c854c1f305a81fde,
     type: 3}
   m_ValidKeywords: []
@@ -44,7 +44,7 @@ Material:
     m_Colors:
     - _MainColor: {r: 3.9999995, g: 3.1204185, b: 0, a: 1}
     - _Speed: {r: 0, g: -1, b: 0, a: 0}
-    - _Tiling: {r: 1, g: 9, b: 0, a: 0}
+    - _Tiling: {r: 1, g: -9, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6307049463003049164
 MonoBehaviour:
