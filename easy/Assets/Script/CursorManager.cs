@@ -5,9 +5,10 @@ using UnityEngine;
 public class CursorManager : MonoBehaviour
 {
     public static CursorManager Instance;
-    RaycastHit hitInfo;
+    RaycastHit[] hits;
 
     public Texture2D cursor1, cursor2;
+    public bool isCursor2;
 
     private void Awake()
     {
@@ -19,39 +20,30 @@ public class CursorManager : MonoBehaviour
 
     private void Update()
     {
+        //Cursor.SetCursor(cursor2, new Vector2(128, 128), CursorMode.Auto);
         SetCursorTexture();
+        if (isCursor2)
+        {
+            Cursor.SetCursor(cursor2, new Vector2(128, 128), CursorMode.Auto);
+        }
+        else
+        {
+            Cursor.SetCursor(cursor1, new Vector2(128, 128), CursorMode.Auto);
+        }
     }
 
     void SetCursorTexture()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out hitInfo))
+        hits = Physics.RaycastAll(ray, 100f);
+        isCursor2 = false;
+        for (int i = 0; i < hits.Length; i++)
         {
-            //set cursor textures
-            switch (hitInfo.collider.tag)
-            {
-                case "Shoot":
-                    Cursor.SetCursor(cursor2, new Vector2(128,128), CursorMode.Auto);
-                    break;
-                case "ThrowStone":
-                    Cursor.SetCursor(cursor2, new Vector2(128, 128), CursorMode.Auto);
-                    break;
-                case "Lazer":
-                    Cursor.SetCursor(cursor2, new Vector2(128, 128), CursorMode.Auto);
-                    break;
-                case "AOE":
-                    Cursor.SetCursor(cursor2, new Vector2(128, 128), CursorMode.Auto);
-                    break;
-                case "Enemy":
-                    Cursor.SetCursor(cursor2, new Vector2(128, 128), CursorMode.Auto);
-                    break;
-                case "Untagged":
-                    Cursor.SetCursor(cursor2, new Vector2(128, 128), CursorMode.Auto);
-                    break;
-                case "TurretMesh":
-                    Cursor.SetCursor(cursor1, new Vector2(128, 128), CursorMode.Auto);
-                    break;
+            //RaycastHit hit = hits[i];
 
+            if (hits[i].collider.tag == "TurretMesh")
+            {
+                isCursor2 = true;
             }
         }
     }
