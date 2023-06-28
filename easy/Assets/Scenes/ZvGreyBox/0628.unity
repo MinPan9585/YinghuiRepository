@@ -3971,37 +3971,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377883761}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &384828482
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 384828483}
-  m_Layer: 0
-  m_Name: ThrowPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &384828483
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384828482}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 643888592}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &387565975
 GameObject:
   m_ObjectHideFlags: 0
@@ -17419,13 +17388,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretShootAOE
       objectReference: {fileID: 0}
-    - target: {fileID: 2245652407784351075, guid: b8d4fa45d52e822468a3f6d9248de7e7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2245652407784351072, guid: b8d4fa45d52e822468a3f6d9248de7e7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8d4fa45d52e822468a3f6d9248de7e7, type: 3}
 --- !u!1 &1281221608
 GameObject:
@@ -23166,7 +23129,7 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 93337ac465efd46c0b43737193db5251, type: 3}
   - clip: {fileID: 8300000, guid: 525f648f44f814bb0a4f2bbbd94a0664, type: 3}
   - clip: {fileID: 8300000, guid: 5576ec0fb7f784cffb10ac747634e875, type: 3}
-  - clip: {fileID: 8300000, guid: 6b7f5f1ae742841c29b7839392b769f8, type: 3}
+  - clip: {fileID: 8300000, guid: 6181ba20c9abf45b2b4f29456c3a5d0e, type: 3}
   - clip: {fileID: 8300000, guid: d7b58615fab614ffdbc02720ef0c2d14, type: 3}
 --- !u!114 &1718286219
 MonoBehaviour:
@@ -32222,7 +32185,7 @@ MonoBehaviour:
   altTrans: {x: -2.32, y: 2.660222, z: 4.51}
   mat1: {fileID: 0}
   mat2: {fileID: 0}
-  moveSFX: Locked_Down_Gears_01
+  moveSFX: Moveable_05
 --- !u!1 &7668964617874959772
 GameObject:
   m_ObjectHideFlags: 0
@@ -32700,7 +32663,7 @@ MonoBehaviour:
   altTrans: {x: -6.4, y: 3.75, z: 2.71}
   mat1: {fileID: 0}
   mat2: {fileID: 0}
-  moveSFX: Moveable-03
+  moveSFX: Moveable_05
 --- !u!33 &7668964619179966850
 MeshFilter:
   m_ObjectHideFlags: 0

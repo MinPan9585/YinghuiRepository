@@ -193,16 +193,16 @@ public class TurretUpgrade : MonoBehaviour
         
         if (_turretTag == "Shoot")
         {
-            _turretLevel = _curGameObject.GetComponent<TurretLevel>();
-            _turretShoot = _curGameObject.GetComponent<TurretShoot>();
+            _turretLevel = _curGameObject.GetComponentInParent<TurretLevel>();
+            _turretShoot = _curGameObject.GetComponentInParent<TurretShoot>();
             _turrentAoe = null;
             _turretThrowStone = null;
             _turretLazer = null;
         }
         else if(_turretTag == "AOE")
         {
-            _turretLevel = _curGameObject.GetComponent<TurretLevel>();
-            _turrentAoe = _curGameObject.GetComponent<TurrentAOE>();
+            _turretLevel = _curGameObject.GetComponentInParent<TurretLevel>();
+            _turrentAoe = _curGameObject.GetComponentInParent<TurrentAOE>();
             _turretShoot = null;
             _turretThrowStone = null;
             _turretLazer = null;
