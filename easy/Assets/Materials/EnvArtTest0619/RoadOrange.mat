@@ -174,15 +174,15 @@ Material:
     - _ShadowInfluence: 0.5
     - _ShowAO: 0
     - _ShowAmbientSettings: 1
-    - _ShowBack: 1
-    - _ShowBottom: 1
+    - _ShowBack: 0
+    - _ShowBottom: 0
     - _ShowColorCorrection: 1
     - _ShowCustomShading: 1
     - _ShowFog: 0
     - _ShowFront: 1
     - _ShowGlobalGradientSettings: 1
     - _ShowLMap: 0
-    - _ShowLeft: 1
+    - _ShowLeft: 0
     - _ShowRight: 1
     - _ShowTexture: 0
     - _ShowTop: 1
@@ -200,7 +200,7 @@ Material:
     - _Color1_F: {r: 1, g: 0.7152157, b: 0.44025153, a: 1}
     - _Color1_L: {r: 1, g: 0.71916586, b: 0.3843137, a: 1}
     - _Color1_R: {r: 1, g: 0.564109, b: 0.28930813, a: 1}
-    - _Color1_T: {r: 1, g: 0.694995, b: 0.37421376, a: 1}
+    - _Color1_T: {r: 1, g: 0.78005916, b: 0.54402506, a: 1}
     - _Color2_B: {r: 0, g: 0, b: 0, a: 1}
     - _Color2_D: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_F: {r: 0.2509804, g: 0.3529412, b: 0.34509805, a: 1}
