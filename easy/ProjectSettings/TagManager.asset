@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Shoot
+  - ThrowStone
+  - Lazer
+  - AOE
+  - TurretMesh
   layers:
   - Default
   - TransparentFX
