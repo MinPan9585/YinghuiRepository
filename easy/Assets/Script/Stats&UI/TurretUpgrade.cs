@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TurretUpgrade : MonoBehaviour
 {
@@ -63,6 +64,9 @@ public class TurretUpgrade : MonoBehaviour
     [SerializeField] private GameObject UI;
     public TextMeshProUGUI upgradeMoney;
     public TextMeshProUGUI downgradeMoney;
+    public GameObject UpgradeButtonUI;
+    public GameObject DowngradeButtonUI;
+    
     private void Start()
     {
         _money = PlayerStats.Money;
@@ -70,13 +74,31 @@ public class TurretUpgrade : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonUp(0)&& !EventSystem.current.IsPointerOverGameObject())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit,Mathf.Infinity,LayerMask.GetMask("Turret")))
             {
                 TurretSelected();
             }
+        }
+
+        if (_curlevel == 1)
+        {
+            DowngradeButtonUI.SetActive(false);
+        }
+        else
+        {
+            DowngradeButtonUI.SetActive(true);
+        }
+
+        if (_curlevel == 3)
+        {
+            UpgradeButtonUI.SetActive(false);
+        }
+        else
+        {
+            UpgradeButtonUI.SetActive(true);
         }
 
         switch (_turretTag)
