@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Door
+  m_Shader: {fileID: 4800000, guid: 836afb47553f7da4d88e5d90a0232a42, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _FlowTex:
+        m_Texture: {fileID: 2800000, guid: 0f4959fd2267eaf4aa23944fb1835da8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex1:
+        m_Texture: {fileID: 2800000, guid: c902726037e9f254f80edaf1ae1f38fc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex2:
+        m_Texture: {fileID: 2800000, guid: 2cbc8da67e43c0f4f847bc6b25fb494d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 2800000, guid: bcf915ab4c1a49a4bb2aee81b2e79fd9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0.01, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _FlowScale1: 0
+    - _FlowScale2: 0
+    m_Colors:
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FlowSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _MainColor: {r: 0.5252269, g: 0.13435383, b: 0.6981132, a: 1}
+    - _MainColor1: {r: 0, g: 1, b: 0.24621582, a: 1}
+    - _MainColor2: {r: 1, g: 0.7882595, b: 0, a: 1}
+    - _MainSpeed1: {r: -0.25, g: -0.25, b: 0, a: 0}
+    - _MainSpeed2: {r: -0.35, g: -0.35, b: 0, a: 0}
+  m_BuildTextureStacks: []
