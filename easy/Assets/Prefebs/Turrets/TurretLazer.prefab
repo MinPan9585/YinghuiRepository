@@ -213,7 +213,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   id: 0
-  lazerSFX: SF-CK Weapons Energy Laser Small 03
+  lazerSFX: Laser_continue
   sfxID: 0
   checkingRate: 0.5
   animationGap: 0.2
