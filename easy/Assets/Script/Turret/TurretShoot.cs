@@ -119,7 +119,8 @@ public class TurretShoot : MonoBehaviour
     private IEnumerator LookAt()
     {
         Debug.Log(gameObject.name + ": Start Animation here");
-        myAnim.SetTrigger("Attack");
+        if (myAnim)
+            myAnim.SetTrigger("Attack");
         float time = 0;
         while (time < 1)
         {
