@@ -58,7 +58,7 @@ public class TurretThrowStone : MonoBehaviour
         #endregion
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Enemy") && readyToThrow)
         {
