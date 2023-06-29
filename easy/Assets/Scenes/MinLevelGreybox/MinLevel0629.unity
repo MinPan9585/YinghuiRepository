@@ -8059,6 +8059,8 @@ MonoBehaviour:
   playButton: {fileID: 1864030242}
   inGameMenu: {fileID: 1864030236}
   previewUI: {fileID: 1864030235}
+  LoseUI: {fileID: 2101325096}
+  WinUI: {fileID: 478074162}
 --- !u!1 &318146740
 GameObject:
   m_ObjectHideFlags: 0
@@ -9708,6 +9710,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4018953832742553353, guid: 6f15d4d510370db43b8e7df68b2f3ddb,
     type: 3}
   m_PrefabInstance: {fileID: 477216219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &478074162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5309441122710338037, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1864030234}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &487204265
 GameObject:
@@ -21129,6 +21137,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnResume
       objectReference: {fileID: 0}
+    - target: {fileID: 1949671264385895956, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 317211830}
+    - target: {fileID: 1949671264385895956, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 2158290626684699308, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -21149,6 +21167,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnQuit
       objectReference: {fileID: 0}
+    - target: {fileID: 2751751681139572630, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 317211830}
+    - target: {fileID: 2751751681139572630, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3047162109529226054, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 317211830}
+    - target: {fileID: 3047162109529226054, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRestart
+      objectReference: {fileID: 0}
     - target: {fileID: 3064883750947760937, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -21157,7 +21195,7 @@ PrefabInstance:
     - target: {fileID: 3064883750947760937, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnRestart
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3064883750947760937, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
@@ -21178,6 +21216,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ButtonMaster, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748986927342831610, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 317211830}
+    - target: {fileID: 4748986927342831610, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnNextLevel
       objectReference: {fileID: 0}
     - target: {fileID: 5118909501801007100, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
@@ -21252,7 +21300,7 @@ PrefabInstance:
     - target: {fileID: 5359673569220242183, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5999782260885715009, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
@@ -22276,6 +22324,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100975429}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2101325096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7664713688216603198, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1864030234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2113656039
 GameObject:
   m_ObjectHideFlags: 0
