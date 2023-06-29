@@ -6466,11 +6466,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretShootAOE (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4497096255204237573, guid: b8d4fa45d52e822468a3f6d9248de7e7,
-        type: 3}
-      propertyPath: m_TagString
-      value: TurretMesh
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8d4fa45d52e822468a3f6d9248de7e7, type: 3}
 --- !u!4 &196205839 stripped
@@ -10347,7 +10342,7 @@ MonoBehaviour:
   roundList:
     rounds:
     - waves:
-      - enemyPrefab: {fileID: 4414548395614788915, guid: ccd1fabdd0a5f0642bad7e49e038b9b6,
+      - enemyPrefab: {fileID: 4414548395614788915, guid: 93b729bfce0aae5439c7983c36b21c23,
           type: 3}
         count: 6
         rate: 1
@@ -20941,25 +20936,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1763072526}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2039181187 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4497096255204237573, guid: b8d4fa45d52e822468a3f6d9248de7e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 196205838}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &2039181190
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2039181187}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2059825134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4e18d3dc494dd6e48aa04a260ce456ac,

@@ -13,7 +13,8 @@ public class TurretLazer : MonoBehaviour
     public int burnDamage = 5;
 
     [Header("Need assign")]
-    public LineRenderer lazerLine;
+    //public LineRenderer lazerLine;
+    public GameObject LazerVFX;
     public Transform beacon_0;
     public Transform beacon_1;
     public float detectionRadius = 0.5f;
@@ -42,13 +43,14 @@ public class TurretLazer : MonoBehaviour
         detectDirection = beacon_1.position - beacon_0.position;
         maxDistance = Vector3.Magnitude(beacon_1.position - beacon_0.position);
 
-        lazerLine.useWorldSpace = true;
+        /*lazerLine.useWorldSpace = true;
         lazerLine.SetPosition(0, beacon_0.position);
         lazerLine.SetPosition(1, beacon_1.position);
+        */
 
         //checking
         InvokeRepeating(nameof(CallBurn), 0f, checkingRate);
-        lazerLine.enabled = false;//remember to change it back to false
+        //lazerLine.enabled = false;//remember to change it back to false
 
         //change terrain event
         GameEvents.Instance.OnSwitchPath += UpdateBeacon;
@@ -73,8 +75,8 @@ public class TurretLazer : MonoBehaviour
         {
             detectDirection = beacon_1.position - beacon_0.position;
             maxDistance = Vector3.Magnitude(beacon_1.position - beacon_0.position);
-            lazerLine.SetPosition(0, beacon_0.position);
-            lazerLine.SetPosition(1, beacon_1.position);
+            //lazerLine.SetPosition(0, beacon_0.position);
+            //lazerLine.SetPosition(1, beacon_1.position);
 
             yield return null;
         }
@@ -95,14 +97,15 @@ public class TurretLazer : MonoBehaviour
             {
                 inAnimation = true;
                 Debug.Log(gameObject.name + ": Start Animation here");
-                myAnim.SetBool("isAttacking", true);
+                myAnim.SetBool("IsAttacking", true);
 
                 yield return new WaitForSeconds(animationGap);
             }
             else { yield return null; }
 
 
-            lazerLine.enabled = true;
+            //lazerLine.enabled = true;
+            LazerVFX.SetActive(true);
 
             if (!playingLoop)
             {
@@ -120,7 +123,8 @@ public class TurretLazer : MonoBehaviour
         }
         else
         {
-            lazerLine.enabled = false;
+            //lazerLine.enabled = false;
+            LazerVFX.SetActive(false);
 
             if (playingLoop)
             {
@@ -130,7 +134,7 @@ public class TurretLazer : MonoBehaviour
             if (inAnimation)
             {
                 inAnimation = false;
-                myAnim.SetBool("isAttacking", false);
+                myAnim.SetBool("IsAttacking", false);
             }
             yield return null;
         }
