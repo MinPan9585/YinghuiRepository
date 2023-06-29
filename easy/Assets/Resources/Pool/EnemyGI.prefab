@@ -245,7 +245,7 @@ MonoBehaviour:
   speed: 2
   startHealth: 100
   armor: 0
-  value: 50
+  value: 30
   deathCount: 1
   agent: {fileID: 0}
   remainingDistance: 0
