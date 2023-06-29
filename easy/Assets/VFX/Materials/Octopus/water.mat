@@ -43,7 +43,7 @@ Material:
     - _Wave_Tex_DissovleInt: 0.42
     m_Colors:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Main_Color: {r: 0.43980798, g: 0, b: 0.754717, a: 1}
+    - _Main_Color: {r: 0.053207938, g: 0, b: 0.7529412, a: 1}
     - _Wave_TexSpeed: {r: 0.25, g: 0.25, b: 0, a: 0}
     - _Wave_Tex_DissovleSpeed: {r: -0.15, g: -0.15, b: 0, a: 0}
   m_BuildTextureStacks: []

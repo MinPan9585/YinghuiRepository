@@ -174,7 +174,7 @@ MonoBehaviour:
   remainingDistance: 0
   healthBar: {fileID: 6873224067657410797}
   dieSFX: Die_M
-  dieVFX: {fileID: 5802479888461929704, guid: d3f6b88f1bb8ff4488fa6d4861367253, type: 3}
+  dieVFX: {fileID: 4214268947081657738, guid: 7aa5d97978f840042a4f0ec743b24919, type: 3}
   isdead: 0
 --- !u!114 &-740227112950932413
 MonoBehaviour:
