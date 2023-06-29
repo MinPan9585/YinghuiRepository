@@ -123,6 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &13033986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8221523536628005391, guid: 34f04cbe1e0ba494c922806fcce30b56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1268373803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &13033989
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13033986}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.57
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &19198157
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +433,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41044448}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &57323676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5876647127593237941, guid: 588b37dbc5d47bc48b6048340e1a62a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1410959613}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &57323679
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57323676}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.46, z: 0.06}
 --- !u!1 &63473202
 GameObject:
   m_ObjectHideFlags: 0
@@ -6778,6 +6816,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555609008}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &562730208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5876647127593237941, guid: 588b37dbc5d47bc48b6048340e1a62a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1897668539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &562730211
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562730208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &562863567
 GameObject:
   m_ObjectHideFlags: 0
@@ -14501,6 +14558,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774463959}
     m_Modifications:
+    - target: {fileID: 1762357283009497696, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
+        type: 3}
+      propertyPath: m_TagString
+      value: TurretMesh
+      objectReference: {fileID: 0}
     - target: {fileID: 1762357284057064564, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
         type: 3}
       propertyPath: m_RootOrder
@@ -14560,6 +14622,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TurretLazer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762357284085720933, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
+        type: 3}
+      propertyPath: m_TagString
+      value: TurretMesh
       objectReference: {fileID: 0}
     - target: {fileID: 3069863671888112321, guid: c7e5a466b1cc1c54db0c1f6de91d87dc,
         type: 3}
@@ -17466,6 +17533,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretThrowStone (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8221523536628005391, guid: 34f04cbe1e0ba494c922806fcce30b56,
+        type: 3}
+      propertyPath: m_TagString
+      value: TurretMesh
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34f04cbe1e0ba494c922806fcce30b56, type: 3}
 --- !u!1 &1270296940
@@ -19462,6 +19534,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TurretShoot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876647127593237941, guid: 588b37dbc5d47bc48b6048340e1a62a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: TurretMesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 588b37dbc5d47bc48b6048340e1a62a3, type: 3}
@@ -23822,6 +23899,7 @@ GameObject:
   - component: {fileID: 1718286217}
   - component: {fileID: 1718286218}
   - component: {fileID: 1718286219}
+  - component: {fileID: 1718286220}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -23938,6 +24016,21 @@ MonoBehaviour:
   playButton: {fileID: 288281710}
   inGameMenu: {fileID: 975486666}
   previewUI: {fileID: 164927939}
+--- !u!114 &1718286220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718286213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edeab4e9098d6fc45ab3e142db71e78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursor1: {fileID: 2800000, guid: 777b7871ab9d6b549ae27d068245b931, type: 3}
+  cursor2: {fileID: 2800000, guid: 94b2cc6714d8d144e85c39870eeb1393, type: 3}
+  isCursor2: 0
 --- !u!1 &1727278425
 GameObject:
   m_ObjectHideFlags: 0
@@ -25246,6 +25339,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774463959}
     m_Modifications:
+    - target: {fileID: 2039181190, guid: b8d4fa45d52e822468a3f6d9248de7e7, type: 3}
+      propertyPath: m_Center.x
+      value: 0.19
+      objectReference: {fileID: 0}
     - target: {fileID: 2245652407784351074, guid: b8d4fa45d52e822468a3f6d9248de7e7,
         type: 3}
       propertyPath: m_RootOrder
@@ -26568,6 +26665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TurretShoot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876647127593237941, guid: 588b37dbc5d47bc48b6048340e1a62a3,
+        type: 3}
+      propertyPath: m_TagString
+      value: TurretMesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 588b37dbc5d47bc48b6048340e1a62a3, type: 3}

@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 66, y: -223.61794}
+  m_AnchoredPosition: {x: 66, y: -216.5}
   m_SizeDelta: {x: 360.5775, y: 82.5805}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &138512467
@@ -326,6 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 408587407}
   - component: {fileID: 408587405}
+  - component: {fileID: 408587408}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -360,6 +361,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &408587408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408587404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a4b90e6a7f32f4d9b177ecb87b3af9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursor: {fileID: 2800000, guid: 777b7871ab9d6b549ae27d068245b931, type: 3}
 --- !u!1 &760196390
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +832,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 66, y: -312}
+  m_AnchoredPosition: {x: 66, y: -318}
   m_SizeDelta: {x: 360.5775, y: 77.2612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1322159112
