@@ -12396,12 +12396,12 @@ MonoBehaviour:
     - waves:
       - enemyPrefab: {fileID: 4414548395614788915, guid: ccd1fabdd0a5f0642bad7e49e038b9b6,
           type: 3}
-        count: 5
+        count: 20
         rate: 1
         interval: 5
       - enemyPrefab: {fileID: 4414548395614788915, guid: 15af67573d29fc149b8f419c9232ee8d,
           type: 3}
-        count: 10
+        count: 20
         rate: 3
         interval: 2
     - waves:

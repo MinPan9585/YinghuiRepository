@@ -48,13 +48,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 8
-  damage: 20
+  damage: 50
   enemyTag: Enemy
   explosionRadius: 1
   xRadius: 0.5
-  hitEnemyFX: {fileID: 3120573175635606906, guid: 2d4b9dcd2475be94cbf8d93bbf2ef094,
+  hitEnemyFX: {fileID: 3120573175635606906, guid: abbfbbb7ba326dd46a60300cae41e548,
     type: 3}
-  flyFX: {fileID: 1144142673183336136, guid: 9908839d3c49fef4b95db906ab81e461, type: 3}
+  flyFX: {fileID: 1144142673183336136, guid: 2c3686011c3626b4baaae0d6503bbfae, type: 3}
   shootSFX: bubble_effect_04
   hitSFX: waterball_drop
   enemies: []
@@ -101,7 +101,7 @@ Transform:
   m_GameObject: {fileID: 8379820398699095047}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2764582061297583720}

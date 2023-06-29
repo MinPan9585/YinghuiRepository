@@ -44,6 +44,6 @@ Material:
     - _Color: {r: 0.6262863, g: 0.12549017, b: 0.7529412, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainTex_Speed: {r: 0.15, g: 0, b: 0, a: 0}
-    - _Main_Color: {r: 0.5445352, g: 0.04705882, b: 0.94509804, a: 1}
+    - _Main_Color: {r: 0.25930744, g: 0.04705882, b: 0.94509804, a: 1}
     - _Wave_Speed: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
