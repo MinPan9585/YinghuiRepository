@@ -57,6 +57,10 @@ public class ButtonMaster : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex == 2)
             SceneManager.LoadScene(2);
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void OnMenuOpen()
     {
         GameEvents.Instance.MenuDisplay(true);
