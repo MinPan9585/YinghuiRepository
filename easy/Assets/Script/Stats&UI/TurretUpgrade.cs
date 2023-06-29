@@ -225,7 +225,7 @@ public class TurretUpgrade : MonoBehaviour
         }
         _curlevel = _turretLevel.currentLevel;
 
-        Debug.Log("物体信息:" + _curGameObject + "标签:" + _turretTag);
+        // Debug.Log("物体信息:" + _curGameObject + "标签:" + _turretTag);
     }
 
     private void UpLevel()

@@ -113,7 +113,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   isRotate: 0
+  isChangeMat: 0
   altTrans: {x: 2, y: 0, z: 8}
+  mat1: {fileID: 0}
+  mat2: {fileID: 0}
   moveSFX: Buzzer
 --- !u!1 &1762357284057064571
 GameObject:
@@ -179,7 +182,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   id: 0
-  lazerSFX: SF-CK Weapons Energy Laser Small 03
+  lazerSFX: Laser_continue
   sfxID: 0
   checkingRate: 0.5
   animationGap: 0.2
