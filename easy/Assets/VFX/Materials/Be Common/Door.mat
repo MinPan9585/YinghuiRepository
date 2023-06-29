@@ -48,8 +48,8 @@ Material:
     m_Colors:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _FlowSpeed: {r: 0, g: 0, b: 0, a: 0}
-    - _MainColor: {r: 0.5252269, g: 0.13435383, b: 0.6981132, a: 1}
-    - _MainColor1: {r: 0, g: 1, b: 0.24621582, a: 1}
+    - _MainColor: {r: 0.13333331, g: 0.69803923, b: 0.69803923, a: 1}
+    - _MainColor1: {r: 0, g: 2, b: 0.49411765, a: 1}
     - _MainColor2: {r: 1, g: 0.7882595, b: 0, a: 1}
     - _MainSpeed1: {r: -0.25, g: -0.25, b: 0, a: 0}
     - _MainSpeed2: {r: -0.35, g: -0.35, b: 0, a: 0}
