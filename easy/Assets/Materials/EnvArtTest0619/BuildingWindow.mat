@@ -12,6 +12,7 @@ Material:
   m_ValidKeywords:
   - BACKSOLID
   - FRONTSOLID
+  - LEFTSOLID
   - RIGHTSOLID
   - TOPSOLID
   m_InvalidKeywords:
@@ -156,7 +157,7 @@ Material:
     - _Shading_B: 1
     - _Shading_D: 0
     - _Shading_F: 1
-    - _Shading_L: 0
+    - _Shading_L: 1
     - _Shading_R: 1
     - _Shading_T: 1
     - _ShadowBlend: 0.5
@@ -171,7 +172,7 @@ Material:
     - _ShowFront: 1
     - _ShowGlobalGradientSettings: 0
     - _ShowLMap: 1
-    - _ShowLeft: 0
+    - _ShowLeft: 1
     - _ShowRight: 1
     - _ShowTexture: 0
     - _ShowTop: 1
@@ -186,10 +187,10 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color1_B: {r: 0.86820394, g: 0.9150943, b: 0.70502543, a: 1}
     - _Color1_D: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_F: {r: 0.8086039, g: 0.8584906, b: 0.42654556, a: 1}
-    - _Color1_L: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_R: {r: 0.80275, g: 0.8867924, b: 0.5911949, a: 1}
-    - _Color1_T: {r: 0.8519383, g: 0.9339623, b: 0.6402634, a: 1}
+    - _Color1_F: {r: 0.85882354, g: 0.833547, b: 0.42745098, a: 1}
+    - _Color1_L: {r: 0.7732655, g: 0.8301887, b: 0.71793044, a: 1}
+    - _Color1_R: {r: 0.8862745, g: 0.8750784, b: 0.5921569, a: 1}
+    - _Color1_T: {r: 0.93333334, g: 0.90509754, b: 0.6392157, a: 1}
     - _Color2_B: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_D: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_F: {r: 1, g: 1, b: 1, a: 1}

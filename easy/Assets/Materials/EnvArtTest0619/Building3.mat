@@ -10,8 +10,11 @@ Material:
   m_Name: Building3
   m_Shader: {fileID: 4800000, guid: 216baab372734d21aadd9a8a375cf8d2, type: 3}
   m_ValidKeywords:
+  - BACKSOLID
+  - BOTTOMSOLID
   - FRONTSOLID
   - HEIGHT_FOG
+  - LEFTSOLID
   - RIGHTSOLID
   - TOPSOLID
   m_InvalidKeywords:
@@ -151,25 +154,25 @@ Material:
     - _Rotation_R: 358.63257
     - _Rotation_T: 0
     - _Saturation: 1
-    - _Shading_B: 0
-    - _Shading_D: 0
+    - _Shading_B: 1
+    - _Shading_D: 1
     - _Shading_F: 1
-    - _Shading_L: 0
+    - _Shading_L: 1
     - _Shading_R: 1
     - _Shading_T: 1
     - _ShadowBlend: 0.5
     - _ShadowInfluence: 0.5
     - _ShowAO: 0
     - _ShowAmbientSettings: 0
-    - _ShowBack: 0
-    - _ShowBottom: 0
+    - _ShowBack: 1
+    - _ShowBottom: 1
     - _ShowColorCorrection: 0
     - _ShowCustomShading: 1
     - _ShowFog: 0
     - _ShowFront: 1
     - _ShowGlobalGradientSettings: 0
     - _ShowLMap: 0
-    - _ShowLeft: 0
+    - _ShowLeft: 1
     - _ShowRight: 1
     - _ShowTexture: 0
     - _ShowTop: 1
@@ -184,10 +187,10 @@ Material:
     - _AOColor: {r: 1, g: 1, b: 1, a: 1}
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_B: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_D: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1_B: {r: 0.7327044, g: 0.9662234, b: 1, a: 1}
+    - _Color1_D: {r: 0.6981428, g: 0.9528302, b: 0.891826, a: 1}
     - _Color1_F: {r: 0.62507415, g: 0.8473962, b: 0.9245283, a: 1}
-    - _Color1_L: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1_L: {r: 0.6963925, g: 0.91303957, b: 0.9150943, a: 1}
     - _Color1_R: {r: 0.62732875, g: 0.84533304, b: 0.9150943, a: 1}
     - _Color1_T: {r: 0.66512394, g: 0.8962264, b: 0.89452714, a: 1}
     - _Color2_B: {r: 1, g: 1, b: 1, a: 1}

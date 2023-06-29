@@ -11,7 +11,9 @@ Material:
   m_Shader: {fileID: 4800000, guid: 216baab372734d21aadd9a8a375cf8d2, type: 3}
   m_ValidKeywords:
   - BACKSOLID
+  - BOTTOMSOLID
   - FRONTSOLID
+  - LEFTSOLID
   - RIGHTSOLID
   - TOPSOLID
   m_InvalidKeywords:
@@ -154,9 +156,9 @@ Material:
     - _Rotation_T: 0
     - _Saturation: 1
     - _Shading_B: 1
-    - _Shading_D: 0
+    - _Shading_D: 1
     - _Shading_F: 1
-    - _Shading_L: 0
+    - _Shading_L: 1
     - _Shading_R: 1
     - _Shading_T: 1
     - _ShadowBlend: 0.5
@@ -164,14 +166,14 @@ Material:
     - _ShowAO: 0
     - _ShowAmbientSettings: 0
     - _ShowBack: 1
-    - _ShowBottom: 0
+    - _ShowBottom: 1
     - _ShowColorCorrection: 0
     - _ShowCustomShading: 1
     - _ShowFog: 0
     - _ShowFront: 1
     - _ShowGlobalGradientSettings: 0
     - _ShowLMap: 1
-    - _ShowLeft: 0
+    - _ShowLeft: 1
     - _ShowRight: 1
     - _ShowTexture: 0
     - _ShowTop: 1
@@ -184,12 +186,12 @@ Material:
     - _AOColor: {r: 1, g: 1, b: 1, a: 1}
     - _AmbientColor: {r: 0.41911763, g: 0.41911763, b: 0.41911763, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_B: {r: 0.7688291, g: 0.8679245, b: 0.54586446, a: 1}
-    - _Color1_D: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_F: {r: 0.62228215, g: 0.6981132, b: 0.36003318, a: 1}
-    - _Color1_L: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_R: {r: 0.6956084, g: 0.754717, b: 0.52450454, a: 1}
-    - _Color1_T: {r: 0.7427704, g: 0.754717, b: 0.48890468, a: 1}
+    - _Color1_B: {r: 0.8862745, g: 0.8030335, b: 0.45882353, a: 1}
+    - _Color1_D: {r: 0.9433962, g: 0.9173242, b: 0.61113083, a: 1}
+    - _Color1_F: {r: 0.7921569, g: 0.64308447, b: 0.29803923, a: 1}
+    - _Color1_L: {r: 0.8490566, g: 0.8064462, b: 0.5179779, a: 1}
+    - _Color1_R: {r: 0.9245283, g: 0.79959005, b: 0.52041054, a: 1}
+    - _Color1_T: {r: 0.8962264, g: 0.8423868, b: 0.64821404, a: 1}
     - _Color2_B: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_D: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_F: {r: 1, g: 1, b: 1, a: 1}
