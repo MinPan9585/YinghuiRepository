@@ -13,7 +13,7 @@ public class TurretThrowStone : MonoBehaviour
     private float timer = 0f;
     private bool readyToThrow;
     public float animationGap = 0.4f;
-
+    public Animator myAnim;
     //private BoxCollider col;
     //private float colCenter;
 
@@ -31,6 +31,7 @@ public class TurretThrowStone : MonoBehaviour
     IEnumerator ThrowStone()
     {
         Debug.Log(gameObject.name + ": Start Animation here");
+        myAnim.SetTrigger("Attack");
 
         yield return new WaitForSeconds(animationGap);
 

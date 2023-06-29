@@ -207,6 +207,7 @@ MonoBehaviour:
   beacon_0: {fileID: 1762357284085720934}
   beacon_1: {fileID: 1762357283009497697}
   detectionRadius: 0.5
+  myAnim: {fileID: 1915689583999426972}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024

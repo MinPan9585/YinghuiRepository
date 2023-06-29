@@ -6,7 +6,7 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 public class TurretLazer : MonoBehaviour
-{ 
+{
     public int lazerDamage = 10;
     public float burnWait = 2f;
     public float burnDuration = 5f;
@@ -19,6 +19,7 @@ public class TurretLazer : MonoBehaviour
     public float detectionRadius = 0.5f;
     private Vector3 detectDirection;
     private float maxDistance;
+    public Animator myAnim;
 
     [Header("Enemy Detection")]
     public LayerMask enemyLayer;
@@ -28,7 +29,7 @@ public class TurretLazer : MonoBehaviour
 
     [Header("SFX")]
     public string lazerSFX = "Phasor";
-    [SerializeField]private int sfxID;
+    [SerializeField] private int sfxID;
     private bool playingLoop = false;
 
     [Header("Tune")]
@@ -68,7 +69,7 @@ public class TurretLazer : MonoBehaviour
     IEnumerator BeaconMovement()
     {
         float time = 0;
-        while(time < 1.1)
+        while (time < 1.1)
         {
             detectDirection = beacon_1.position - beacon_0.position;
             maxDistance = Vector3.Magnitude(beacon_1.position - beacon_0.position);
@@ -88,26 +89,27 @@ public class TurretLazer : MonoBehaviour
         RaycastHit[] hitColliders = Physics.SphereCastAll
             (beacon_0.position, detectionRadius, detectDirection, maxDistance, enemyLayer, QueryTriggerInteraction.Ignore);
 
-        if(hitColliders.Length > 0 )
+        if (hitColliders.Length > 0)
         {
             if (!inAnimation)
             {
                 inAnimation = true;
                 Debug.Log(gameObject.name + ": Start Animation here");
+                myAnim.SetBool("isAttacking", true);
 
                 yield return new WaitForSeconds(animationGap);
             }
             else { yield return null; }
-            
+
 
             lazerLine.enabled = true;
-            
+
             if (!playingLoop)
             {
                 playingLoop = true;
                 sfxID = AudioManager.Instance.PlaySFXLoop(lazerSFX);
             }
-            
+
             foreach (RaycastHit hit in hitColliders)
             {
                 if (hit.transform.TryGetComponent<IBurn>(out IBurn eBurn))
@@ -119,15 +121,16 @@ public class TurretLazer : MonoBehaviour
         else
         {
             lazerLine.enabled = false;
-            
+
             if (playingLoop)
             {
                 playingLoop = false;
-                AudioManager.Instance.StopSFXLoop(sfxID); 
+                AudioManager.Instance.StopSFXLoop(sfxID);
             }
             if (inAnimation)
             {
-                inAnimation= false;
+                inAnimation = false;
+                myAnim.SetBool("isAttacking", false);
             }
             yield return null;
         }

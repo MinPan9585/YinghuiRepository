@@ -410,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   range: 3
+  myAnim: {fileID: 5876447032385746145}
   bulletPrefab: {fileID: 2764582061297583724, guid: 515a6913bb0662a40a5d550734537071,
     type: 3}
   coolDown: 2
@@ -423,7 +424,7 @@ MonoBehaviour:
   layerToBlock:
     serializedVersion: 2
     m_Bits: 8
-  animationGap: 0.4
+  animationGap: 0.25
   enemiesInRange: []
   enemySelction: []
   higherSpeed: []
