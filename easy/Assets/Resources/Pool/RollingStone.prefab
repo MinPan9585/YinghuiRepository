@@ -134,10 +134,7 @@ MonoBehaviour:
   spawnSFX: egg
   rollSFX: DBCK Rock Cobbles Drop Single
   sfxID: 0
-  spawnVFX: {fileID: 4029915016176896542, guid: 39f3da203d0dc3b4eabe0050d4847718,
-    type: 3}
   rollVFX: {fileID: 4854088472955890398, guid: db9ff7365c987494ab8e9d9bcdd08b07, type: 3}
-  hitVFX: {fileID: 4029915016176896542, guid: 39f3da203d0dc3b4eabe0050d4847718, type: 3}
 --- !u!114 &3272200926379644991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,5 +190,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.9550521
+  m_Radius: 1.21
   m_Center: {x: 0.017291784, y: 0, z: 0}
