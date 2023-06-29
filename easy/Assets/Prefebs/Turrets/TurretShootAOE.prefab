@@ -88,7 +88,7 @@ MonoBehaviour:
   myAnim: {fileID: 1012846652984879719}
   bulletPrefab: {fileID: 2764582061297583724, guid: 9e7028f0e3b3a664a8d65e75b2e23adc,
     type: 3}
-  coolDown: 2
+  coolDown: 3
   turnSpeed: 2
   partToRotate: {fileID: 2245652407784351074}
   firePoint: {fileID: 2245652408056874919}

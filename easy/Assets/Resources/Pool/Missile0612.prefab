@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 8
-  damage: 50
+  damage: 30
   enemyTag: Enemy
   explosionRadius: 1
   xRadius: 0.5
