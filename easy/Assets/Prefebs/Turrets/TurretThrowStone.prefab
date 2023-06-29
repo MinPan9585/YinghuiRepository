@@ -257,7 +257,8 @@ MonoBehaviour:
     type: 3}
   rollingSpeed: 8
   coolDown: 1
-  animationGap: 0.4
+  animationGap: 0.45
+  myAnim: {fileID: 6149506938979376797}
 --- !u!114 &643888595
 MonoBehaviour:
   m_ObjectHideFlags: 0
