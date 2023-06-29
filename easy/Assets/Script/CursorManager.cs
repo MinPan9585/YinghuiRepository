@@ -28,7 +28,7 @@ public class CursorManager : MonoBehaviour
         }
         else
         {
-            Cursor.SetCursor(cursor1, new Vector2(128, 128), CursorMode.Auto);
+            Cursor.SetCursor(cursor1, new Vector2(64, 64), CursorMode.Auto);
         }
     }
 
