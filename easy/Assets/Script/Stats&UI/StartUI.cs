@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StartUI : MonoBehaviour
 {
+    public GameObject enemyBook;
     public void Level1Start()
     {
         SceneManager.LoadScene(1);
@@ -18,5 +19,15 @@ public class StartUI : MonoBehaviour
     public void QuitInStart()
     {
         Application.Quit();
+    }
+
+    public void EnemyBookOpen()
+    {
+        enemyBook.SetActive(true);
+    }
+    
+    public void EnemyBookClose()
+    {
+        enemyBook.SetActive(false);
     }
 }
