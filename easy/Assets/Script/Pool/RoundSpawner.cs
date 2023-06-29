@@ -28,6 +28,8 @@ public class RoundSpawner : MonoBehaviour
     public PoolManager poolManager;
 
     public Wave theWave= null;
+
+    public StatusManager statusManager;
     private void Start()
     {
         startPoint = GameObject.Find("Start").transform;
@@ -36,6 +38,10 @@ public class RoundSpawner : MonoBehaviour
         roundNum = 0;
         poolManager = PoolManager.Instance;
         //Debug.Log("There are " + roundList.rounds.Count + " rounds in this level");
+    }
+    public void SetStatusManager(StatusManager statusManager)
+    {
+        this.statusManager = statusManager;
     }
     public void OnClickStartARound()
     {
@@ -71,6 +77,7 @@ public class RoundSpawner : MonoBehaviour
 
         //Set the round state when all waves are out
         waveAllOut = true;
+        statusManager.PreviewEnemy();
     }
 
     IEnumerator SpawnAWave(Wave theWave)
@@ -84,7 +91,7 @@ public class RoundSpawner : MonoBehaviour
     void SpawnAEnemy(GameObject prefab)
     {
         //Debug.Log(theWave.enemyPrefab.name);
-        GameObject obj = poolManager.SpawnFromSubPool(prefab.name.ToString(), transform);//This line needed for pooling
+        GameObject obj = poolManager.SpawnFromSubPool(prefab.name.ToString(), startPoint.transform);//This line needed for pooling
         //obj.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);//Remeber to set this line in the end
         obj.transform.SetParent(startPoint.transform, true);
 
@@ -93,6 +100,16 @@ public class RoundSpawner : MonoBehaviour
             LevelStatus.EnemyBaseList.Add(enemy);
         }
 
+    }
+
+    public List<Wave> GetNextRound()
+    {
+        Round round = new Round();
+        if(roundNum < roundList.rounds.Count)
+        {
+            round = roundList.rounds[roundNum];
+        }
+        return round.waves;
     }
     public void OnButtonClear()
     {

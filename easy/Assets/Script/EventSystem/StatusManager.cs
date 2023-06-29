@@ -9,22 +9,22 @@ public class StatusManager : MonoBehaviour
     public List<RoundSpawner> roundSpawners;
     private int totalRoundNum = 0;
     [Header("Parameters,ignore")]
-    private bool wavesAllOut = true;
+    [SerializeField]private bool wavesAllOut = true;
     private bool lastRoundOut = false;
+    public List<Wave> previewWaves = new List<Wave>();
 
     [Header("Enemy")]
     public List<EnemyBase> enemyList;
 
     private void Awake()
     {
-
-
         foreach (RoundSpawner go in roundSpawners)
         {
             if (totalRoundNum < go.roundList.rounds.Count)
             {
                 totalRoundNum = go.roundList.rounds.Count;
             }
+            go.SetStatusManager(this);
         }
         LevelStatus.TotalRound = totalRoundNum;
         LevelStatus.Round = 0;
@@ -35,6 +35,8 @@ public class StatusManager : MonoBehaviour
         GameEvents.Instance.OnSpawnRound += TrySpawnARound;
         GameEvents.Instance.OnSwitchPath += RecalculateAllEnemiesPath;
         InvokeRepeating(nameof(CalculateAllEnemiesDistance), 1f, 0.5f);
+        PreviewEnemy();
+
     }
     private void OnDisable()
     {
@@ -66,7 +68,7 @@ public class StatusManager : MonoBehaviour
             wavesAllOut = false;
             LevelStatus.Round++;
             GameEvents.Instance.UpdateDisplay();
-            
+            GameEvents.Instance.RoundSpawned();
             //Last round
             if(LevelStatus.Round == LevelStatus.TotalRound)
             {
@@ -74,6 +76,25 @@ public class StatusManager : MonoBehaviour
             }
         }
     }
+
+    public void PreviewEnemy()
+    {
+        previewWaves = null;
+        if(LevelStatus.Round < LevelStatus.TotalRound )
+        {
+            foreach (RoundSpawner go in roundSpawners)
+            {
+                previewWaves = go.GetNextRound();
+                //foreach (Wave wave in previewWaves)
+                //{
+                //    Debug.Log("Enemy: " + wave.enemyPrefab + " Amount: " + wave.count);
+                //}
+                //Debug.Log("Preview Enemy");
+                GameEvents.Instance.PreviewEnemy(previewWaves);
+            }
+        }
+    }
+
     void CheckEnd()
     {
         if (!lastRoundOut)
@@ -94,7 +115,7 @@ public class StatusManager : MonoBehaviour
         else
         {
             enemyList = LevelStatus.EnemyBaseList;
-            if(enemyList.Count == 0)
+            if(enemyList.Count == 0 && !LevelStatus.Die)
             {
                 GameEvents.Instance.WinTheGame();
                 Debug.LogWarning("Win!!!");

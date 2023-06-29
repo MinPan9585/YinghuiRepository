@@ -5,6 +5,8 @@ using UnityEngine;
 
 public static class LevelStatus //: MonoBehaviour 
 {
+    public static bool Die = false;
+
     private static int _lives = 20;
     public static int Lives
     {
@@ -17,6 +19,7 @@ public static class LevelStatus //: MonoBehaviour
             {
                 _lives = 0;
                 Debug.LogWarning("Die!!!");
+                Die = true;
                 GameEvents.Instance.LoseTheGame();
             }
         }

@@ -4,22 +4,23 @@ using System.Collections.Generic;
 using System;
 using UnityEngine.AI;
 
-public class TurretShoot: MonoBehaviour
+public class TurretShoot : MonoBehaviour
 {
 
-	[SerializeField] private Transform target;
-	
-	[Header("General")]
-	public float range = 15f;
+    [SerializeField] private Transform target;
 
-	[Header("Use Bullets (default)")]
-	public GameObject bulletPrefab;
-	public float coolDown = 1f;
+    [Header("General")]
+    public float range = 15f;
+    public Animator myAnim;
+
+    [Header("Use Bullets (default)")]
+    public GameObject bulletPrefab;
+    public float coolDown = 1f;
     public float turnSpeed = 1f;
 
     [Header("Unity Setup Fields")]
-	public Transform partToRotate;
-	public Transform firePoint;
+    public Transform partToRotate;
+    public Transform firePoint;
     public string enemyTag = "Enemy";
     public LayerMask enemyLayer;
     public LayerMask layerToBlock;
@@ -29,27 +30,27 @@ public class TurretShoot: MonoBehaviour
     private Coroutine LookCorotine;
     //find enemy closest to target
     private SphereCollider rangeCollider;
-	[SerializeField] private List<EnemyBase> enemiesInRange;
-	[SerializeField] private List<EnemyBase> enemySelction;
-	[SerializeField] private List<float> higherSpeed;
+    [SerializeField] private List<EnemyBase> enemiesInRange;
+    [SerializeField] private List<EnemyBase> enemySelction;
+    [SerializeField] private List<float> higherSpeed;
 
     //private bool useRotate;
 
     void Start()
-	{
-		rangeCollider = GetComponent<SphereCollider>();
-		rangeCollider.radius = range;
+    {
+        rangeCollider = GetComponent<SphereCollider>();
+        rangeCollider.radius = range;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(enemyTag))
         {
-            if(enemiesInRange.Count == 0)
+            if (enemiesInRange.Count == 0)
             {
                 InvokeRepeating(nameof(GetEnemyTarget), 0f, coolDown);
             }
-		}
+        }
     }
 
     void GetEnemyQualified()
@@ -58,26 +59,26 @@ public class TurretShoot: MonoBehaviour
         foreach (Collider col in hitColliders)
         {
             EnemyBase enemy = col.GetComponent<EnemyBase>();
-            
-            if(enemy.isdead)
+
+            if (enemy.isdead)
             { continue; }
-            else if( Physics.Raycast(transform.position,
+            else if (Physics.Raycast(transform.position,
                 enemy.transform.position + new Vector3(0, 0.5f, 0) - transform.position,
                 range, layerToBlock))
             { continue; }
-            else if(Vector3.Distance(transform.position, enemy.transform.position) > range + 0.5f) 
+            else if (Vector3.Distance(transform.position, enemy.transform.position) > range + 0.5f)
             { continue; }
-            
+
             enemiesInRange.Add(enemy);
         }
     }
     private void GetEnemyTarget()
-	{
+    {
         target = null;
         enemiesInRange.Clear();
         enemySelction.Clear();
         higherSpeed.Clear();
-        
+
         GetEnemyQualified();
 
         if (enemiesInRange.Count == 0)
@@ -85,43 +86,44 @@ public class TurretShoot: MonoBehaviour
             CancelInvoke(nameof(GetEnemyTarget));
         }
         else
-		{
+        {
             target = enemiesInRange[0].transform;
             float minDistance = enemiesInRange[0].remainingDistance;
             foreach (EnemyBase enemy in enemiesInRange)
             {
-                if(minDistance > enemy.remainingDistance)
+                if (minDistance > enemy.remainingDistance)
                 {
                     target = enemy.transform;
                 }
             }
         }
 
-		if(target != null)
-		{
+        if (target != null)
+        {
             StartRotating();//Shoot is called in rotate
         }
-	}
+    }
 
-	private void StartRotating()
-	{
+    private void StartRotating()
+    {
         //useRotate = true;
-		if (target != null)
-		{
+        if (target != null)
+        {
             if (LookCorotine != null)
             {
                 StopCoroutine(LookCorotine);
             }
             LookCorotine = StartCoroutine(LookAt());
         }
-	}
-	private IEnumerator LookAt()
-	{
+    }
+    private IEnumerator LookAt()
+    {
         Debug.Log(gameObject.name + ": Start Animation here");
-		float time = 0;
-		while (time < 1)
-		{
-            if ( target == null || !target.gameObject.activeSelf)
+        myAnim.SetTrigger("Attack");
+        float time = 0;
+        while (time < 1)
+        {
+            if (target == null || !target.gameObject.activeSelf)
             {
                 GetEnemyTarget();
                 //Debug.Log("Attack another enemy");
@@ -133,7 +135,7 @@ public class TurretShoot: MonoBehaviour
                 time += Time.deltaTime * turnSpeed;
             }
             yield return null;
-		}
+        }
 
         if (!target.gameObject.activeSelf)
         {
@@ -142,7 +144,7 @@ public class TurretShoot: MonoBehaviour
         }
         Shoot();
         //useRotate = false;
-	}
+    }
     void Shoot()
     {
         GameObject projectile = PoolManager.Instance.SpawnFromSubPool(bulletPrefab.name.ToString(), transform);
@@ -152,11 +154,11 @@ public class TurretShoot: MonoBehaviour
     }
 
     void OnDrawGizmosSelected()
-	{
-		Gizmos.color = Color.red;
-		Gizmos.DrawWireSphere(transform.position, range);
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
 
-        if(target != null)
+        if (target != null)
         {
             // Draws a blue line from this transform to the target
             Gizmos.color = Color.blue;

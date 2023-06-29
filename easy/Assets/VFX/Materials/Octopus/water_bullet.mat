@@ -40,7 +40,7 @@ Material:
     m_Floats:
     - _AlphaCutoff: 0.5
     - _FlowInt: 0.318
-    - _OffsetInt: 0.1
+    - _OffsetInt: 0
     m_Colors:
     - _Color: {r: 0.6230011, g: 0, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

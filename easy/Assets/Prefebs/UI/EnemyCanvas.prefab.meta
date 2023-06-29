@@ -1,6 +1,11 @@
 fileFormatVersion: 2
-guid: 0d887f8470f6543ffbc3f2d452eba2e2
+<<<<<<<< Updated upstream:easy/Assets/Scenes/ZvGreyBox/0628 1.unity.meta
+guid: 302a7bb1971d69449baa41bbc760d0a5
+DefaultImporter:
+========
+guid: ab5d07cf69c756b41af4afe155407c50
 PrefabImporter:
+>>>>>>>> Stashed changes:easy/Assets/Prefebs/UI/EnemyCanvas.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
