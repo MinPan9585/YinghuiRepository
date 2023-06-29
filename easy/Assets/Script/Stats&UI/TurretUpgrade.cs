@@ -81,6 +81,10 @@ public class TurretUpgrade : MonoBehaviour
             {
                 TurretSelected();
             }
+            else
+            {
+                CloseUpgradeMenu();
+            }
         }
 
         if (_curlevel == 1)
@@ -284,5 +288,10 @@ public class TurretUpgrade : MonoBehaviour
             _turretLazer.burnDuration -= lazer_BuranDuration;
             _turretLazer.burnWait += lazer_CD;
         }
+    }
+
+    public void CloseUpgradeMenu()
+    {
+        UI.SetActive(false);
     }
 }

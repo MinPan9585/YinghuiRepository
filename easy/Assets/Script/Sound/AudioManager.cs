@@ -29,7 +29,14 @@ public class AudioManager : MonoBehaviour
         musicSource = GameObject.Find("MusicSource").GetComponent<AudioSource>();
         sfxSource = GameObject.Find("SFXSource").GetComponent<AudioSource>();
         PlayMusic();
+        GameEvents.Instance.OnMenuDisplay += SFXPause;
     }
+
+    private void OnDisable()
+    {
+        GameEvents.Instance.OnMenuDisplay -= SFXPause;
+    }
+
     public void PlayMusic()
     {
         if(musicSounds.Length > 0)
@@ -86,6 +93,7 @@ public class AudioManager : MonoBehaviour
             
             sfx.clip = s.clip;
             sfx.loop = true;
+            sfx.volume = sfxSource.volume;
             sfx.Play();
 
             int id = PoolManager.Instance.GetPooledIndex(sfx.gameObject);
@@ -110,9 +118,31 @@ public class AudioManager : MonoBehaviour
     public void SfxVolumeChanged(float value)
     {
         sfxSource.volume = value;
+        foreach (KeyValuePair<int, AudioSource> sfx in sfxSources)
+        {
+            sfx.Value.volume = value;
+        }
     }
     public void MusicVolumeChanged(float value)
     {
         musicSource.volume = value;
+    }
+
+    void SFXPause(bool pause)
+    {
+        if (pause)
+        {
+            foreach (KeyValuePair<int, AudioSource> sfx in sfxSources)
+            {
+                sfx.Value.volume = 0;
+            }
+        }
+        else
+        {
+            foreach (KeyValuePair<int, AudioSource> sfx in sfxSources)
+            {
+                sfx.Value.volume = sfxSource.volume;
+            }
+        }
     }
 }

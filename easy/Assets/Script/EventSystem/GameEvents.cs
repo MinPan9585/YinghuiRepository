@@ -81,4 +81,10 @@ public class GameEvents : MonoBehaviour
     {
         OnUpdateDisplay?.Invoke();
     }
+    
+    public event Action<bool> OnMenuDisplay;
+    public void MenuDisplay(bool pause)
+    {
+        OnMenuDisplay?.Invoke(pause);
+    }
 }
