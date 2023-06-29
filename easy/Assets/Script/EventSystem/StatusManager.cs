@@ -9,7 +9,7 @@ public class StatusManager : MonoBehaviour
     public List<RoundSpawner> roundSpawners;
     private int totalRoundNum = 0;
     [Header("Parameters,ignore")]
-    [SerializeField]private bool wavesAllOut = true;
+    [SerializeField] private bool wavesAllOut = true;
     private bool lastRoundOut = false;
     public List<Wave> previewWaves = new List<Wave>();
 
@@ -35,7 +35,8 @@ public class StatusManager : MonoBehaviour
         GameEvents.Instance.OnSpawnRound += TrySpawnARound;
         GameEvents.Instance.OnSwitchPath += RecalculateAllEnemiesPath;
         InvokeRepeating(nameof(CalculateAllEnemiesDistance), 1f, 0.5f);
-        PreviewEnemy();
+        //PreviewEnemy();
+        Invoke(nameof(PreviewEnemy), 0.1f);
 
     }
     private void OnDisable()
@@ -70,7 +71,7 @@ public class StatusManager : MonoBehaviour
             GameEvents.Instance.UpdateDisplay();
             GameEvents.Instance.RoundSpawned();
             //Last round
-            if(LevelStatus.Round == LevelStatus.TotalRound)
+            if (LevelStatus.Round == LevelStatus.TotalRound)
             {
                 InvokeRepeating(nameof(CheckEnd), 10f, 2f);
             }
@@ -80,7 +81,7 @@ public class StatusManager : MonoBehaviour
     public void PreviewEnemy()
     {
         previewWaves = null;
-        if(LevelStatus.Round < LevelStatus.TotalRound )
+        if (LevelStatus.Round < LevelStatus.TotalRound)
         {
             foreach (RoundSpawner go in roundSpawners)
             {
@@ -109,26 +110,26 @@ public class StatusManager : MonoBehaviour
                 }
             }
 
-            if(wavesAllOut)
+            if (wavesAllOut)
                 lastRoundOut = true;
         }
         else
         {
             enemyList = LevelStatus.EnemyBaseList;
-            if(enemyList.Count == 0 && !LevelStatus.Die)
+            if (enemyList.Count == 0 && !LevelStatus.Die)
             {
                 GameEvents.Instance.WinTheGame();
                 Debug.LogWarning("Win!!!");
                 CancelInvoke();
             }
         }
-        
+
     }
 
     public void CalculateAllEnemiesDistance()
     {
         enemyList = LevelStatus.EnemyBaseList;
-        if(enemyList.Count > 0)
+        if (enemyList.Count > 0)
         {
             foreach (EnemyBase enemy in enemyList)
             {
