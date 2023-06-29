@@ -13,15 +13,15 @@ public class RollingStone : MonoBehaviour, IPooledObject
     [SerializeField] private int sfxID;
     private bool playingLoop = false;
     [Header("VFX")]
-    public GameObject spawnVFX;
     public GameObject rollVFX;
-    public GameObject hitVFX;
 
     private void Start()
     {
         GameObject go = PoolManager.Instance.SpawnFromSubPool(rollVFX.name.ToString(), transform);
         go.transform.SetParent(transform, false);
         go.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        if (go.TryGetComponent<HandleRotation>(out HandleRotation hR))
+            hR.SetStone(GetComponent<Rigidbody>());
     }
     #region Pool
     //using pool start
@@ -37,11 +37,6 @@ public class RollingStone : MonoBehaviour, IPooledObject
             playingLoop = true;
             sfxID = AudioManager.Instance.PlaySFXLoop(rollSFX);
         }
-
-        GameObject go = PoolManager.Instance.SpawnFromSubPool(spawnVFX.name.ToString(), transform);
-        go.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
-        go.transform.SetPositionAndRotation(transform.position, transform.rotation);
-        RestoreValues();
     }
     //Must have, even left blank.
     public void OnObjectDespawn()
@@ -49,10 +44,6 @@ public class RollingStone : MonoBehaviour, IPooledObject
     }
     //specifically for restoring some values, like health
     public void RestoreValues()
-    {
-        
-    }
-    private void OnDisable()
     {
         
     }
@@ -73,10 +64,6 @@ public class RollingStone : MonoBehaviour, IPooledObject
     {
         if (other.CompareTag("Enemy"))
         {
-            GameObject go = PoolManager.Instance.SpawnFromSubPool(spawnVFX.name.ToString(), transform);
-            go.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
-            go.transform.position = other.transform.position;
-
             if (other.TryGetComponent<KnockedOff>(out KnockedOff minion))
             {
                 minion.KnockOff();
