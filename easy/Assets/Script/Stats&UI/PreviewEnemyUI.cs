@@ -10,6 +10,7 @@ public class PreviewEnemyUI : MonoBehaviour
     [Header("Needs Assign")]
     //public TMP_Text nextRoundText;
     public Button nextRoundButton;
+    public Image BGImage;
     public List<GameObject> checkWaves;
     public List<GameObject> enemyPreviews;
     [Header("Tuning")]
@@ -19,7 +20,7 @@ public class PreviewEnemyUI : MonoBehaviour
     public List<PreviewElement> previewElements = new List<PreviewElement>();
     public List<Wave> waves;
     public int enemyCount = 0;
-    public List<int> indexs= new List<int>();
+    public List<int> indexs = new List<int>();
     void Start()
     {
         GameEvents.Instance.OnPreviewEnemy += UpdateEnemyPreview;
@@ -43,7 +44,9 @@ public class PreviewEnemyUI : MonoBehaviour
     {
         ClearPreview();
         nextRoundButton.image.enabled = true;
-        nextRoundButton.GetComponentInChildren<TMP_Text>().enabled= true;
+        nextRoundButton.GetComponentInChildren<TMP_Text>().enabled = true;
+        BGImage.enabled = true;
+        BGImage.GetComponentInChildren<TMP_Text>().enabled = true;
         //nextRoundText.text = "Next Round: ";
         this.waves = waves;
 
@@ -57,14 +60,14 @@ public class PreviewEnemyUI : MonoBehaviour
                 }
                 int index = checkWaves.IndexOf(wave.enemyPrefab);
                 previewElements[index].enemyImage.enabled = true;
-                previewElements[index].enemyText.text = " X "+wave.count.ToString();
+                previewElements[index].enemyText.text = "× " + wave.count.ToString();
                 indexs.Add(index);
 
                 enemyCount++;
             }
         }
         ArrangePosition();
-        
+
     }
     public void ArrangePosition()
     {
@@ -77,12 +80,14 @@ public class PreviewEnemyUI : MonoBehaviour
             trans.anchoredPosition = Vector3.up * verticalOffset
                 + (Vector3.right * (horizontalOffset * k));
         }
-        
+
     }
     public void ClearPreview()
     {
         nextRoundButton.image.enabled = false;
         nextRoundButton.GetComponentInChildren<TMP_Text>().enabled = false;
+        BGImage.enabled = false;
+        BGImage.GetComponentInChildren<TMP_Text>().enabled = false;
 
         //nextRoundText.text = "";
         foreach (PreviewElement go in previewElements)

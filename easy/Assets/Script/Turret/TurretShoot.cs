@@ -40,6 +40,7 @@ public class TurretShoot : MonoBehaviour
     {
         rangeCollider = GetComponent<SphereCollider>();
         rangeCollider.radius = range;
+        // InvokeRepeating(nameof(GetEnemyTarget), 0f, coolDown);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -136,7 +137,7 @@ public class TurretShoot : MonoBehaviour
             yield return null;
         }
 
-        if (!target.gameObject.activeSelf)
+        if (target == null ||!target.gameObject.activeSelf)
         {
             GetEnemyTarget();
             //Debug.Log("Attack another enemy");

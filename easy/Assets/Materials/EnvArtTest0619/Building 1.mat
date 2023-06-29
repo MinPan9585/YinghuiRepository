@@ -12,6 +12,7 @@ Material:
   m_ValidKeywords:
   - BACKSOLID
   - FRONTSOLID
+  - LEFTSOLID
   - LIGHTMAP_AO
   - RIGHTSOLID
   - TOPSOLID
@@ -157,7 +158,7 @@ Material:
     - _Shading_B: 1
     - _Shading_D: 0
     - _Shading_F: 1
-    - _Shading_L: 0
+    - _Shading_L: 1
     - _Shading_R: 1
     - _Shading_T: 1
     - _ShadowBlend: 0.5
@@ -165,14 +166,14 @@ Material:
     - _ShowAO: 0
     - _ShowAmbientSettings: 0
     - _ShowBack: 1
-    - _ShowBottom: 0
+    - _ShowBottom: 1
     - _ShowColorCorrection: 0
     - _ShowCustomShading: 1
     - _ShowFog: 0
     - _ShowFront: 1
     - _ShowGlobalGradientSettings: 0
     - _ShowLMap: 1
-    - _ShowLeft: 0
+    - _ShowLeft: 1
     - _ShowRight: 1
     - _ShowTexture: 0
     - _ShowTop: 1
@@ -188,7 +189,7 @@ Material:
     - _Color1_B: {r: 0.854902, g: 0.75294125, b: 0.6156863, a: 1}
     - _Color1_D: {r: 1, g: 1, b: 1, a: 1}
     - _Color1_F: {r: 0.86274517, g: 0.7843138, b: 0.6392157, a: 1}
-    - _Color1_L: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1_L: {r: 0.817095, g: 0.8207547, b: 0.62459946, a: 1}
     - _Color1_R: {r: 0.8962264, g: 0.8226634, b: 0.7412187, a: 1}
     - _Color1_T: {r: 0.990566, g: 0.8343182, b: 0.71644706, a: 1}
     - _Color2_B: {r: 1, g: 1, b: 1, a: 1}
