@@ -10,9 +10,53 @@ public class ButtonMaster : MonoBehaviour
     public GameObject inGameMenu;
     public GameObject previewUI;
 
+    public GameObject LoseUI;
+    public GameObject WinUI;
+
     // public GameObject SFXListener;
     // public GameObject UpgradeMaster;
+    public void Start()
+    {
+        GameEvents.Instance.OnDie += CallLoseUI;
+        GameEvents.Instance.OnWin += CallWinUI;
 
+        if (LoseUI != null)
+            LoseUI.SetActive(false);
+        if (WinUI != null)
+            WinUI.SetActive(false);
+
+    }
+    public void OnDisable()
+    {
+        GameEvents.Instance.OnDie -= CallLoseUI;
+        GameEvents.Instance.OnWin -= CallWinUI;
+    }
+
+    public void CallLoseUI()
+    {
+        Time.timeScale = 0f;
+        Debug.Log("LoseUI");
+        if (LoseUI != null)
+        {
+            LoseUI.SetActive(true);
+        }
+    }
+    public void CallWinUI()
+    {
+        Time.timeScale = 0f;
+        Debug.Log("WinUI");
+        if (WinUI != null)
+        {
+            WinUI.SetActive(true);
+        }
+    }
+    public void OnNextLevel()
+    {
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+            SceneManager.LoadScene(2);
+        if(SceneManager.GetActiveScene().buildIndex == 2)
+            SceneManager.LoadScene(2);
+    }
     public void OnMenuOpen()
     {
         GameEvents.Instance.MenuDisplay(true);
