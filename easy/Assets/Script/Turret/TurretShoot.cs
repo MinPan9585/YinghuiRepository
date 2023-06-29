@@ -84,16 +84,18 @@ public class TurretShoot : MonoBehaviour
 
         //if (enemiesInRange.Count == 0)
         //{
-        //    //CancelInvoke(nameof(GetEnemyTarget));
+        //    CancelInvoke(nameof(GetEnemyTarget));
         //}
-
-        target = enemiesInRange[0].transform;
-        float minDistance = enemiesInRange[0].remainingDistance;
-        foreach (EnemyBase enemy in enemiesInRange)
+        if(enemiesInRange.Count != 0)
         {
-            if (minDistance > enemy.remainingDistance)
+            target = enemiesInRange[0].transform;
+            float minDistance = enemiesInRange[0].remainingDistance;
+            foreach (EnemyBase enemy in enemiesInRange)
             {
-                target = enemy.transform;
+                if (minDistance > enemy.remainingDistance)
+                {
+                    target = enemy.transform;
+                }
             }
         }
 
