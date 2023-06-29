@@ -38,6 +38,7 @@ public class ButtonMaster : MonoBehaviour
         Debug.Log("LoseUI");
         if (LoseUI != null)
         {
+            previewUI.SetActive(false);
             LoseUI.SetActive(true);
         }
     }
@@ -75,8 +76,16 @@ public class ButtonMaster : MonoBehaviour
     public void OnPause()
     {
         GameEvents.Instance.MenuDisplay(true);
-        Time.timeScale = 0;
-        playButton.SetActive(true);
+        if (Time.timeScale == 1f)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+        
+        // playButton.SetActive(true);
         // SFXListener.SetActive(false);
     }
     
