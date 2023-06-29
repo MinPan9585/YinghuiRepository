@@ -81,7 +81,13 @@ public class GameEvents : MonoBehaviour
     {
         OnUpdateDisplay?.Invoke();
     }
-
+    
+    public event Action<bool> OnMenuDisplay;
+    public void MenuDisplay(bool pause)
+    {
+        OnMenuDisplay?.Invoke(pause);
+    }
+    
     public event Action<List<Wave>> OnPreviewEnemy;
     public void PreviewEnemy(List<Wave> waves)
     {
@@ -92,4 +98,5 @@ public class GameEvents : MonoBehaviour
     {
         OnRoundSpawned?.Invoke();
     }
+
 }
