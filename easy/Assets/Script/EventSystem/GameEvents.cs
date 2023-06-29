@@ -81,4 +81,15 @@ public class GameEvents : MonoBehaviour
     {
         OnUpdateDisplay?.Invoke();
     }
+
+    public event Action<List<Wave>> OnPreviewEnemy;
+    public void PreviewEnemy(List<Wave> waves)
+    {
+        OnPreviewEnemy?.Invoke(waves);
+    }
+    public event Action OnRoundSpawned;
+    public void RoundSpawned()
+    {
+        OnRoundSpawned?.Invoke();
+    }
 }
