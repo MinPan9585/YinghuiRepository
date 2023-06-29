@@ -8,6 +8,7 @@ public class ButtonMaster : MonoBehaviour
     
     public GameObject playButton;
     public GameObject inGameMenu;
+    public GameObject previewUI;
 
     // public GameObject SFXListener;
     // public GameObject UpgradeMaster;
@@ -19,6 +20,7 @@ public class ButtonMaster : MonoBehaviour
         Time.timeScale = 0;
         playButton.SetActive(true);
         inGameMenu.SetActive(true);
+        previewUI.SetActive(false);
         // SFXListener.SetActive(false);
     }
     
@@ -37,6 +39,7 @@ public class ButtonMaster : MonoBehaviour
         Time.timeScale = 1f;
         playButton.SetActive(false);
         inGameMenu.SetActive(false);
+        previewUI.SetActive(true);
         // SFXListener.SetActive(true);
     }
 
