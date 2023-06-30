@@ -7,6 +7,7 @@ public class ButtonMaster : MonoBehaviour
 {
 
     public GameObject playButton;
+    public GameObject pauseButton;
     public GameObject inGameMenu;
     public GameObject previewUI;
 
@@ -102,10 +103,14 @@ public class ButtonMaster : MonoBehaviour
         if (Time.timeScale == 1f)
         {
             Time.timeScale = 0;
+            playButton.SetActive(true);
+            pauseButton.SetActive(false);
         }
         else
         {
             Time.timeScale = 1f;
+            playButton.SetActive(false);
+            pauseButton.SetActive(true);
         }
 
         // playButton.SetActive(true);
