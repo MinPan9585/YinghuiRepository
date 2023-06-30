@@ -21395,6 +21395,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DowngradeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5309441122710338037, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5359673569220242182, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_RootOrder
@@ -21471,6 +21476,11 @@ PrefabInstance:
       value: OnMenuOpen
       objectReference: {fileID: 0}
     - target: {fileID: 6547738292162659697, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664713688216603198, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_IsActive
       value: 0
