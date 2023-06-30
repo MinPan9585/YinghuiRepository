@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonMaster : MonoBehaviour
 {
-    
+
     public GameObject playButton;
     public GameObject inGameMenu;
     public GameObject previewUI;
@@ -26,13 +26,13 @@ public class ButtonMaster : MonoBehaviour
         if (WinUI != null)
             WinUI.SetActive(false);
 
-        if(victoryParticle.Count > 0)
+        if (victoryParticle.Count > 0)
         {
             foreach (ParticleSystem particle in victoryParticle)
             {
                 particle.Stop();
             }
-        }       
+        }
     }
     public void OnDisable()
     {
@@ -76,9 +76,9 @@ public class ButtonMaster : MonoBehaviour
     }
     public void OnNextLevel()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
             SceneManager.LoadScene(2);
-        if(SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
             SceneManager.LoadScene(2);
     }
     public void MainMenu()
@@ -95,7 +95,7 @@ public class ButtonMaster : MonoBehaviour
         previewUI.SetActive(false);
         // SFXListener.SetActive(false);
     }
-    
+
     public void OnPause()
     {
         GameEvents.Instance.MenuDisplay(true);
@@ -107,11 +107,11 @@ public class ButtonMaster : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
-        
+
         // playButton.SetActive(true);
         // SFXListener.SetActive(false);
     }
-    
+
     public void OnResume()
     {
         GameEvents.Instance.MenuDisplay(false);
