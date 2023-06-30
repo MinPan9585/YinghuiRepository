@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 4
+  range: 3
   myAnim: {fileID: 1012846652984879719}
   bulletPrefab: {fileID: 2764582061297583724, guid: 9e7028f0e3b3a664a8d65e75b2e23adc,
     type: 3}

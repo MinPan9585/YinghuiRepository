@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using System.Text.RegularExpressions;
+using UnityEngine.Windows;
+
 
 public class PreviewEnemyUI : MonoBehaviour
 {
@@ -56,6 +59,16 @@ public class PreviewEnemyUI : MonoBehaviour
             {
                 if (indexs.Contains(checkWaves.IndexOf(wave.enemyPrefab)))
                 {
+                    int exIndex = checkWaves.IndexOf(wave.enemyPrefab);
+                    string pattern = " ";
+                    string[] substrings = Regex.Split(previewElements[exIndex].enemyText.text, pattern);
+                    string digitStr = substrings[substrings.Length - 1];
+                    int addCount;
+                    int.TryParse(digitStr, out addCount);
+
+                    addCount += wave.count;
+                    previewElements[exIndex].enemyText.text = "× " + addCount.ToString();
+
                     continue;
                 }
                 int index = checkWaves.IndexOf(wave.enemyPrefab);

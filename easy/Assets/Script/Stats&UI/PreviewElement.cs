@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+[System.Serializable]
 public class PreviewElement
 {
     public Image enemyImage;
