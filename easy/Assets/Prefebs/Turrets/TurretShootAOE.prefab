@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 3
+  range: 4
   myAnim: {fileID: 1012846652984879719}
   bulletPrefab: {fileID: 2764582061297583724, guid: 9e7028f0e3b3a664a8d65e75b2e23adc,
     type: 3}
@@ -521,7 +521,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.19, y: 0, z: 0}
 --- !u!1 &6628905703292313276
 GameObject:
   m_ObjectHideFlags: 0

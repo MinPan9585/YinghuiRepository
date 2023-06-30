@@ -39,6 +39,7 @@ public class StatusManager : MonoBehaviour
         InvokeRepeating(nameof(CalculateAllEnemiesDistance), 1f, 0.5f);
         //PreviewEnemy();
         Invoke(nameof(PreviewEnemy), 0.1f);
+        enemyList.Clear();
     }
     private void OnDisable()
     {

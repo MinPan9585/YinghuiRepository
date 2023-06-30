@@ -119,9 +119,7 @@ public class TurretShoot : MonoBehaviour
     }
     private IEnumerator LookAt()
     {
-        Debug.Log(gameObject.name + ": Start Animation here");
-        if (myAnim)
-            myAnim.SetTrigger("Attack");
+        
         float time = 0;
         while (time < 1)
         {
@@ -144,17 +142,29 @@ public class TurretShoot : MonoBehaviour
             GetEnemyTarget();
             //Debug.Log("Attack another enemy");
         }
-        Shoot();
-        //useRotate = false;
     }
     void Shoot()
     {
+        Debug.Log(gameObject.name + ": Start Animation here");
+        if (myAnim)
+            myAnim.SetTrigger("Attack");
         GameObject projectile = PoolManager.Instance.SpawnFromSubPool(bulletPrefab.name.ToString(), transform);
         projectile.GetComponent<ISetTarget>().SetTarget(target);
         projectile.transform.SetParent(GameObject.Find("PooledPrefabs").transform, true);
         projectile.transform.SetPositionAndRotation(firePoint.position, partToRotate.rotation);
     }
 
+    private float fireCountdown = 0f;
+    private void FixedUpdate()
+    {
+        fireCountdown += Time.deltaTime;
+
+        if (fireCountdown >= coolDown && target != null && target.gameObject.activeSelf)
+        {
+            fireCountdown = 0;
+            Shoot();
+        }
+    }
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
