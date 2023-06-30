@@ -145,7 +145,7 @@ public class TurretShoot : MonoBehaviour
     }
     void Shoot()
     {
-        Debug.Log(gameObject.name + ": Start Animation here");
+        //Debug.Log(gameObject.name + ": Start Animation here");
         if (myAnim)
             myAnim.SetTrigger("Attack");
         GameObject projectile = PoolManager.Instance.SpawnFromSubPool(bulletPrefab.name.ToString(), transform);

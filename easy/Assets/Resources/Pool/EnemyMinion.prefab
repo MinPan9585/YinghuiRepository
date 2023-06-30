@@ -173,7 +173,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   remainingDistance: 0
   healthBar: {fileID: 6873224067657410797}
-  dieSFX: Die_M
+  dieSFX: Die_m
   dieVFX: {fileID: 4214268947081657738, guid: 7aa5d97978f840042a4f0ec743b24919, type: 3}
   isdead: 0
 --- !u!114 &-740227112950932413
