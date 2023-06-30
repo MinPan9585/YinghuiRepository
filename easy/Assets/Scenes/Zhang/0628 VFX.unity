@@ -17563,7 +17563,7 @@ PrefabInstance:
     - target: {fileID: 5221207844119613102, guid: 34f04cbe1e0ba494c922806fcce30b56,
         type: 3}
       propertyPath: m_Size.z
-      value: 2.4152975
+      value: 7.071982
       objectReference: {fileID: 0}
     - target: {fileID: 5221207844119613102, guid: 34f04cbe1e0ba494c922806fcce30b56,
         type: 3}
@@ -17573,7 +17573,7 @@ PrefabInstance:
     - target: {fileID: 5221207844119613102, guid: 34f04cbe1e0ba494c922806fcce30b56,
         type: 3}
       propertyPath: m_Center.z
-      value: 1.7394667
+      value: 4.067808
       objectReference: {fileID: 0}
     - target: {fileID: 5825527678452537605, guid: 34f04cbe1e0ba494c922806fcce30b56,
         type: 3}
@@ -22369,6 +22369,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DowngradeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5309441122710338037, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5359673569220242182, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_RootOrder
@@ -22460,6 +22465,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6547738292162659697, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664713688216603198, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -23943,8 +23953,8 @@ MonoBehaviour:
     - waves:
       - enemyPrefab: {fileID: 4414548395614788915, guid: ccd1fabdd0a5f0642bad7e49e038b9b6,
           type: 3}
-        count: 5
-        rate: 1
+        count: 20
+        rate: 20
         interval: 0
   roundNum: 6
   intervalAdded: 1
