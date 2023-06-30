@@ -136,7 +136,10 @@ public class StatusManager : MonoBehaviour
         {
             foreach (EnemyBase enemy in enemyList)
             {
-                enemy.remainingDistance = enemy.GetPathRemainingDistance(true);
+                if(enemy != null)
+                    enemy.remainingDistance = enemy.GetPathRemainingDistance(true);
+                else
+                    enemyList.Remove(enemy);
             }
         }
     }
