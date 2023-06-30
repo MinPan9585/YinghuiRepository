@@ -40,6 +40,7 @@ public class StatusManager : MonoBehaviour
         //PreviewEnemy();
         Invoke(nameof(PreviewEnemy), 0.1f);
         enemyList.Clear();
+        Time.timeScale= 1f;
     }
     private void OnDisable()
     {

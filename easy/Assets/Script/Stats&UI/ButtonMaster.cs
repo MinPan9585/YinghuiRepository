@@ -13,6 +13,7 @@ public class ButtonMaster : MonoBehaviour
     public GameObject LoseUI;
     public GameObject WinUI;
 
+    public List<ParticleSystem> victoryParticle;
     // public GameObject SFXListener;
     // public GameObject UpgradeMaster;
     public void Start()
@@ -25,11 +26,19 @@ public class ButtonMaster : MonoBehaviour
         if (WinUI != null)
             WinUI.SetActive(false);
 
+        if(victoryParticle.Count > 0)
+        {
+            foreach (ParticleSystem particle in victoryParticle)
+            {
+                particle.Stop();
+            }
+        }       
     }
     public void OnDisable()
     {
         GameEvents.Instance.OnDie -= CallLoseUI;
         GameEvents.Instance.OnWin -= CallWinUI;
+        CancelInvoke();
     }
 
     public void CallLoseUI()
@@ -46,12 +55,24 @@ public class ButtonMaster : MonoBehaviour
     public void CallWinUI()
     {
         GameEvents.Instance.MenuDisplay(true);
-        Time.timeScale = 0f;
         Debug.Log("WinUI");
         if (WinUI != null)
         {
             WinUI.SetActive(true);
         }
+
+        if (victoryParticle.Count > 0)
+        {
+            foreach (ParticleSystem particle in victoryParticle)
+            {
+                particle.Play();
+            }
+        }
+        Invoke(nameof(FreezeTime), 5f);
+    }
+    void FreezeTime()
+    {
+        Time.timeScale = 0f;
     }
     public void OnNextLevel()
     {
