@@ -16,6 +16,7 @@ public class StartUI : MonoBehaviour
         l2.interactable = false;
         enemyBook.SetActive(false);
         ProductionGroup.SetActive(false);
+        Time.timeScale= 1.0f;
     }
     public void Level1Start()
     {
