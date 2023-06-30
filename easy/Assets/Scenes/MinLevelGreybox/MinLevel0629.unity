@@ -8207,6 +8207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 1864030242}
+  pauseButton: {fileID: 750741579}
   inGameMenu: {fileID: 1864030236}
   previewUI: {fileID: 1864030235}
   LoseUI: {fileID: 2101325096}
@@ -11958,6 +11959,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5384552959125052490, guid: d2b03df07ac81a44aa80f7e3acd5a6d2,
     type: 3}
   m_PrefabInstance: {fileID: 734926990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &750741579 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7093040070319047457, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1864030234}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &764128079
 GameObject:

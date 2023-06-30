@@ -122,6 +122,7 @@ public class ButtonMaster : MonoBehaviour
         GameEvents.Instance.MenuDisplay(false);
         // UpgradeMaster.SetActive(true);
         Time.timeScale = 1f;
+        pauseButton.SetActive(true);
         playButton.SetActive(false);
         inGameMenu.SetActive(false);
         previewUI.SetActive(true);

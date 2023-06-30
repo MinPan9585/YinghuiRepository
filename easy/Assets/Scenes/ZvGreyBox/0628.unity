@@ -24269,7 +24269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 288281710}
-  pauseButton: {fileID: 0}
+  pauseButton: {fileID: 90262398}
   inGameMenu: {fileID: 975486666}
   previewUI: {fileID: 164927939}
   LoseUI: {fileID: 1362673580}
