@@ -10629,11 +10629,16 @@ MonoBehaviour:
   roundList:
     rounds:
     - waves:
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 93b729bfce0aae5439c7983c36b21c23,
+      - enemyPrefab: {fileID: 4414548395614788915, guid: ccd1fabdd0a5f0642bad7e49e038b9b6,
           type: 3}
         count: 6
         rate: 1
-        interval: 2
+        interval: 3
+      - enemyPrefab: {fileID: 4414548395614788915, guid: 15af67573d29fc149b8f419c9232ee8d,
+          type: 3}
+        count: 5
+        rate: 1
+        interval: 5
     - waves:
       - enemyPrefab: {fileID: 4414548395614788915, guid: ccd1fabdd0a5f0642bad7e49e038b9b6,
           type: 3}
@@ -10649,7 +10654,7 @@ MonoBehaviour:
           type: 3}
         count: 4
         rate: 1
-        interval: 1
+        interval: 4
     - waves:
       - enemyPrefab: {fileID: 4414548395614788915, guid: 842a0658864a153459e7f4a16d972636,
           type: 3}
@@ -10686,7 +10691,7 @@ MonoBehaviour:
           type: 3}
         count: 4
         rate: 1
-        interval: 1
+        interval: 4
     - waves:
       - enemyPrefab: {fileID: 4414548395614788915, guid: 93b729bfce0aae5439c7983c36b21c23,
           type: 3}
@@ -10697,7 +10702,7 @@ MonoBehaviour:
           type: 3}
         count: 6
         rate: 2
-        interval: 1
+        interval: 3
     - waves:
       - enemyPrefab: {fileID: 4414548395614788915, guid: 93b729bfce0aae5439c7983c36b21c23,
           type: 3}
