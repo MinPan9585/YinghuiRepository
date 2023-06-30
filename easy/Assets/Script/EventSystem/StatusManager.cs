@@ -28,6 +28,8 @@ public class StatusManager : MonoBehaviour
         }
         LevelStatus.TotalRound = totalRoundNum;
         LevelStatus.Round = 0;
+        LevelStatus.Lives = 20;
+        LevelStatus.Money = 400;
     }
     private void Start()
     {
@@ -37,7 +39,6 @@ public class StatusManager : MonoBehaviour
         InvokeRepeating(nameof(CalculateAllEnemiesDistance), 1f, 0.5f);
         //PreviewEnemy();
         Invoke(nameof(PreviewEnemy), 0.1f);
-
     }
     private void OnDisable()
     {

@@ -33,7 +33,7 @@ public class PreviewEnemyUI : MonoBehaviour
             PreviewElement go = new PreviewElement(image, text);
             previewElements.Add(go);
         }
-        ClearPreview();
+        //ClearPreview();
     }
     private void OnDisable()
     {

@@ -34,6 +34,7 @@ public class ButtonMaster : MonoBehaviour
 
     public void CallLoseUI()
     {
+        GameEvents.Instance.MenuDisplay(true);
         Time.timeScale = 0f;
         Debug.Log("LoseUI");
         if (LoseUI != null)
@@ -44,6 +45,7 @@ public class ButtonMaster : MonoBehaviour
     }
     public void CallWinUI()
     {
+        GameEvents.Instance.MenuDisplay(true);
         Time.timeScale = 0f;
         Debug.Log("WinUI");
         if (WinUI != null)
