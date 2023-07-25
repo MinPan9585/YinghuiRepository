@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/OldOldLevels/MainMenu_0314.unity
+    path: Assets/Z_unused/Scenes/OldOldLevels/MainMenu_0314.unity
     guid: dfa1d006494fd7e4f872412dc418aa77
   - enabled: 0
-    path: Assets/Scenes/OldOldLevels/LevelSelect_0402.unity
+    path: Assets/Z_unused/Scenes/OldOldLevels/LevelSelect_0402.unity
     guid: 1e757feb3a5109c4081f722001b07313
   - enabled: 0
-    path: Assets/Scenes/OldOldLevels/Level01.unity
+    path: Assets/Z_unused/Scenes/OldOldLevels/Level01.unity
     guid: 44a43517d9165614c83ee249282bb5ba
   - enabled: 1
     path: Assets/Scenes/START.unity
     guid: 579a244751039d5419a0ca5dd9e32356
   - enabled: 1
-    path: Assets/Scenes/ZvGreyBox/0628.unity
+    path: Assets/Scenes/Level_4.unity
     guid: 358b4841746db4579b125f3a5aa0b093
   - enabled: 1
-    path: Assets/Scenes/MinLevelGreybox/MinLevel0629.unity
+    path: Assets/Scenes/Level_9.unity
     guid: 5eafbeaa73faaf9469524471b7ef5bb0
   m_configObjects: {}
