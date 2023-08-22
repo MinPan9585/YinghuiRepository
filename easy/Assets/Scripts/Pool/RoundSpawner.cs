@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoundSpawner : MonoBehaviour
 {
@@ -103,7 +103,7 @@ public class RoundSpawner : MonoBehaviour
     {
         if (!prefabCache.ContainsKey(prefabName))
         {
-            GameObject prefab = Resources.Load<GameObject>(prefabName);
+            GameObject prefab = Resources.Load<GameObject>("pool/" + prefabName);
             if (prefab != null)
             {
                 prefabCache[prefabName] = prefab;
@@ -140,7 +140,7 @@ public class RoundSpawner : MonoBehaviour
 
     public void LoadRoundDataFromJson()
     {
-        TextAsset jsonFile = Resources.Load<TextAsset>("EnemyRoundJson/Level_4");
+        TextAsset jsonFile = Resources.Load<TextAsset>("EnemyRoundJson/" + SceneManager.GetActiveScene().name);
         if (jsonFile)
         {
             string jsonData = jsonFile.text;

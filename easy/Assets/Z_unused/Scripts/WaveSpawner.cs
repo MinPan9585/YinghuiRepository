@@ -65,7 +65,7 @@ public class WaveSpawner : MonoBehaviour
         roundsText.text = waveIndex.ToString() + " / " + waves.Length + "Rounds";
         for (int i = 0; i < wave.count; i++)
 		{
-			SpawnEnemy(Resources.Load<GameObject>(wave.enemyPrefabName));
+			SpawnEnemy(Resources.Load<GameObject>("pool/" + wave.enemyPrefabName));
 			yield return new WaitForSeconds(1f / wave.rate);
 		}
 	}

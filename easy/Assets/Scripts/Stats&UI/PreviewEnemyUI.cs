@@ -52,7 +52,7 @@ public class PreviewEnemyUI : MonoBehaviour
 
         foreach (Wave wave in waves)
         {
-            GameObject wavePrefab = Resources.Load<GameObject>(wave.enemyPrefabName);
+            GameObject wavePrefab = Resources.Load<GameObject>("pool/" + wave.enemyPrefabName);
             if (checkWaves.Contains(wavePrefab))
             {
                 if (indexs.Contains(checkWaves.IndexOf(wavePrefab)))
