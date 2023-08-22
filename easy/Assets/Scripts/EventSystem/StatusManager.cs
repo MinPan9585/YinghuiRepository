@@ -5,7 +5,7 @@ using UnityEngine;
 public class StatusManager : MonoBehaviour
 {
     [Header("Round Spawner")]
-    public List<RoundSpawner1> roundSpawners;
+    public List<RoundSpawner> roundSpawners;
     private int totalRoundNum = 0;
     [Header("Parameters,ignore")]
     [SerializeField] private bool wavesAllOut = true;
@@ -17,7 +17,7 @@ public class StatusManager : MonoBehaviour
 
     private void Awake()
     {
-        foreach (RoundSpawner1 go in roundSpawners)
+        foreach (RoundSpawner go in roundSpawners)
         {
             if (totalRoundNum < go.roundList.rounds.Count)
             {
@@ -52,7 +52,7 @@ public class StatusManager : MonoBehaviour
     public void TrySpawnARound()
     {
         wavesAllOut = true;
-        foreach (RoundSpawner1 go in roundSpawners)
+        foreach (RoundSpawner go in roundSpawners)
         {
             if (!go.waveAllOut)
             {
@@ -64,7 +64,7 @@ public class StatusManager : MonoBehaviour
 
         if (wavesAllOut && LevelStatus.Round < LevelStatus.TotalRound)
         {
-            foreach (RoundSpawner1 go in roundSpawners)
+            foreach (RoundSpawner go in roundSpawners)
             {
                 go.OnClickStartARound();
             }
@@ -85,7 +85,7 @@ public class StatusManager : MonoBehaviour
         previewWaves = null;
         if (LevelStatus.Round < LevelStatus.TotalRound)
         {
-            foreach (RoundSpawner1 go in roundSpawners)
+            foreach (RoundSpawner go in roundSpawners)
             {
                 previewWaves = go.GetNextRound();
                 //foreach (Wave wave in previewWaves)
@@ -103,7 +103,7 @@ public class StatusManager : MonoBehaviour
         if (!lastRoundOut)
         {
             wavesAllOut = true;
-            foreach (RoundSpawner1 go in roundSpawners)
+            foreach (RoundSpawner go in roundSpawners)
             {
                 if (!go.waveAllOut)
                 {
