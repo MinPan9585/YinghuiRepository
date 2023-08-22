@@ -1,0 +1,40 @@
+{
+  "rounds": [
+    {
+      "waves": [
+        {
+          "enemyPrefab": "EnemyGI",
+          "count": 10,
+          "rate": 0.8,
+          "interval": 13
+        }
+      ]
+    },
+    {
+      "waves": [
+        {
+          "enemyPrefab": "EnemyArmor",
+          "count": 8,
+          "rate": 1.5,
+          "interval": 9
+        }
+      ]
+    },
+    {
+      "waves": [
+        {
+          "enemyPrefab": "EnemyMinion",
+          "count": 10,
+          "rate": 1,
+          "interval": 9
+        },
+        {
+          "enemyPrefab": "EnemyMinion",
+          "count": 10,
+          "rate": 2,
+          "interval": 3
+        }
+      ]
+    }
+  ]
+}

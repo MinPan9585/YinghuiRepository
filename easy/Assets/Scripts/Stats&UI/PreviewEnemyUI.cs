@@ -1,11 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System;
 using System.Text.RegularExpressions;
-using UnityEngine.Windows;
 
 
 public class PreviewEnemyUI : MonoBehaviour
@@ -55,11 +52,12 @@ public class PreviewEnemyUI : MonoBehaviour
 
         foreach (Wave wave in waves)
         {
-            if (checkWaves.Contains(wave.enemyPrefab))
+            GameObject wavePrefab = Resources.Load<GameObject>(wave.enemyPrefabName);
+            if (checkWaves.Contains(wavePrefab))
             {
-                if (indexs.Contains(checkWaves.IndexOf(wave.enemyPrefab)))
+                if (indexs.Contains(checkWaves.IndexOf(wavePrefab)))
                 {
-                    int exIndex = checkWaves.IndexOf(wave.enemyPrefab);
+                    int exIndex = checkWaves.IndexOf(wavePrefab);
                     string pattern = " ";
                     string[] substrings = Regex.Split(previewElements[exIndex].enemyText.text, pattern);
                     string digitStr = substrings[substrings.Length - 1];
@@ -71,7 +69,7 @@ public class PreviewEnemyUI : MonoBehaviour
 
                     continue;
                 }
-                int index = checkWaves.IndexOf(wave.enemyPrefab);
+                int index = checkWaves.IndexOf(wavePrefab);
                 previewElements[index].enemyImage.enabled = true;
                 previewElements[index].enemyText.text = "× " + wave.count.ToString();
                 indexs.Add(index);

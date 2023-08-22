@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
-//using UnityEditor.Experimental.GraphView;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -67,7 +65,7 @@ public class WaveSpawner : MonoBehaviour
         roundsText.text = waveIndex.ToString() + " / " + waves.Length + "Rounds";
         for (int i = 0; i < wave.count; i++)
 		{
-			SpawnEnemy(wave.enemyPrefab);
+			SpawnEnemy(Resources.Load<GameObject>(wave.enemyPrefabName));
 			yield return new WaitForSeconds(1f / wave.rate);
 		}
 	}
