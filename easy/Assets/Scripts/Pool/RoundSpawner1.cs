@@ -10,6 +10,7 @@ public class RoundSpawner1 : MonoBehaviour
     {
         public List<Wave> waves;
     }
+
     [System.Serializable]
     public class RoundList
     {
@@ -140,12 +141,10 @@ public class RoundSpawner1 : MonoBehaviour
     public void LoadRoundDataFromJson()
     {
         TextAsset jsonFile = Resources.Load<TextAsset>("EnemyRoundJson/Level_4");
-        Debug.Log("!!!!!!!!!!!!jsonFile" + jsonFile);
         if (jsonFile)
         {
             string jsonData = jsonFile.text;
-            Round round = JsonUtility.FromJson<Round>(jsonData);
-            Debug.Log("!!!!!!!!!!!!round" + round);
+            roundList = JsonUtility.FromJson<RoundList>(jsonData);
         }
         else
         {
