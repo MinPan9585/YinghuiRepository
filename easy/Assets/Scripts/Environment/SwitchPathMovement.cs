@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwitchPathMovement : MonoBehaviour
 {
+    public NavMeshSurface surface;
+
     [Header("ID")]
     public int id;
     [Header("Movement")]
@@ -50,8 +53,11 @@ public class SwitchPathMovement : MonoBehaviour
     {
         
 
+
         if (id == this.id)
         {
+            InvokeRepeating(nameof(SwitchNavMesh), 0f, 0.02f);
+            Invoke(nameof(CancelInvoke), 1f);
             AudioManager.Instance.PlaySFX(moveSFX);
             if (isRotate)
             {
@@ -79,5 +85,11 @@ public class SwitchPathMovement : MonoBehaviour
 
             alt = !alt;
         }
+    }
+
+    void SwitchNavMesh()
+    {
+        surface = transform.parent.GetComponent<NavMeshSurface>();
+        surface.UpdateNavMesh(surface.navMeshData);
     }
 }

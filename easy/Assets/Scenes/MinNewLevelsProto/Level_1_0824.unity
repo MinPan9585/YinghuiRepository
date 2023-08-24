@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.010411097, g: 0.061435916, b: 0.22769722, a: 1}
+  m_IndirectSpecularColor: {r: 0.010411097, g: 0.061435904, b: 0.22769721, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4195,7 +4195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &402061185
 Transform:
   m_ObjectHideFlags: 0
@@ -22931,99 +22931,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1717023337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c4fb9116da3e6142b3457e50fb033a4, type: 3}
+  m_Script: {fileID: 11500000, guid: d9253beffbb361f459fa3daf7c9cbc99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roundList:
     rounds:
     - waves:
-      - enemyPrefab: {fileID: 4414548395614788915, guid: ccd1fabdd0a5f0642bad7e49e038b9b6,
-          type: 3}
-        count: 10
-        rate: 0.8
-        interval: 13
-    - waves:
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 842a0658864a153459e7f4a16d972636,
-          type: 3}
-        count: 8
-        rate: 1.5
-        interval: 9
-    - waves:
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 15af67573d29fc149b8f419c9232ee8d,
-          type: 3}
-        count: 10
-        rate: 1
-        interval: 10
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 842a0658864a153459e7f4a16d972636,
-          type: 3}
-        count: 5
-        rate: 1
-        interval: 5
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 15af67573d29fc149b8f419c9232ee8d,
-          type: 3}
-        count: 10
-        rate: 1.5
-        interval: 7
-    - waves:
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 842a0658864a153459e7f4a16d972636,
-          type: 3}
-        count: 5
-        rate: 1
-        interval: 6
-      - enemyPrefab: {fileID: 4414548395614788915, guid: ccd1fabdd0a5f0642bad7e49e038b9b6,
-          type: 3}
-        count: 6
-        rate: 2
-        interval: 6
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 15af67573d29fc149b8f419c9232ee8d,
-          type: 3}
-        count: 10
-        rate: 2
-        interval: 5
-    - waves:
-      - enemyPrefab: {fileID: 4414548395614788915, guid: ccd1fabdd0a5f0642bad7e49e038b9b6,
-          type: 3}
-        count: 10
-        rate: 2
-        interval: 7
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 93b729bfce0aae5439c7983c36b21c23,
-          type: 3}
-        count: 3
-        rate: 1
-        interval: 5
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 15af67573d29fc149b8f419c9232ee8d,
-          type: 3}
-        count: 20
-        rate: 4
-        interval: 7
-    - waves:
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 842a0658864a153459e7f4a16d972636,
-          type: 3}
-        count: 10
-        rate: 2
-        interval: 7
-      - enemyPrefab: {fileID: 4414548395614788915, guid: ccd1fabdd0a5f0642bad7e49e038b9b6,
-          type: 3}
-        count: 10
-        rate: 3
-        interval: 6
-      - enemyPrefab: {fileID: 4414548395614788915, guid: 93b729bfce0aae5439c7983c36b21c23,
-          type: 3}
-        count: 5
-        rate: 1
-        interval: 8
-  roundNum: 6
+      - enemyPrefabName: 
+        count: 0
+        rate: 0
+        interval: 0
+    - waves: []
+    - waves: []
+  roundNum: 0
   intervalAdded: 1
-  waveAllOut: 1
+  waveAllOut: 0
   roundFinished: 0
-  startPoint: {fileID: 1780251500}
+  startPoint: {fileID: 0}
   poolManager: {fileID: 1718286215}
   theWave:
-    enemyPrefab: {fileID: 4414548395614788915, guid: 93b729bfce0aae5439c7983c36b21c23,
-      type: 3}
-    count: 5
-    rate: 1
-    interval: 8
+    enemyPrefabName: 
+    count: 0
+    rate: 0
+    interval: 0
   statusManager: {fileID: 1718286217}
 --- !u!4 &1717023339
 Transform:
