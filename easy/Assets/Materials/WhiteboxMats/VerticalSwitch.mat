@@ -228,7 +228,7 @@ Material:
     - _Color_L: {r: 1, g: 1, b: 1, a: 1}
     - _Color_R: {r: 0.9725491, g: 0.45882356, b: 0.3803922, a: 1}
     - _Color_T: {r: 1, g: 0.9215687, b: 0.627451, a: 1}
-    - _EmissionColor: {r: 0.8148184, g: 0.6457051, b: 0, a: 1}
+    - _EmissionColor: {r: 0.88436496, g: 0.9339623, b: 0.19971511, a: 1}
     - _GizmoPosition_B: {r: 0, g: 0, b: 10, a: 10}
     - _GizmoPosition_D: {r: 0, g: 0, b: 10, a: 10}
     - _GizmoPosition_F: {r: 0, g: 0, b: 10, a: 10}
