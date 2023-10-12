@@ -93,6 +93,7 @@ public class TurretLazer : MonoBehaviour
 
         if (hitColliders.Length > 0)
         {
+            print("detected");
             if (!inAnimation)
             {
                 inAnimation = true;
