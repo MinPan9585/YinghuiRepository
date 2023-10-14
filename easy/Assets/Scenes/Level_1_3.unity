@@ -2694,7 +2694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176414263}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.078, y: 4.65, z: -8.67}
+  m_LocalPosition: {x: 8.06, y: 4.566, z: -8.67}
   m_LocalScale: {x: 0.62846607, y: 0.62846607, z: 0.62846607}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -18238,7 +18238,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.033333335
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: c34cb52726de43d469f3af70309f7969, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b6258e6f345cf2945831d8880b519d7f, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &1202374733
 GameObject:
@@ -23912,7 +23912,7 @@ PrefabInstance:
     - target: {fileID: 5359673569220242183, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5999782260885715009, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
@@ -26780,7 +26780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780251499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.078, y: 4.65, z: -8.67}
+  m_LocalPosition: {x: 8.06, y: 4.566, z: -8.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
