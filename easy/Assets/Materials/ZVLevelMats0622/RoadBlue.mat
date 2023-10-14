@@ -177,7 +177,7 @@ Material:
     - _ShowAmbientSettings: 1
     - _ShowBack: 1
     - _ShowBottom: 1
-    - _ShowColorCorrection: 1
+    - _ShowColorCorrection: 0
     - _ShowCustomShading: 1
     - _ShowFog: 0
     - _ShowFront: 1

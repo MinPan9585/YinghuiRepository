@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.010411097, g: 0.061435904, b: 0.22769721, a: 1}
+  m_IndirectSpecularColor: {r: 0.010411097, g: 0.061435916, b: 0.22769722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2522,6 +2522,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_Victory02
       objectReference: {fileID: 0}
+    - target: {fileID: 5719200487086131574, guid: 72e14f489e6acd84c94e2938d186c6f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72e14f489e6acd84c94e2938d186c6f5, type: 3}
 --- !u!198 &170285371 stripped
@@ -2573,7 +2578,7 @@ BoxCollider:
   m_GameObject: {fileID: 176414263}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -4035,7 +4040,7 @@ BoxCollider:
   m_GameObject: {fileID: 301396514}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -11647,6 +11652,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_Victory
       objectReference: {fileID: 0}
+    - target: {fileID: 7914914593842107889, guid: 6e1f6304336b68145b1af13cce4e9ca0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7914914593842107892, guid: 6e1f6304336b68145b1af13cce4e9ca0,
         type: 3}
       propertyPath: m_RootOrder
@@ -18096,7 +18106,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.033333335
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 707a3cac6ce868f4681155504badfe1e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: c34cb52726de43d469f3af70309f7969, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &1202374733
 GameObject:
@@ -23770,7 +23780,7 @@ PrefabInstance:
     - target: {fileID: 5359673569220242183, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5999782260885715009, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}

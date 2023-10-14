@@ -11643,6 +11643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbadb7e4c2576442abc62b7b1f0ddb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  surface: {fileID: 0}
   id: 102
   isRotate: 0
   isChangeMat: 1
@@ -18222,6 +18223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbadb7e4c2576442abc62b7b1f0ddb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  surface: {fileID: 0}
   id: 104
   isRotate: 0
   isChangeMat: 1
@@ -21470,7 +21472,7 @@ PrefabInstance:
     - target: {fileID: 5359673569220242183, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5999782260885715009, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
@@ -24552,6 +24554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbadb7e4c2576442abc62b7b1f0ddb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  surface: {fileID: 0}
   id: 105
   isRotate: 1
   isChangeMat: 0
@@ -25514,6 +25517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbadb7e4c2576442abc62b7b1f0ddb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  surface: {fileID: 0}
   id: 103
   isRotate: 1
   isChangeMat: 0
@@ -27126,6 +27130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbadb7e4c2576442abc62b7b1f0ddb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  surface: {fileID: 0}
   id: 101
   isRotate: 0
   isChangeMat: 0
