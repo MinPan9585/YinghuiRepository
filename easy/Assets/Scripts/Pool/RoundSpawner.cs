@@ -85,7 +85,8 @@ public class RoundSpawner : MonoBehaviour
 
         //Set the round state when all waves are out
         waveAllOut = true;
-        statusManager.PreviewEnemy();
+        // 增加一个协程，清完怪之后再展示 UI
+        StartCoroutine(CheckWaveClear());
     }
 
     IEnumerator SpawnAWave(Wave theWave)
@@ -95,6 +96,16 @@ public class RoundSpawner : MonoBehaviour
             SpawnAEnemy(theWave.enemyPrefabName);
             yield return new WaitForSeconds(1f / theWave.rate);
         }
+    }
+
+    IEnumerator CheckWaveClear()
+    {
+        while (LevelStatus.EnemyBaseList.Count > 0)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+
+        statusManager.PreviewEnemy();
     }
 
     private Dictionary<string, GameObject> prefabCache = new Dictionary<string, GameObject>();
