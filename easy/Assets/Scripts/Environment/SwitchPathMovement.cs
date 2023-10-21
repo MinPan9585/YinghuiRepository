@@ -24,6 +24,12 @@ public class SwitchPathMovement : MonoBehaviour
     [Header("SFX")]
     public string moveSFX = "Buzzer";
 
+    [Header("UI")]
+    public Canvas cooldownUI;
+
+    private Dictionary<int, float> cooldowns = new();
+    private float cooldownTime = 3f;
+
     private void Start()
     {
         GameEvents.Instance.OnSwitchPath += SwitchPath;
@@ -44,6 +50,23 @@ public class SwitchPathMovement : MonoBehaviour
         }
     }
 
+    private void Update() {
+        List<int> keys = new(cooldowns.Keys);
+        foreach (int key in keys)
+        {
+            cooldowns[key] -= Time.deltaTime;
+            if (cooldowns[key] <= 0f)
+            {
+                cooldowns.Remove(key);
+            }
+        }
+
+        if (cooldownUI)
+        {
+            cooldownUI.enabled = cooldowns.ContainsKey(id);
+        }
+    }
+
     private void OnDisable()
     {
         GameEvents.Instance.OnSwitchPath -= SwitchPath;
@@ -51,11 +74,10 @@ public class SwitchPathMovement : MonoBehaviour
 
     public void SwitchPath(int id)
     {
-        
-
-
-        if (id == this.id)
+        if (id == this.id && !cooldowns.ContainsKey(id))
         {
+            cooldowns.Add(id, cooldownTime);
+
             InvokeRepeating(nameof(SwitchNavMesh), 0f, 0.02f);
             Invoke(nameof(CancelInvoke), 1f);
             AudioManager.Instance.PlaySFX(moveSFX);
