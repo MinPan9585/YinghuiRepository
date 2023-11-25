@@ -24473,6 +24473,66 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: DowngradeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5193730896226621767, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193730896254858620, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193730896732627681, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193730896791234524, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193730897017472981, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193730897117153965, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193730897137585340, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193730897174458105, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193730897215146121, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193730897413893971, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193730897750502193, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193730898133230493, guid: e46f458ec2391a9479d30f9fb7f23e6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5359673569220242182, guid: e46f458ec2391a9479d30f9fb7f23e6c,
         type: 3}
       propertyPath: m_RootOrder
@@ -27375,8 +27435,8 @@ Transform:
   - {fileID: 643888592}
   - {fileID: 1235519576}
   - {fileID: 5354}
-  - {fileID: 1539017617}
   - {fileID: 2068407878}
+  - {fileID: 1539017617}
   - {fileID: 1371389326}
   - {fileID: 2120024712}
   m_Father: {fileID: 414713551}

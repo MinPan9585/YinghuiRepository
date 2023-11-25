@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -33,6 +34,8 @@ public class TurretShoot : MonoBehaviour
     [SerializeField] private List<EnemyBase> enemiesInRange;
     [SerializeField] private List<EnemyBase> enemySelction;
     [SerializeField] private List<float> higherSpeed;
+    private int hitEnemyCount = 0;
+    private bool isIntro = false;
 
     //private bool useRotate;
 
@@ -50,6 +53,17 @@ public class TurretShoot : MonoBehaviour
             if (enemiesInRange.Count == 0)
             {
                 InvokeRepeating(nameof(GetEnemyTarget), 0f, coolDown);
+            }
+
+            if (enemiesInRange.Count == 1 && !isIntro && SceneManager.GetActiveScene().name == "Level_1_3")
+            {
+                GameEvents.Instance.UpdateIntro("soldierIntro");
+                //if (LevelStatus.Money >= 200 && !isIntro && SceneManager.GetActiveScene().name == "Level_1_3")
+                //{
+                //    GameEvents.Instance.UpdateIntro("upgradeIntro");
+                //    isIntro = true;
+                //}
+                isIntro = true;
             }
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SwitchPathMovement : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class SwitchPathMovement : MonoBehaviour
 
     private Dictionary<int, float> cooldowns = new();
     private float cooldownTime = 3f;
+    private string enemyTag = "Enemy";
+    private bool isIntro = false;
 
     private void Start()
     {
@@ -70,6 +73,15 @@ public class SwitchPathMovement : MonoBehaviour
     private void OnDisable()
     {
         GameEvents.Instance.OnSwitchPath -= SwitchPath;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(enemyTag) && !isIntro && SceneManager.GetActiveScene().name == "Level_1_3")
+        {
+            GameEvents.Instance.UpdateIntro("machineIntro");
+            isIntro = true;
+        }
     }
 
     public void SwitchPath(int id)

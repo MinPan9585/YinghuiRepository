@@ -99,4 +99,15 @@ public class GameEvents : MonoBehaviour
         OnRoundSpawned?.Invoke();
     }
 
+    public event Action OnStatusManagerInit;
+    public void StatusManagerInit()
+    {
+        OnStatusManagerInit?.Invoke();
+    }
+
+    public event Action<string> OnUpdateIntro;
+    public void UpdateIntro(string introName)
+    {
+        OnUpdateIntro?.Invoke(introName);
+    }
 }

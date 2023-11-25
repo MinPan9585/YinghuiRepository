@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIDisplay : MonoBehaviour
@@ -12,11 +13,23 @@ public class UIDisplay : MonoBehaviour
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI moneyText;
 
+    private bool isIntro = false;
+
     private void Start()
     {
         GameEvents.Instance.OnUpdateDisplay += UpdateDisplay;
         UpdateDisplay();
     }
+
+    //private void Update()
+    //{
+    //    if (LevelStatus.Money >= 200 && !isIntro && SceneManager.GetActiveScene().name == "Level_1_3")
+    //    {
+    //        GameEvents.Instance.UpdateIntro("upgradeIntro");
+    //        isIntro = true;
+    //    }
+    //}
+
     private void OnDisable()
     {
         GameEvents.Instance.OnUpdateDisplay -= UpdateDisplay;

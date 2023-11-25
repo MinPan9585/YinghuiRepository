@@ -33,7 +33,8 @@ public class PreviewEnemyUI : MonoBehaviour
             PreviewElement go = new PreviewElement(image, text);
             previewElements.Add(go);
         }
-        //ClearPreview();
+
+        HidePreviewEnemyPanel();
     }
     private void OnDisable()
     {
@@ -109,6 +110,22 @@ public class PreviewEnemyUI : MonoBehaviour
 
         enemyCount = 0;
         indexs.Clear();
+    }
+
+    public void ShowPreviewEnemyPanel()
+    {
+        nextRoundButton.image.enabled = true;
+        nextRoundButton.GetComponentInChildren<TMP_Text>().enabled = true;
+        BGImage.enabled = true;
+        BGImage.GetComponentInChildren<TMP_Text>().enabled = true;
+    }
+
+    public void HidePreviewEnemyPanel()
+    {
+        nextRoundButton.image.enabled = false;
+        nextRoundButton.GetComponentInChildren<TMP_Text>().enabled = false;
+        BGImage.enabled = false;
+        BGImage.GetComponentInChildren<TMP_Text>().enabled = false;
     }
 }
 

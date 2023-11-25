@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StatusManager : MonoBehaviour
 {
@@ -32,6 +33,23 @@ public class StatusManager : MonoBehaviour
     }
     private void Start()
     {
+        GameEvents.Instance.OnStatusManagerInit += StatusManagerInit;
+
+        if (SceneManager.GetActiveScene().name == "Level_1_3") {
+            return;
+        }
+        StatusManagerInit();
+    }
+    private void OnDisable()
+    {
+        GameEvents.Instance.OnSpawnRound -= TrySpawnARound;
+        GameEvents.Instance.OnSwitchPath -= RecalculateAllEnemiesPath;
+        StopAllCoroutines();
+        CancelInvoke();
+    }
+
+    public void StatusManagerInit()
+    {
         //GameEvents.Instance.UpdateDisplay();  //This line somehow doesn't work
         GameEvents.Instance.OnSpawnRound += TrySpawnARound;
         GameEvents.Instance.OnSwitchPath += RecalculateAllEnemiesPath;
@@ -40,13 +58,6 @@ public class StatusManager : MonoBehaviour
         Invoke(nameof(PreviewEnemy), 0.1f);
         enemyList.Clear();
         Time.timeScale= 1f;
-    }
-    private void OnDisable()
-    {
-        GameEvents.Instance.OnSpawnRound -= TrySpawnARound;
-        GameEvents.Instance.OnSwitchPath -= RecalculateAllEnemiesPath;
-        StopAllCoroutines();
-        CancelInvoke();
     }
 
     public void TrySpawnARound()

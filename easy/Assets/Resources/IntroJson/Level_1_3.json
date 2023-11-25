@@ -1,0 +1,111 @@
+{
+  "bgIntro": [
+    {
+      "icon": "TurretShoot",
+      "text": "报告长官，魔物来袭了!\r\n它们到处破坏我们的家园，联盟大军已经整装待发，请求您的领军。"
+    },
+    {
+      "icon": "TurretShoot",
+      "text": "请指挥我们协同作战，使我们成长为强大的守卫!\r\n由您设计的机关也已建造完毕！"
+    },
+    {
+      "icon": "TurretShoot",
+      "text": "有您坐镇指挥，我们坚信能击退魔物的入侵。\r\n请带领我们共同守护我们心爱的家园吧!"
+    },
+    {
+      "icon": "TurretShoot",
+      "cameraPosition": "Start",
+      "text": "它们将从荒无人烟的魔物洞穴出发。"
+    },
+    {
+      "icon": "TurretShoot",
+      "cameraPosition": "End",
+      "text": "目的地是我们宁静美好的家。"
+    },
+    {
+      "icon": "TurretShoot",
+      "text": "长官，第一波魔物已出现在雷达上!"
+    },
+    {
+      "icon": "TurretShoot",
+      "panel": [
+        "EnemyGI"
+      ],
+      "text": "还好还好，只是“普通魔物”。这是“普通魔物”的资料。"
+    },
+    {
+      "icon": "TurretShoot",
+      "text": "长官，请您发号施令吧！"
+    }
+  ],
+  "soldierIntro": [
+    {
+      "icon": "TurretShoot",
+      "panel": [
+        "TurretShoot"
+      ],
+      "text": "忘了做个自我介绍，我是“镖尾一号”，隶属于镖尾猎手大军。这是我的资料。"
+    }
+  ],
+  "machineIntro": [
+    {
+      "icon": "TurretShoot",
+      "panel": [
+        "MoveableRot2",
+        "MoveablePos1"
+      ],
+      "text": "联盟已经成功根据您的设计，建造出可以改变地形的平移机关和旋转机关。\r\n这是两种机关的资料。"
+    },
+    {
+      "icon": "TurretShoot",
+      "text": "请允许我为您展示。"
+    },
+    {
+      "icon": "TurretShoot",
+      "highlight": "MoveablePos1",
+      "text": "改变机关道路的位置，我们可以灵活改变魔物的行进方向,这将有助于我们歼灭他们。"
+    }
+  ],
+  "upgradeIntro": [
+    {
+      "icon": "TurretShoot",
+      "highlight": "Money",
+      "text": "尊敬的长官，击败魔物可以获得金币奖励。\r\n这些金币可以用于强化我们的防御力量。"
+    },
+    {
+      "icon": "TurretShoot",
+      "highlight": "TurretShoot",
+      "text": "现在，您可以使用金币来强化我的等级。"
+    },
+    {
+      "icon": "TurretShoot",
+      "text": "感谢大师，在您的指导下，我进化成为镖尾精英啦！"
+    },
+    {
+      "icon": "TurretShoot",
+      "text": "一切准备就绪，我将归队，让我们正式开始这场光荣的保家卫国之战吧!"
+    },
+    {
+      "icon": "TurretShoot",
+      "text": "联盟大军已迫不及待想要投入战斗，与您肩并肩抗击魔物侵略！"
+    },
+    {
+      "icon": "TurretShoot",
+      "text": "在险峻征途中，我们必将众志成城，击败魔物军团，为世界带来和平和胜利！"
+    }
+  ],
+  "startIntro": [
+    {
+      "icon": "TurretShoot",
+      "text": "一切准备就绪，我将归队，让我们正式开始这场光荣的保家卫国之战吧!"
+    },
+    {
+      "icon": "TurretShoot",
+      "text": "联盟大军已迫不及待想要投入战斗，与您肩并肩抗击魔物侵略！"
+    },
+    {
+      "icon": "TurretShoot",
+      "text": "在险峻征途中，我们必将众志成城，击败魔物军团，为世界带来和平和胜利！"
+    }
+  ]
+}
