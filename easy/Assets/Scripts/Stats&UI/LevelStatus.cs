@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class LevelStatus //: MonoBehaviour 
 {
     public static bool Die = false;
 
     private static int _lives = 20;
+    private static bool _isIntro = false;
+
     public static int Lives
     {
         get { return _lives; }
@@ -31,13 +34,27 @@ public static class LevelStatus //: MonoBehaviour
         get { return _money; }
 
         set 
-        { 
+        {
             _money = value;
+            if (_money >= 200 && !_isMoneyInit && !_isIntro && SceneManager.GetActiveScene().name == "Level_1_3")
+            {
+                GameEvents.Instance.UpdateIntro("upgradeIntro");
+                _isIntro = true;
+            }
             if (_money < 0)
             {
                 _money = 0;
                 Debug.LogWarning("Not enough money");
             }
+        }
+    }
+
+    private static bool _isMoneyInit = false;
+    public static bool MoneyInit
+    {
+        set 
+        {
+            _isMoneyInit = value;
         }
     }
 

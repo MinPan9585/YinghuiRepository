@@ -26,6 +26,7 @@ public class TurretShoot : MonoBehaviour
     public LayerMask enemyLayer;
     public LayerMask layerToBlock;
     public float animationGap = 0.4f;
+    public bool isIntro = true;
 
     //rotate
     private Coroutine LookCorotine;
@@ -35,7 +36,6 @@ public class TurretShoot : MonoBehaviour
     [SerializeField] private List<EnemyBase> enemySelction;
     [SerializeField] private List<float> higherSpeed;
     private int hitEnemyCount = 0;
-    private bool isIntro = false;
 
     //private bool useRotate;
 

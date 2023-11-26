@@ -26,6 +26,7 @@ public class StatusManager : MonoBehaviour
             }
             go.SetStatusManager(this);
         }
+        LevelStatus.MoneyInit = true;
         LevelStatus.TotalRound = totalRoundNum;
         LevelStatus.Round = 0;
         LevelStatus.Lives = 20;

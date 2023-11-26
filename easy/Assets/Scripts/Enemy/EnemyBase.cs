@@ -35,6 +35,7 @@ public class EnemyBase : MonoBehaviour, ITakeDamage, ISlowDown
     public bool isdead = false;
 
     private NavMeshPath path;
+ 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -125,6 +126,7 @@ public class EnemyBase : MonoBehaviour, ITakeDamage, ISlowDown
 
     public void Die()
     {
+        LevelStatus.MoneyInit = false;
         LevelStatus.Money += value;
         LevelStatus.EnemyBaseList.Remove(this);
         GameEvents.Instance.UpdateDisplay();
