@@ -413,7 +413,7 @@ MonoBehaviour:
   myAnim: {fileID: 5876447032385746145}
   bulletPrefab: {fileID: 2764582061297583724, guid: 515a6913bb0662a40a5d550734537071,
     type: 3}
-  coolDown: 2
+  coolDown: 3
   turnSpeed: 2
   partToRotate: {fileID: 315849446614053722}
   firePoint: {fileID: 315849446315823519}
@@ -425,6 +425,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   animationGap: 0.25
+  isIntro: 1
   enemiesInRange: []
   enemySelction: []
   higherSpeed: []

@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  startHealth: 100
+  startHealth: 120
   armor: 0
   value: 30
   deathCount: 1

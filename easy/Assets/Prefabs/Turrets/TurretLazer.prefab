@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbadb7e4c2576442abc62b7b1f0ddb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  surface: {fileID: 0}
   id: 1
   isRotate: 0
   isChangeMat: 0
@@ -150,6 +151,7 @@ MonoBehaviour:
   mat1: {fileID: 0}
   mat2: {fileID: 0}
   moveSFX: Buzzer
+  cooldownUI: {fileID: 0}
 --- !u!1 &1762357284057064571
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,10 +202,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031c44f9e9ce83549a898db143f97e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lazerDamage: 20
+  lazerDamage: 5
   burnWait: 0.5
   burnDuration: 5
-  burnDamage: 5
+  burnDamage: 3
   LazerVFX: {fileID: 6262147857751143498}
   beacon_0: {fileID: 1762357284085720934}
   beacon_1: {fileID: 1762357283009497697}
